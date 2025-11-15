@@ -1,6 +1,11 @@
 <?php
 
 /* 子テーマのfunctions.phpは、親テーマのfunctions.phpより先に読み込まれることに注意してください。 */
+// Viteとの統合のための設定読み込み
+include "inc/vite.php";
+
+// swell_childで使用する関数
+include "inc/swell_child.php";
 
 
 /**

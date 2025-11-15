@@ -1,0 +1,282 @@
+@use "sass:math";
+@use "../globals" as *;
+@use "general";
+@use "fonts";
+
+.c-more {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  @extend .font-14-16;
+  font-weight: bold;
+  display: flex;
+  text-align: center;
+  margin: 10px auto 0;
+  align-items: center;
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -18px;
+    bottom: 0;
+    margin: auto;
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--c-main);
+  }
+  &::after {
+    rotate: 90deg;
+  }
+  &.hidden {
+    display: none;
+  }
+  &.is-close {
+    &::after {
+      width: 0;
+    }
+  }
+}
+
+.scroll-btn {
+  width: 56px;
+  height: 56px;
+  background-color: var(--c-sub);
+  display: grid;
+  place-items: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  transition: all .3s;
+  z-index: 5;
+  @media (max-width: $mq-max-bp) {
+    width: 64px;
+    height: 64px;
+
+  }
+  &:before {
+    content: "";
+    display: block;
+    @include icon_arrow(fff);
+    width: 11px;
+    height: 17px;
+    rotate: -90deg;
+
+  }
+
+  &:hover {
+    opacity: .7;
+    &:before {
+      @include icon_arrow(ddd);
+    }
+  }
+
+}
+
+
+%g-link-login {
+  display: block;
+  content: "";
+  width: 8px;
+  height: 12px;
+  @include icon_arrow(fff);
+
+}
+.-arrowLeft {
+  position: relative;
+  &::after{
+    display: block;
+    content: "";
+    width: 8px;
+    height: 12px;
+    @include icon_arrow(fff);
+    left: 20px;
+    rotate: 180deg;
+  }
+
+}
+
+
+.-arrowRight {
+  position: relative;
+  &::after{
+    display: block;
+    content: "";
+    width: 8px;
+    height: 12px;
+    @include icon_arrow(fff);
+    right: 0px;
+  }
+
+}
+.-emailArrowRight {
+  &::after,
+  &::before {
+    display: block;
+    content: "";
+    width: 8px;
+    height: 12px;
+  }
+  &::before {
+    @include icon_email(fff);
+    left: 0;
+    width: 30px;
+    height: 22px;
+  }
+
+  &:after {
+    @include icon_arrow(fff);
+    right: 0;
+  }
+
+}
+// ボタン基本設定
+
+.c-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 37px;
+  color: var(--c-white);
+  background-color: var(--c-main);
+  padding-inline:18px 20px ;
+  opacity: 1;
+  transition: opacity .3s;
+  @media (hover: hover) {
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  span {
+    @extend .font-14-16;
+    font-weight: bold;
+    color: var(--c-white);
+  }
+  &.-normal {
+    &:after{
+      position: absolute;
+      right: 20px;
+    }
+  }
+  &.-white{
+    background-color: var(--c-white);
+    border-color: var(--c-main);
+    border: 1px solid var(--c-main);
+    &:hover{
+      background-color: var(--c-main);
+      &:after{
+        @include icon_arrow(fff);
+      }
+      span {
+        color: var(--c-white);
+      }
+    }
+    &:after{
+      @include icon_arrow(0A55AA);
+    }
+    span{
+      color: var(--c-main);
+    }
+  }
+}
+.btn-login, .btn-email, .btn-normal {
+  height: 56px;
+}
+
+.btn-email {
+  background-color: var(--c-main);
+  background-color: var(--c-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #6c99cc;
+  }
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--c-white);
+    @include mq("lg") {
+      font-size: fluid-text(14px, 16px);
+
+    }
+  }
+  &.-arrowRight {
+    @extend .-emailArrowRight;
+  }
+
+}
+.btn-login {
+  background-color: var(--c-sub);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 12px 20px;
+  cursor: pointer;
+  transition: all .3s;
+
+  .icon {
+    img {
+      width: 32px;
+    }
+  }
+  .name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: -10px;
+    @include mq("lg") {
+      font-size: fluid-text(14px, 16px);
+    }
+    span{
+      display: block;
+      font-size: 12px;
+      @include mq("lg") {
+        font-size: fluid-text(10px, 12px);
+      }
+
+    }
+  }
+  &:after{
+    @extend %g-link-login;
+  }
+  &:hover{
+    opacity: .7;
+  }
+
+}
+
+.-arrowRightCircle {
+  position: relative;
+  &:before {
+    content: "";
+    display: inline-block;
+    @include icon_arrow(0A55AA);
+    width: 6px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    transition: all .3s;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--c-main);
+    border-radius: 50%;
+    transition: all .3s;
+  }
+
+}
+

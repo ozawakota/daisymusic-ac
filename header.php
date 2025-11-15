@@ -6,12 +6,14 @@
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, viewport-fit=cover">
+<?php // ローダー表示時のスタイル記述場所 ?>
+
 <?php
 	wp_head();
 	$SETTING = SWELL_Theme::get_setting(); // SETTING取得
 ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <?php if ( function_exists( 'wp_body_open' ) ) wp_body_open(); ?>
 <div id="body_wrap" <?php body_class(); ?> <?php SWELL_Theme::body_attrs(); ?>>
 <?php

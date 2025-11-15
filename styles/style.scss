@@ -1,0 +1,11 @@
+﻿@use "./parts/common";         // サイト共通スタイル
+@use "./parts/btn";         // サイト共通スタイル
+@use "./parts/general";        // サイト内共通レイアウトスタイル
+@use "./parts/header";         // ヘッダー用スタイル
+@use "./parts/footer";         // フッター用スタイル
+@use "./parts/main";         // メイン用スタイル
+@use "./parts/menu";            // メニュー用スタイル
+@use "./parts/fonts";           // サイト内のフォントサイズ用スタイル
+
+// 各ページの読み込み
+@use "./pages/home";
