@@ -3,8 +3,11 @@ app/public/wp-admin/
 app/public/wp-includes/
 
 # Ignore default themes and plugins
-app/public/wp-content/themes/*
-!app/public/wp-content/themes/your-custom-theme/ # Include your custom theme
+app/public/wp-content/themes/swell/
+app/public/wp-content/ewww/
+app/public/wp-content/siteguard/
+app/public/wp-content/wpvivid**/
+!app/public/wp-content/themes/swell_child/ # Include your custom theme
 app/public/wp-content/languages/*
 app/public/wp-content/plugins/*
 !app/public/wp-content/plugins/your-custom-plugin/ # Include your custom plugin
