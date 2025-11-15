@@ -1,0 +1,36 @@
+# Ignore WordPress core files
+app/public/wp-admin/
+app/public/wp-includes/
+
+# Ignore default themes and plugins
+app/public/wp-content/themes/*
+!app/public/wp-content/themes/your-custom-theme/ # Include your custom theme
+app/public/wp-content/languages/*
+app/public/wp-content/plugins/*
+!app/public/wp-content/plugins/your-custom-plugin/ # Include your custom plugin
+
+# Ignore uploads and cache
+app/public/wp-content/uploads/
+app/public/wp-content/cache/
+
+# Ignore configuration files that might contain sensitive data or vary by environment
+app/public/**.php
+app/public/**.txt
+app/public/**.html
+.env
+.htaccess
+
+# Ignore common development files and directories
+/node_modules/
+/vendor/
+/build/
+/dist/
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.tmp
+
+/conf
+
+/logs
