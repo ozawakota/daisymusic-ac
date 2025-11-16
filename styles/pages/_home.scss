@@ -55,11 +55,13 @@
 .hero-contents {
  display: flex;
  flex-direction: column;
- align-items: center;
+ 
+ @include mq("lg") {
+  align-items: center;
+ }
  &__inner {
-
+  margin-inline: fluid-text(20px, 20px) ;
   @include mq("lg") {
-   // margin-left: fluid-text(-25px, -55px) ;
   }
  }
  &__text {
