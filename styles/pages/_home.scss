@@ -7,3 +7,82 @@
  @use "../parts/common" as *;
 
 
+.home {
+
+}
+
+.hero {
+ position: relative;
+ @include mq("lg") {
+  display: flex;
+  margin-right: fluid-text(30px, 69px) ;
+ }
+
+}
+
+.hero-piano {
+ margin-top: fluid-text(6px, 30px) ;
+ margin-bottom: fluid-text(30px, 40px) ;
+ width: 100%;
+ height: 72px;
+ background: var(--bg-url) repeat-x center center / contain;
+
+}
+
+.hero-title {
+ position: absolute;
+ right: 4px;
+ top: vwSP(38) ;
+ z-index: 1;
+ width: vwSP(124) ;
+ @include mq("lg") {
+  position: inherit;
+  width: fluid-text(124px, 204px) ;
+  top: fluid-text(25px, 37px);
+ }
+}
+
+.hero-swiper {
+ width: fluid-text(380px, 1081px) !important;
+ margin-inline:0;
+
+
+ @include mq("lg") { //960px以上
+
+ }
+}
+
+.hero-contents {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ &__inner {
+
+  @include mq("lg") {
+   // margin-left: fluid-text(-25px, -55px) ;
+  }
+ }
+ &__text {
+  font-family: $accent-font;
+  font-weight: 700;
+  font-size: vwSP(18);
+  color:$c-main;
+  @include mq("lg") {
+   font-size: fluid-text(18px, 20px);
+  }
+ }
+ &__title {
+  font-family: $accent-en-font;
+  font-size: vwSP(38);
+  color: $c-sub;
+  line-height: 1;
+  @include mq("lg") {
+   font-size: fluid-text(38px, 70px);
+  }
+
+  span {
+   color: $c-main;
+  }
+ }
+}
+

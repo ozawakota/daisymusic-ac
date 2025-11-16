@@ -6,8 +6,8 @@ $c-black: #333333;
 $c-white: #ffffff;
 $c-gray: #F4F4F4;
 $c-lightgray: #DDDDDD;
-$c-main: #0A55AA;
-$c-sub: #00274D;
+$c-main: #F39067;
+$c-sub: #715E4A;
 $c-darkorange: #BE741F;
 $c-lightblue: #14A0DE;
 $c-lightgreen: #33A08F;
@@ -17,12 +17,12 @@ $h-120: 120px;
 
 // サイト内フォントサイズ設定
 $default-min-bp: 375px;   // _functions.scss / fluid-textで使用
-$default-max-bp: 1366px;  // _functions.scss / fluid-textで使用
+$default-max-bp: 1440px;  // _functions.scss / fluid-textで使用
 $root-font-size: 16px;
 $mq-max-bp: 768px; // 768px以下　スマホ
 $mq-min-bp: 769px; // 769px以上　スマホ
 
 $base-font: メイリオ, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, 游ゴシック, "Yu Gothic", YuGothic, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-$accent-font: 'Montserrat', sans-serif;  // サイト内タイトル用フォント
-$accent-en-font: 'Bebas Neue', sans-serif;  // サイト内タイトル(英語)用フォント
+$accent-font: 'Shippori Mincho', sans-serif;  // サイト内タイトル用フォント
+$accent-en-font: 'Marcellus', sans-serif;  // サイト内タイトル(英語)用フォント
 

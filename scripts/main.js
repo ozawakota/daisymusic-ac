@@ -1,4 +1,5 @@
 import {   utils, config, INode } from "#/helper";
+import bgSrc from "./component/bgSrc";
 
 window.debug = enableDebugMode(1);
 
@@ -9,6 +10,8 @@ function enableDebugMode(debug) {
 
 export async function init() {
   try {
+
+    bgSrc.init();
 
     // メモリサイズ
     console.log(performance.memory);
