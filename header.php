@@ -35,8 +35,9 @@
 
 	// メインビジュアル
 	if ( SWELL_Theme::is_use( 'mv' ) ) {
-		$cache_key = $SETTING['cache_top'] ? 'mv' : '';
-		SWELL_Theme::get_parts( 'parts/top/main_visual', null, $cache_key );
+		// $cache_key = $SETTING['cache_top'] ? 'mv' : '';
+		// SWELL_Theme::get_parts( 'parts/top/main_visual', null, $cache_key );
+		SWELL_Theme::get_parts( 'parts/top/main_visual', null, );
 	}
 
 	// MV下通知バー
