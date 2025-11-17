@@ -14,7 +14,7 @@ $mv_img_filter = $SETTING['mv_img_filter'];
 
 <div class="hero">
 	<div class="hero-contents">
-		<div class="p-mainVisual__inner swiper hero-swiper">
+		<div class="p-mainVisual__inner swiper hero-swiper animated fadeIn delay-100ms">
 		
 		<div class="swiper-wrapper">
 		<?php foreach ( $slider_images as $i => $img_data ) : ?>
@@ -140,14 +140,14 @@ $mv_img_filter = $SETTING['mv_img_filter'];
 		?>
 	</div>
 
-	<div class="hero-contents__inner">
-	<p class="hero-contents__text">感じて、考えて、伝える力を育てる。</p>
-	<p class="hero-contents__title">
-		<span>D</span>aisy <span>M</span>usic <span>A</span>cademy
-	</p>
+	<div class="hero-contents__inner animated fadeIn delay-100ms">
+		<p class="hero-contents__text">感じて、考えて、伝える力を育てる。</p>
+		<p class="hero-contents__title">
+			<span>D</span>aisy <span>M</span>usic <span>A</span>cademy
+		</p>
 	</div>
 	</div><!-- /.hero-contents	-->
-	<div class="hero-title">
+	<div class="hero-title animated fadeIn delay-100ms">
 		<picture>
 			<source srcset="<?= ASSET_URI . "/img/mv_title_pc.png" ?>" media="(min-width: 960px)">
 			<img src="<?= ASSET_URI . "/img/mv_title_sp.png" ?>" alt="音楽で、心を得て未来を紡ぐ">
