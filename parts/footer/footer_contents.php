@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <div class="l-footer__inner">
+	ozawa
 	<?php
 		SWELL_Theme::get_parts( 'parts/footer/foot_widget' );
 	?>
