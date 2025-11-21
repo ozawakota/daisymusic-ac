@@ -253,10 +253,14 @@
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
     height: 1px;
     background-color: $c-main;
+    @include mq("lg") {
+      width: 100%;
+    }
    }
    p {
     font-size: vwSP(18);
@@ -264,8 +268,10 @@
     color: $c-main;
     font-weight: bold;
     font-family: $accent-font;
+    text-align: center;
     @include mq("lg") {
       font-size: fluid-text(18px, 20px);
+      text-align: left;
     }
    }
   }
@@ -277,8 +283,10 @@
    p {
     font-size: vwSP(14);
     color: $c-sub;
+    text-align: center;
     @include mq("lg") {
       font-size: 14px;
+      text-align: left;
     }
    }
   }
