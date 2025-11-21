@@ -31,7 +31,7 @@
 
  @include mq("lg") {
   height: fluid-text(21px, 134px) ;
-  background: var(--bg-url) no-repeat center center / 100%;
+  background: var(--bg-url) no-repeat center center / 100% auto;
 
  }
 }
@@ -68,7 +68,9 @@
  }
  &__inner {
   margin-inline: fluid-text(20px, 20px) ;
+  margin-top:vwSP(11);
   @include mq("lg") {
+    margin-top:17px;
   }
  }
  &__text {
