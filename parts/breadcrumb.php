@@ -318,14 +318,14 @@ foreach ( $list_data as $data ) {
 
 		$list_html .= '<li class="p-breadcrumb__item">' .
 			'<a href="' . esc_url( $data['url'] ) . '" class="p-breadcrumb__text">' .
-				'<span>' . esc_html( wp_strip_all_tags( $data['name'] ) ) . '</span>' .
+				'<span>' . esc_html( wp_strip_all_tags( str_replace( '[spbr]', '', $data['name'] ) ) ) . '</span>' .
 			'</a>' .
 		'</li>';
 
 	} else {
 
 		$list_html .= '<li class="p-breadcrumb__item">' .
-			'<span class="p-breadcrumb__text">' . esc_html( wp_strip_all_tags( $data['name'] ) ) . '</span>' .
+			'<span class="p-breadcrumb__text">' . esc_html( wp_strip_all_tags( str_replace( '[spbr]', '', $data['name'] ) ) ) . '</span>' .
 		'</li>';
 
 	}

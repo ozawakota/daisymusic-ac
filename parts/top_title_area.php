@@ -61,10 +61,12 @@ $filter_class = ( 'nofilter' === $filter_name ) ? '' : "c-filterLayer -$filter_n
 				SWELL_Theme::get_parts( 'parts/single/post_head' );
 
 			} elseif ( is_page() || is_home() ) {
-
+				$title = get_the_title($the_id);
+    $title = str_replace("[spbr]", "<br class='is-sp'>", $title);
+				// ▲ 
 				// タイトル
 				SWELL_Theme::pluggable_parts( 'page_title', [
-					'title'     => get_the_title( $the_id ),
+					'title'     => $title,
 					'subtitle'  => get_post_meta( $the_id, 'swell_meta_subttl', true ),
 					'has_inner' => false,
 				] );
