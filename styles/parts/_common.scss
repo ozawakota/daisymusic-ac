@@ -49,6 +49,11 @@ body {
 //   display: none;
 // }
 
+p {
+  font-family: $base-font;
+  line-height: 1.5;
+}
+
 a {
   text-decoration: none;
   color: var(--c-black);
@@ -82,6 +87,7 @@ h2,
 h3 {
   font-family: $accent-font;
   color: var(--c-black);
+  line-height: 1.3;
 }
 table {
   border-collapse: collapse;
