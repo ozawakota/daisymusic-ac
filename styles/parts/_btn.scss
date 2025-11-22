@@ -139,15 +139,16 @@
 // ボタン基本設定
 
 .c-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
   border-radius: 50px;
   color: var(--c-white);
   background-color: var(--c-btn-red);
-  padding-block:vwSP(12);
+  padding-block:12px;
   padding-inline:32px 32px;
+  margin-inline: auto;
   opacity: 1;
   transition: opacity .3s;
   letter-spacing: .1em;
@@ -164,8 +165,8 @@
   &:after{
     @include icon_arrow(fff);
     margin-left: 4px;
-    width: vwSP(14);
-    height: vwSP(12);
+    width: 14px;
+    height: 12px;
     @include mq("lg") {
       width: 16px;
       height: 16px;
@@ -174,7 +175,7 @@
 
 
   span {
-    font-size: vwSP(14);
+    font-size: 14px;
     font-weight: bold;
     color: var(--c-white);
     @include mq("lg") {
