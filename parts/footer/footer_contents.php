@@ -2,9 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <div class="l-footer__inner">
-	ozawa kota
 	<?php
-		SWELL_Theme::get_parts( 'parts/footer/foot_widget' );
+		// SWELL_Theme::get_parts( 'parts/footer/foot_widget' );
 	?>
 		<div class="l-footer__foot">
 			<div class="l-container">
@@ -32,7 +31,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				<span lang="en">&copy;</span>
 				<?=wp_kses( SWELL_Theme::get_setting( 'copyright' ), SWELL_Theme::$allowed_text_html )?>
 			</p>
+
 			<?php do_action( 'swell_after_copyright' ); ?>
 		</div>
+		<div class="footer_piano">
+				<img class="is-pc" src="<?= ASSET_URI . "/img/footer_piano_bg_pc.png" ?>" alt="" srcset="">
+				<img class="is-sp" src="<?= ASSET_URI . "/img/footer_piano_bg_sp.png" ?>" alt="" srcset="">
+			</div>
 	</div>
 </div>

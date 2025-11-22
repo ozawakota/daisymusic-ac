@@ -4,3 +4,105 @@
 @use "fonts";
 
 
+.l-footer {
+ a , span {
+  color: white;
+ }
+ &__inner, &__widgetArea {
+  background-color: #84715E;
+ }
+ &__widgetArea {
+
+ }
+}
+.l-footer__foot {
+ padding-block: 30px 67px;
+ 
+ @include mq("lg") {
+
+ }
+ .l-container {
+ }
+ .footer_piano {
+  @include mq("lg") {
+   margin-top: -25px;
+  }
+  img {
+   width: 100%;
+  }
+ }
+ .c-iconList {
+  margin-bottom: 30px;
+ }
+}
+.w-beforeFooter {
+ background-color: #84715E;
+}
+.before_footer__wrap {
+ padding-top: 50px;
+ display: grid;
+ grid-template-areas:
+  "menu menu"
+  "html html";
+  @include mq("lg") {
+   padding-top: fluid-text(50px, 80px);
+   grid-template-areas:
+   "menu menu html";
+  }
+  @media (max-width: $mq-max-bp) {
+   padding-inline: 0;
+  }
+ .widget_nav_menu.c-listMenu {
+   + .widget_nav_menu {
+    margin-top: 0;
+   }
+   .menu {
+    .menu-item {
+     + .menu-item {
+      margin-top: 8px;
+     }
+     a {
+      padding: 0;
+      color: white;
+      border-bottom: none;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 500;
+      &:before {
+       display: none;
+      }
+     }
+     .sub-menu {
+      padding-top: 8px;
+      .menu-item {
+       a {
+        font-size: 13px;
+       }
+      }
+     }
+    }
+   }
+ }
+ .widget_custom_html {
+  margin-top: 30px;
+  grid-area: html;
+  display: flex;
+  justify-content: center;
+  @include mq("lg") {
+   margin-top: 0px;
+   
+  }
+  a {
+   background-color: transparent;
+   border: 1px solid white;
+   font-size: 16px;
+   @media (max-width: $mq-max-bp) {
+    padding-inline: fluid-text(35.5px, 52.5px) fluid-text(56.5px, 72.5px);
+
+   }
+   @include mq("lg") {
+    padding-block: 12px;
+   }
+  }
+ }
+}

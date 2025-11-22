@@ -13,7 +13,10 @@ const $ = {};
 function init() {
   $.dataBg = INode.qsAll('[data-bg]');
   $.dataBgSp = INode.qsAll('[data-bg-sp]');
-
+  console.log($.dataBg);
+  console.log($.dataBgSp);
+  
+  
    _bindEvents();
 }
 

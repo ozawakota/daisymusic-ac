@@ -290,3 +290,11 @@ a {
 .mb-20-100 {
   padding-bottom: fluid-text(20px, 100px) !important;
 }
+
+.icon-instagram:before {
+  width:13.5px;
+  height:13.5px;
+  content: "";
+  @include icon_insta();
+  display: block;
+}
