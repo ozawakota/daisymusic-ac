@@ -1,0 +1,171 @@
+/*
+ * index.htmlページ用スタイル
+ */
+
+ @use "../globals" as *;
+ @use "../parts/fonts" as *;
+ @use "../parts/common" as *;
+
+
+.about {
+  .about-lead {
+    &__title {
+      color:$c-sub;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      @include mq("lg") {
+        font-size: 36px;
+        margin-bottom: 40px;
+      }
+      span {
+        color: $c-main;
+      }
+    }
+    &__contents {
+      p {
+        font-size: 14px;
+        span {
+          font-weight: bold;
+          color: $c-main;
+        }
+        + p {
+          margin-top: 30px;
+        }
+      }
+    }
+    &__img {
+      width: vwSP(294);
+      margin-inline: auto -190px;
+      margin-top: 20px;
+      @include mq("lg") {
+        width: 573px;
+        margin-inline: auto -185px;
+      }
+    }
+  }
+  // プロフィール
+  .about-profile {
+    
+    &__meta {
+      text-align: center;
+      margin-bottom: 15px;
+      @include mq("lg") {
+        margin-bottom: 30px;
+      }
+      .-title {
+        display: block;
+        font-family: $accent-en-font;
+        font-size: 40px;
+        color: $c-main;
+        line-height: 1.5;
+        letter-spacing: 0.1em;
+        @include mq("lg") {
+          font-size: 50px;
+        }
+      }
+      .-type {
+        color: $c-main;
+        font-size: 18px;
+        position: relative;
+        font-family: $accent-font;
+        font-weight: bold;
+        span {
+          font-family: $accent-en-font;
+          font-weight: 400;
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 200px;
+          height: 1px;
+          background-color: $c-main;
+          margin: 5px auto 0;
+
+        }
+      }
+      .-name {
+        
+        margin-top: 15px;
+        color:$c-sub;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 1;
+        margin-bottom: 20px;
+        letter-spacing: 0.1em;
+        @include mq("lg") {
+          font-size: 36px;
+          margin-bottom: 40px;
+        }
+        &:before {
+          display: none;
+        }
+        .-kana {
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 12px;
+          display: block;
+          @include mq("lg") {
+
+          }
+        }
+      }
+      
+    }
+    &__body {
+      @include mq("lg") {
+        display: grid;
+        grid-template-areas:
+          "contents person"
+          "contents img";
+      }
+      .-person {
+        position: relative;
+        width: min(100% , 330px);
+        margin-inline: auto;
+        margin-bottom: 30px;
+        grid-area: person;
+        @include mq("lg") {
+          margin-bottom: 30px;
+          width: min(100% , 347px);
+          margin-inline: auto 0;
+        }
+  
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -25px;
+          right: -20px;
+          width: 119px;
+          height: 79px;
+          background: var(--bg-url) no-repeat center center / contain;
+
+        }
+      }
+      .-contents {
+        margin-bottom: 50px;
+        grid-area: contents;
+
+        @include mq("lg") {
+          margin-bottom: 0px;
+        }
+        p {
+          letter-spacing: 0.145em;
+        }
+      }
+      .-img {
+        grid-area: img;
+        @include mq("lg") {
+
+          width: min(100% , 347px);
+          margin-inline: auto 0;
+        }
+
+      }
+    }
+    
+  }
+}
+

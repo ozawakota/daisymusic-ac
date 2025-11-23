@@ -14,6 +14,11 @@ else :
 
 		<main id="main_content" class="l-mainContent l-article">
 			<div class="l-mainContent__inner" data-clarity-region="article">
+				<!-- 固定ページカスタム (確認用) -->
+				<?php if ( is_page("about") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-about' ); ?>
+					<?php endif; ?>
+					<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>
 				<?php if ( $show_pr_notation ) : ?>
 					<?php SWELL_Theme::pluggable_parts( 'pr_notation' ); ?>

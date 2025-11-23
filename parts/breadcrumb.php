@@ -336,7 +336,7 @@ $add_class = \SWELL_Theme::get_setting( 'hide_bg_breadcrumb' ) ? '' : ' -bg-on';
 
 // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '<div id="breadcrumb" class="p-breadcrumb' . $add_class . '">' .
-	'<ol class="p-breadcrumb__list l-container">' .
+	'<ol class="p-breadcrumb__list swell-block-fullWide__inner l-article">' .
 		'<li class="p-breadcrumb__item">' .
 			'<a href="' . esc_url( home_url( '/' ) ) . '" class="p-breadcrumb__text">' .
 				'<span class="__home"> ' . $SETTING['breadcrumb_home_text'] . '</span>' .

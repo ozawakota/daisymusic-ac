@@ -14,7 +14,7 @@ the_post();
 			] );
 		?>
 		<div class="<?=esc_attr( apply_filters( 'swell_post_content_class', 'post_content' ) )?>">
-			<?php the_content(); ?>
+		<?php the_content(); ?>
 		</div>
 		<?php
 			// 改ページナビゲーション

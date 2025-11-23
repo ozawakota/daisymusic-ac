@@ -24,7 +24,15 @@ add_action('wp_enqueue_scripts', function() {
 	wp_enqueue_style( 'child_style', get_stylesheet_directory_uri() .'/style.css', [], $timestamp );
 
 	/* その他の読み込みファイルはこの下に記述 */
-	
+	function my_body_class($classes)
+{
+    if (is_page()) {
+        $page = get_post();
+        $classes[] = $page->post_name;
+    }
+    return $classes;
+}
+add_filter('body_class', 'my_body_class');
 	
 
 }, 11);
