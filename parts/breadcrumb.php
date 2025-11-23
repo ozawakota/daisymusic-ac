@@ -339,7 +339,7 @@ echo '<div id="breadcrumb" class="p-breadcrumb' . $add_class . '">' .
 	'<ol class="p-breadcrumb__list l-container">' .
 		'<li class="p-breadcrumb__item">' .
 			'<a href="' . esc_url( home_url( '/' ) ) . '" class="p-breadcrumb__text">' .
-				'<span class="__home icon-home"> ' . $SETTING['breadcrumb_home_text'] . '</span>' .
+				'<span class="__home"> ' . $SETTING['breadcrumb_home_text'] . '</span>' .
 			'</a>' .
 		'</li>' .
 		$list_html .

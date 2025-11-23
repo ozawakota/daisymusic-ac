@@ -5,3 +5,8 @@
 @use "../globals" as *;
 @use "fonts" as *;
 
+// パンくず
+.p-breadcrumb__text 
+,.p-breadcrumb__text .__home {
+ font-size: 12px;
+}

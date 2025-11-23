@@ -52,6 +52,7 @@ body {
 p {
   font-family: $base-font;
   line-height: 1.5;
+  color: $c-sub;
 }
 
 a {
@@ -86,7 +87,7 @@ h1,
 h2,
 h3 {
   font-family: $accent-font;
-  color: var(--c-black);
+  color: var(--c-sub);
   line-height: 1.3;
 }
 table {
@@ -305,5 +306,21 @@ a {
 
 
 .l-topTitleArea {
-  min-height: 400px;
+  min-height: 213px;
+  @include mq("lg") {
+    min-height: 400px;
+  }
+  .c-pageTitle {
+    color:$c-sub;
+    font-weight: bold;
+    font-size: 32px;
+    @include mq("lg") {
+      font-size: 36px;
+    }
+  }
 }
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
