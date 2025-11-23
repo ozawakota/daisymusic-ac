@@ -157,6 +157,9 @@
       }
       .-img {
         grid-area: img;
+        width: min(100% , 335px);
+        margin-inline: auto;
+
         @include mq("lg") {
 
           width: min(100% , 347px);
@@ -166,6 +169,173 @@
       }
     }
     
+  }
+  // 経歴
+  .about-history {
+    background-color: #FFF4E8;
+    margin-top: 50px;
+    padding: 30px 20px;
+    position: relative;
+    border-radius: 20px;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -30px;
+      right: -5px;
+      width: 114px;
+      height: 115px;
+      background: var(--bg-url) no-repeat center center / contain;
+      @include mq("lg") {
+        width: 170px;
+        height: 170px;
+        top: -60px;
+        right: -15px;
+  
+      }
+    }
+    @include mq("lg") {
+      margin-top: 80px;
+    }
+
+    &__title {
+      color: $c-main;
+      font-size: 26px;
+      font-weight: bold;
+      padding-left: 0;
+      paddging-bottom: 20px;
+      margin-bottom: 0;
+      &::before {
+        display: none;
+      }
+      @include mq("lg") {
+        font-size: 32px;
+        
+      }
+    }
+    &__text {
+      font-size: 12px;
+      letter-spacing: 0.21em;
+    }
+  }
+  .about-bnr {
+    margin-top: 50px;
+    @include mq("lg") {
+      margin-top: 40px;
+    }
+    &__link {
+      display: block;
+      width: min(100% , 335px);
+      margin-inline: auto;
+      &:hover {
+        opacity: 0.8;
+      }
+      @include mq("lg") {
+        width: 100%;
+
+      }
+      img {
+        
+
+      }
+    }
+  }
+  .about-other {
+    background-color: #FFF4E8;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: -390px;
+      width: 600px;
+      height: 291px;
+      background: var(--bg-url) no-repeat center center / contain;
+      @include mq("lg") {
+        width: 668px;
+        height: 323px;
+        top: 0px;
+        right: -50px;
+  
+      }
+    }
+
+    &__meta {
+      padding-block: 64px 30px;
+      margin-bottom: 0;
+      @include mq("lg") {
+        padding-block: 100px 40px;
+      }
+      .-title {
+        font-family: $accent-en-font;
+        font-size: 40px;
+        color: $c-main;
+        font-weight: normal;
+        margin-bottom: 0;
+        @include mq("lg") {
+          font-size: 50px;
+        }
+      }
+      .-text {
+        font-size: 18px;
+        color:$c-sub;
+        font-family: $accent-font;
+        font-weight: bold;
+      }
+
+    }
+    &__message {
+      strong {
+        display: block;
+        font-size: 26px;
+        color:$c-sub;
+        font-family: $accent-font;
+        margin-bottom: 38px;
+        font-weight: bold;
+        @include mq("lg") {
+          font-size: 38px;
+        }
+      }
+    }
+    &__block {
+      @include mq("lg") {
+        display: flex;
+        gap: 60px;
+      }
+    }
+    &__img {
+      width: min(100%, 335px);
+      margin-inline: auto;
+      @include mq("lg") {
+        width: min(100%, 407px);
+        
+      }
+    }
+    &__contents {
+      margin-top: 30px;
+      @include mq("lg") {
+        margin-top: 23px;
+        flex: 1;
+      }
+      .-text {
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      .-btn {
+        width: min(100%, 335px);
+        margin-inline: auto;
+        @include mq("lg") {
+          width: auto;
+        }
+        a {
+          width: 100%;
+          @include mq("lg") {
+            width: auto;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -155,8 +155,10 @@ $mv_img_filter = $SETTING['mv_img_filter'];
 	</div>
 </div>
 <div class="hero-piano" >
-<img class="is-pc" src="<?= ASSET_URI . "/img/mv_piano.png" ?>" alt="" srcset="">
-<img class="is-sp" src="<?= ASSET_URI . "/img/mv_piano_sp.png" ?>" alt="" srcset="">
+	<picture>
+			<source srcset="<?= ASSET_URI . "/img/mv_piano.png" ?>" media="(min-width: 960px)">
+			<img src="<?= ASSET_URI . "/img/mv_piano_sp.png" ?>" alt="">
+		</picture>
 </div>
 
 
