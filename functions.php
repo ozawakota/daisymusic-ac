@@ -36,3 +36,24 @@ add_filter('body_class', 'my_body_class');
 	
 
 }, 11);
+
+if(!is_admin()) {
+    function remove_lazyblocks_div(){
+      $args = array(
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'post_type' => 'page' //ここを各自変更します。複数やpage属性設定可
+      );
+      $all_posts = get_posts($args);
+      foreach( $all_posts as $single_page ) {
+        if (has_blocks( $single_page->post_content )){
+          $single_page = parse_blocks( $single_page->post_content );
+          $block_arr = array_unique($single_page,SORT_REGULAR);
+          foreach($block_arr as $content){
+            add_filter( $content['blockName'] . '/frontend_allow_wrapper', '__return_false' );
+          }
+        }
+      }
+    }
+    add_action('wp','remove_lazyblocks_div');
+  }

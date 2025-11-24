@@ -3,7 +3,9 @@
   <div class="swell-block-fullWide__inner l-article">
     <div class="about-lead">
      <h2 class="about-lead__title is-style-section_ttl has-text-align-left">
-      <span>音楽</span>で、<span>心</span>を育て、<br class="is-sp"><span>人</span>をつなぐ
+      <p>
+        <span>音楽</span>で、<span>心</span>を育て、<br class="is-sp"><span>人</span>をつなぐ
+      </p>
      </h2>
      <div class="about-lead__contents">
        <p>
@@ -34,6 +36,7 @@
       <img src="<?= ASSET_URI . "/img/about_piano_img.png" ?>" alt="">
      </div>
     </div>
+    <!-- about-lead -->
     <div class="about-profile">
      <div class="about-profile__meta">
       <p class="-title">PROFILE</p>
@@ -44,13 +47,15 @@
       </h3>
      </div>
      <!-- .about-profile__meta -->
-      <div class="about-profile__body">
+    <div class="about-profile__body">
        <div class="-person" data-bg="<?= ASSET_URI . "/img/about_profile_person_hana.svg" ?>">
         <img src="<?= ASSET_URI . "/img/about_profile_person.png" ?>" alt="">
        </div>
        <div class="-contents">
         <h2 class="about-lead__title is-style-section_ttl has-text-align-left">
-          <span>音楽</span>は、<br><span>心</span>をつなぐ<span>言葉</span>
+          <p>
+            <span>音楽</span>は、<br><span>心</span>をつなぐ<span>言葉</span>
+          </p>
         </h2>
         <div class="about-lead__contents">
          <p>
@@ -78,7 +83,8 @@
        <div class="-img">
         <img src="<?= ASSET_URI . "/img/about_profile_img.png" ?>" alt="">
        </div>
-      </div>
+    </div>
+    <!-- .about-profile__body -->
     </div>
     <!-- .about-profile -->
     <div class="about-history" data-bg="<?= ASSET_URI . "/img/about_history_img.svg" ?>">
@@ -114,7 +120,7 @@
   </div>
  </div>
 </div>
-<div class="post_content">
+<div class="post_content mb-0">
  <div class="swell-block-fullWide alignfull pt-0 about-other" data-bg="<?= ASSET_URI . "/img/about_other_bg.svg" ?>">
   <div class="swell-block-fullWide__inner l-article">
   <div class="about-other__meta">

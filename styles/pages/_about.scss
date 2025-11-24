@@ -8,23 +8,40 @@
 
 
 .about {
+  .l-content {
+    margin-bottom: 0;
+    .post_content {
+      &:not(:has(*)) {
+        display: contents !important;
+      }
+    }
+  }
+
   .about-lead {
     &__title {
-      color:$c-sub;
-      font-weight: bold;
-      font-size: 32px;
-      line-height: 1.5;
       margin-bottom: 20px;
       @include mq("lg") {
-        font-size: 36px;
         margin-bottom: 40px;
       }
-      span {
-        color: $c-main;
+      p {
+
+        color:$c-sub;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 1.5;
+        
+        font-family: $accent-font;
+        @include mq("lg") {
+          font-size: 36px;
+          
+        }
+        span {
+          color: $c-main;
+        }
       }
     }
     &__contents {
-      p {
+      p,div {
         font-size: 14px;
         span {
           font-weight: bold;
@@ -153,6 +170,9 @@
         }
         p {
           letter-spacing: 0.145em;
+          span {
+            font-weight: bold;
+          }
         }
       }
       .-img {
@@ -235,7 +255,6 @@
 
       }
       img {
-        
 
       }
     }
@@ -243,6 +262,10 @@
   .about-other {
     background-color: #FFF4E8;
     position: relative;
+    padding-bottom: 64px;
+    @include mq("lg") {
+      padding-bottom: 100px;
+    }
     &:before {
       content: '';
       display: block;
@@ -273,6 +296,8 @@
         color: $c-main;
         font-weight: normal;
         margin-bottom: 0;
+        letter-spacing: 0.1em;
+
         @include mq("lg") {
           font-size: 50px;
         }
@@ -282,6 +307,7 @@
         color:$c-sub;
         font-family: $accent-font;
         font-weight: bold;
+        letter-spacing: 0.1em;
       }
 
     }
@@ -293,6 +319,7 @@
         font-family: $accent-font;
         margin-bottom: 38px;
         font-weight: bold;
+        letter-spacing: 0.1em;
         @include mq("lg") {
           font-size: 38px;
         }
