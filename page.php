@@ -17,8 +17,12 @@ else :
 				<!-- 固定ページカスタム (確認用) -->
 				<?php if ( is_page("about") ) : ?>
 					<?php SWELL_Theme::get_parts( 'inc/static/page-about' ); ?>
-					<?php endif; ?>
-					<!-- 固定ページカスタム -->
+				<?php endif; ?>
+				<?php if ( is_page("contact") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
+				<?php endif; ?>
+
+				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>
 				<?php if ( $show_pr_notation ) : ?>
 					<?php SWELL_Theme::pluggable_parts( 'pr_notation' ); ?>
