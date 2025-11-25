@@ -27,6 +27,9 @@ padding-bottom: 30px;
 @include mq("lg") {
   padding-bottom: 0px;
 }
+img {
+  width: 100%;
+}
 
 }
 
