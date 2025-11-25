@@ -328,6 +328,7 @@ legend {
     color:$c-sub;
     font-weight: bold;
     font-size: 32px;
+    text-shadow: none;
     @include mq("lg") {
       font-size: 36px;
     }

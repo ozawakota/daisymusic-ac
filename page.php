@@ -19,7 +19,7 @@ else :
 					<?php SWELL_Theme::get_parts( 'inc/static/page-about' ); ?>
 				<?php endif; ?>
 				<?php if ( is_page("contact") ) : ?>
-					<?php SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
+					<?php // SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
 				<?php endif; ?>
 
 				<!-- 固定ページカスタム -->
