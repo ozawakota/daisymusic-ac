@@ -63,17 +63,16 @@ if ( $SETTING['info_bar_pos'] === 'head_top' ) SWELL_Theme::get_parts( 'parts/he
 						<img src="<?= ASSET_URI . "/img/gnav-img06.png" ?>" alt="お問い合わせお申し込み">
 					</a>
 				</li>
-
 			</ul>
 			<?php //
-			//	SWELL_Theme::pluggable_parts( 'gnav', [
-			//		'use_search' => 'head_menu' === $SETTING['search_pos'],
-		//		] );
+				// SWELL_Theme::pluggable_parts( 'gnav', [
+				// 	'use_search' => 'head_menu' === $SETTING['search_pos'],
+				// ] );
 			?>
 		</nav>
 		<?php
 			// ヘッダー内ウィジェット
-			\SWELL_Theme::outuput_widgets( 'head_box', [
+			SWELL_Theme::outuput_widgets( 'head_box', [
 				'before' => '<div class="w-header pc_"><div class="w-header__inner">',
 				'after'  => '</div></div>',
 			] );

@@ -21,15 +21,15 @@
 <div id="body_wrap" <?php body_class(); ?> <?php SWELL_Theme::body_attrs(); ?>>
 <?php
 	// SPメニュー
-	$cache_key = $SETTING['cache_spmenu'] ? 'spmenu_child' : '';
-	SWELL_Theme::get_parts( 'parts/header/sp_menu', null );
+	$cache_key = $SETTING['cache_spmenu'] ? 'spmenu' : '';
+	SWELL_Theme::get_parts( 'parts/header/sp_menu', null, $cache_key );
 
 	// ヘッダー
 	$cache_key = '';
 	if ( $SETTING['cache_header'] ) {
-		$cache_key = ( SWELL_Theme::is_top() && ! is_paged() ) ? 'header_top' : 'header_notop';
+		$cache_key = ( SWELL_Theme::is_top() && ! is_paged() ) ? 'header_top_' : 'header_notop';
 	}
-	SWELL_Theme::get_parts( 'parts/header/header_contents', null, $cache_key );
+	SWELL_Theme::get_parts( 'parts/header/header_contents', null );
 
 	// Barba用 wrapper
 	if ( SWELL_Theme::is_use( 'pjax' ) ) {
