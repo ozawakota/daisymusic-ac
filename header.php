@@ -27,9 +27,9 @@
 	// ヘッダー
 	$cache_key = '';
 	if ( $SETTING['cache_header'] ) {
-		$cache_key = ( SWELL_Theme::is_top() && ! is_paged() ) ? 'header_top_' : 'header_notop';
+		$cache_key = ( SWELL_Theme::is_top() && ! is_paged() ) ? 'header_top' : 'header_notop';
 	}
-	SWELL_Theme::get_parts( 'parts/header/header_contents', null );
+	SWELL_Theme::get_parts( 'parts/header/header_contents', null, $cache_key );
 
 	// Barba用 wrapper
 	if ( SWELL_Theme::is_use( 'pjax' ) ) {
