@@ -22,7 +22,7 @@
 <?php
 	// SPメニュー
 	$cache_key = $SETTING['cache_spmenu'] ? 'spmenu_child' : '';
-	SWELL_Theme::get_parts( 'parts/header/sp_menu', null, $cache_key );
+	SWELL_Theme::get_parts( 'parts/header/sp_menu', null );
 
 	// ヘッダー
 	$cache_key = '';

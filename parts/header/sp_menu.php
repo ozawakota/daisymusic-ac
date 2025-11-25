@@ -10,10 +10,6 @@ $spmenu_class = ( 'center_left' === SWELL_Theme::get_setting( 'header_layout_sp'
 			</button>
 		</div>
 		<div class="p-spMenu__body">
-			ozawa kota
-			<div class="c-widget__title -spmenu">
-				<?=wp_kses( SWELL_Theme::get_setting( 'spmenu_main_title' ), SWELL_Theme::$allowed_text_html )?>
-			</div>
 			<div class="p-spMenu__nav">
 				<?php
 					if ( has_nav_menu( 'nav_sp_menu' ) ) :
@@ -39,6 +35,10 @@ $spmenu_class = ( 'center_left' === SWELL_Theme::get_setting( 'header_layout_sp'
 					'after'  => '</div>',
 				] );
 			?>
+			<div class="p-spMenu__logo">
+				<?php echo SWELL_PARTS::head_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
+
 		</div>
 	</div>
 	<div class="p-spMenu__overlay c-overlay" data-onclick="toggleMenu"></div>
