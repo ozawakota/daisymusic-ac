@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			<?php echo SWELL_PARTS::head_logo( true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<div class="l-fixHeader__gnav c-gnavWrap">
+			
 			<?php
 				\SWELL_Theme::pluggable_parts( 'gnav', [
 					'use_search' => 'head_menu' === \SWELL_Theme::get_setting( 'search_pos' ),

@@ -10,6 +10,7 @@ $spmenu_class = ( 'center_left' === SWELL_Theme::get_setting( 'header_layout_sp'
 			</button>
 		</div>
 		<div class="p-spMenu__body">
+			ozawa kota
 			<div class="c-widget__title -spmenu">
 				<?=wp_kses( SWELL_Theme::get_setting( 'spmenu_main_title' ), SWELL_Theme::$allowed_text_html )?>
 			</div>
