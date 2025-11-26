@@ -18,11 +18,68 @@ if ( $SETTING['info_bar_pos'] === 'head_top' ) SWELL_Theme::get_parts( 'parts/he
 			</div>
 		</div>
 		<nav id="gnav" class="l-header__gnav c-gnavWrap">
-			<?php SWELL_Theme::get_parts( 'parts/header/pc_nav' ); ?>
-			<?php //
-				// SWELL_Theme::pluggable_parts( 'gnav', [
-				// 	'use_search' => 'head_menu' === $SETTING['search_pos'],
-				// ] );
+			<?php
+			// メニューアイテムを取得
+			$menu_name = 'header_menu';
+			$locations = get_nav_menu_locations();
+			$menu = wp_get_nav_menu_object($locations[$menu_name] ?? '');
+
+			if ($menu) {
+				$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+				if ($menu_items) :
+			?>
+			<ul class="c-gnavParent">
+				<?php
+				// 親メニュー項目のみを抽出
+				$parent_items = array_filter($menu_items, function($item) {
+					return $item->menu_item_parent == 0;
+				});
+
+				foreach ($parent_items as $item) :
+					// アイキャッチ画像を取得
+					$featured_image_id = get_post_meta($item->ID, '_menu_item_featured_image', true);
+					$image_url = '';
+					if ($featured_image_id) {
+						$image_url = wp_get_attachment_image_url($featured_image_id, 'medium');
+					}
+
+					// 子メニューを取得
+					$child_items = array_filter($menu_items, function($child) use ($item) {
+						return $child->menu_item_parent == $item->ID;
+					});
+
+					$has_children = !empty($child_items);
+				?>
+				<li>
+					<?php if ($has_children) : ?>
+						<span>
+							<?php if ($image_url) : ?>
+								<img src="<?= esc_url($image_url) ?>" alt="<?= esc_attr($item->title) ?>">
+							<?php else : ?>
+								<?= esc_html($item->title) ?>
+							<?php endif; ?>
+						</span>
+						<ul class="c-gnavGrandParent">
+							<?php foreach ($child_items as $child) : ?>
+								<li><a href="<?= esc_url($child->url) ?>">-<?= esc_html($child->title) ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php else : ?>
+						<a href="<?= esc_url($item->url) ?>">
+							<?php if ($image_url) : ?>
+								<img src="<?= esc_url($image_url) ?>" alt="<?= esc_attr($item->title) ?>">
+							<?php else : ?>
+								<?= esc_html($item->title) ?>
+							<?php endif; ?>
+						</a>
+					<?php endif; ?>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+			<?php
+				endif;
+			}
 			?>
 		</nav>
 		<?php

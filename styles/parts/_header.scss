@@ -78,7 +78,7 @@
 
        }
        li {
-        
+
         a {
          font-size: 12px;
          font-weight: 500;
@@ -96,8 +96,29 @@
       }
      }
    }
+
+   // アイキャッチ画像付きメニュー項目のスタイル
+   .c-gnav {
+    .has-featured-image {
+     a {
+      .menu-item-featured-image {
+       display: block;
+       width: 100%;
+       height: auto;
+       object-fit: cover;
+      }
+
+      .ttl {
+       display: block;
+       margin-top: 8px;
+       font-size: 14px;
+       text-align: center;
+      }
+     }
+    }
+   }
   }
- 
+
  }
 
  &__menuBtn {
@@ -150,7 +171,7 @@
          border-color: $c-main;
         }
        }
-  
+
        a {
         font-size: 12px;
         font-weight: 500;
@@ -163,6 +184,27 @@
          left: 2px;
          position: absolute;
         }
+       }
+      }
+     }
+
+     // スマホメニューでのアイキャッチ画像表示
+     &.has-featured-image {
+      a {
+       display: flex;
+       align-items: center;
+       gap: 12px;
+
+       .menu-item-featured-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+       }
+
+       .ttl {
+        flex: 1;
        }
       }
      }

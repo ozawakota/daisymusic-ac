@@ -87,6 +87,7 @@ if ( ! function_exists( 'swl_parts__gnav' ) ) :
 					'items_wrap'      => '%3$s',
 					'link_before'     => '<span class="ttl">',
 					'link_after'      => '</span>',
+					'walker'          => new Menu_Featured_Image_Walker(),
 				]);
 			?>
 			<?php if ( $use_search ) : ?>

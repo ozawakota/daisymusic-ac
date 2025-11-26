@@ -20,7 +20,7 @@
 				</li>
 				<li>
 					<a href="">
-						<img src="<?= ASSET_URI . "/img/gnav-img03.png" ?>" alt="音楽指導者コミュニティ">
+						<img src="<?= ASSET_URI . "/img/gnav-img03.png" ?>" alt="オンラインコミュニティ">
 					</a>
 				</li>
 				<li>
