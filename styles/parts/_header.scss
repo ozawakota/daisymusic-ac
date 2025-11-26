@@ -37,24 +37,58 @@
     }
    }
  }
+ &__gnav {
+  .c-gnavParent {
+   // 初期表示のちらつき防止（常に横並び）
+   display: flex;
+   align-items: center;
+   gap: fluid-text(0px, 20px);
+
+   > li {
+    width: fluid-text(50px, 100px);
+    cursor: pointer;
+    position: relative;
+
+    a,span {
+     display: block;
+     display: grid;
+     place-items: center;
+     height: 102px;
+     font-weight: 500;
+    }
+
+    .c-gnavGrandParent {
+     display: none;
+     position: absolute;
+     top: 102px;
+     left: -10px;
+     width: max-content;
+     background-color: #FFFAE6;
+     padding-top: 0px;
+     transition: all 0.2s;
+
+     li {
+      a {
+       font-size: 12px;
+       font-weight: 500;
+       color: $c-sub;
+       padding: 10px;
+       height: auto;
+       place-items: flex-start;
+      }
+     }
+    }
+   }
+  }
+ }
+
  @include mq("lg") {
   &__gnav {
    display: flex;
    align-items: center;
    .c-gnavParent {
-    display: flex;
-    align-items: center;
-    gap: fluid-text(0px, 20px);
      > li {
-      width: fluid-text(50px, 100px);
-      cursor: pointer;
-      position: relative;
       a,span {
-       display: block;
-       display: grid;
-       place-items: center;
-       height: 102px;
-       font-weight: 500;
        &:hover {
         opacity: 0.8;
         + ul {
@@ -64,28 +98,12 @@
       }
 
       .c-gnavGrandParent {
-       display: none;
-       position: absolute;
-       top: 102px;
-       left: -10px;
-       width: max-content;
-       background-color: #FFFAE6;
-       padding-top: 0px;
-       transition: all 0.2s;
-
        &:hover {
         display: block;
-
        }
-       li {
 
+       li {
         a {
-         font-size: 12px;
-         font-weight: 500;
-         color: $c-sub;
-         padding: 10px;
-         height: auto;
-         place-items: flex-start;
          &:hover {
           opacity: 0.8;
           background-color: $c-main;
