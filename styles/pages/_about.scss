@@ -18,6 +18,10 @@
   }
 
   .about-lead {
+    margin-inline: 20px;
+    @include mq("lg") {
+      margin-inline: 0px;
+    }
     &__title {
       margin-bottom: 20px;
       @include mq("lg") {
@@ -64,7 +68,10 @@
   }
   // プロフィール
   .about-profile {
-    
+    margin-inline: 20px;
+    @include mq("lg") {
+      margin-inline: 0px;
+    }
     &__meta {
       text-align: center;
       margin-bottom: 15px;
@@ -197,6 +204,11 @@
     padding: 30px 20px;
     position: relative;
     border-radius: 20px;
+    margin-inline: 20px;
+    @include mq("lg") {
+      margin-inline: 0px;
+    }
+
     &:before {
       content: '';
       display: block;
@@ -260,6 +272,7 @@
     background-color: #FFF4E8;
     position: relative;
     padding-bottom: 64px;
+    
     @include mq("lg") {
       padding-bottom: 100px;
     }
@@ -284,7 +297,10 @@
     &__meta {
       padding-block: 64px 30px;
       margin-bottom: 0;
+      margin-inline: 20px;
+  
       @include mq("lg") {
+        margin-inline: 0px;
         padding-block: 100px 40px;
       }
       .-title {
@@ -294,6 +310,7 @@
         font-weight: normal;
         margin-bottom: 0;
         letter-spacing: 0.1em;
+        
 
         @include mq("lg") {
           font-size: 50px;
@@ -309,6 +326,10 @@
 
     }
     &__message {
+      margin-inline: 20px;
+      @include mq("lg") {
+        margin-inline: 0px;
+      }
       strong {
         display: block;
         font-size: 26px;
@@ -323,9 +344,12 @@
       }
     }
     &__block {
+      margin-inline: 20px;
+
       @include mq("lg") {
         display: flex;
         gap: 60px;
+        margin-inline: 0px;
       }
     }
     &__img {

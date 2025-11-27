@@ -346,3 +346,10 @@ legend {
 .pt-0 {
   padding-top: 0 !important;
 }
+
+.p-breadcrumb {
+  margin-inline: 20px !important;
+  @include mq("lg") {
+
+  }
+}
