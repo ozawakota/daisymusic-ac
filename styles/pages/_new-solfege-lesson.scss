@@ -16,8 +16,10 @@
   .voice {
     position: relative;
     margin-top: 40px;
+    margin-inline: 20px;
     @include mq("lg") {
       margin-top: 60px;
+      margin-inline: 0;
     }
     &-swiper {
       padding-top: 40px;
@@ -96,7 +98,8 @@
 
   // コース
   .course {
-    margin-bottom: 20px;
+    margin-block: 20px;
+    margin-inline: 20px;
     @include mq("lg") {
       margin-top: 40px;
     }
@@ -105,7 +108,7 @@
         font-size: 26px;
         border-left: none;
         padding-left: 0;
-        margin-bottom: 20;
+        margin-block: 20px;
         text-align: center;
         font-family: $accent-font;
         
@@ -118,7 +121,10 @@
         }
       }
       p {
-        text-align: center;
+        font-size: 14px;
+        @include mq("lg") {
+          text-align: center;
+        }
       }
     }
     &-step {
@@ -295,12 +301,16 @@
 
   .other {
     margin-block:80px;
+    margin-inline: 20px;
     @include mq("lg") {
 
     }
     p {
-      text-align: center;
+      
       font-size: 14px;
+      @include mq("lg") {
+        text-align: center;
+      }
     }
     .-img {
       margin-block: 20px;

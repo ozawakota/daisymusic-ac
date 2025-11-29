@@ -137,9 +137,9 @@
      </div><!-- .course -->
      <div class="other">
       <p>
-      ソルフェージュを知ることは、先生自身の感性がもう一度、花ひらくこと。<br><br>
+      ソルフェージュを知ることは、<br class="is-sp">先生自身の感性がもう一度、花ひらくこと。<br><br>
       生徒を導くその手の中に、音楽の未来があります。<br>
-      教えるたびに、自分も育つ。その喜びを、共に奏でていきましょう。
+      教えるたびに、自分も育つ。<br class="is-sp">その喜びを、共に奏でていきましょう。
       </p>
       <picture class="-img">
         <source srcset="<?= ASSET_URI . "/img/course-piano_pc.svg" ?>" media="(min-width: 960px)">

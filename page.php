@@ -24,6 +24,9 @@ else :
 				<?php if ( is_page("new-solfege-lesson") ) : ?>
 					<?php SWELL_Theme::get_parts( 'inc/static/page-new-solfege-lesson' ); ?>
 				<?php endif; ?>
+				<?php if ( is_page("piano-lesson") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-piano-lesson' ); ?>
+				<?php endif; ?>
 
 				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>

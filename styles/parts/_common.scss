@@ -406,3 +406,7 @@ legend {
     display: contents !important;
   }
 }
+
+.l-topTitleArea.c-filterLayer::before {
+  background-color: transparent;
+}
