@@ -1,0 +1,113 @@
+/*
+ * index.htmlページ用スタイル
+ */
+
+ @use "../globals" as *;
+ @use "../parts/fonts" as *;
+ @use "../parts/common" as *;
+
+
+
+[data-page="piano-lesson"] {
+  .piano-lesson{
+    &__inner {
+      margin-inline: 20px;
+      @include mq("lg") {
+        margin-inline: 0;
+      }
+    
+    }
+    &__lead {
+      .-title {
+        width: min(100%, 298px);
+        margin-inline: auto;
+        @include mq("lg") {
+          width: min(100%, 402px);
+        }
+      }
+      .-body {
+        margin-top: 20px;
+        width: min(100%, 335px);
+        margin-inline: auto;
+        @include mq("lg") {
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
+          margin-inline: auto;
+  
+        }
+      }
+    }
+    &__message {
+      
+      .-title {
+        background-color: transparent;
+        padding: 0;
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 0;
+        @include mq("lg") {
+          font-size: 38px;
+        }
+        &:before {
+          border: none;
+        }
+        span {
+          color: $c-main;
+        }
+      }
+      .-text {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 14px;
+        margin-bottom: 48px;
+        @include mq("lg") {
+          margin-top: 48px;
+        }
+      }
+      .-item {
+        position: relative;
+        display: flex;
+        width: min(100%, 335px);
+        margin-inline: auto;
+        justify-content: center;
+        @include mq("lg") {
+          width: 100%;
+        }
+        + .-item {
+          margin-top: 20px;
+          @include mq("lg") {
+            margin-top: 10px;
+          }
+        }
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          bottom: -15px;
+          right: -12px;
+          width: 43px;
+          height: 37px;
+          background: var(--bg-url) no-repeat center center / contain;
+          @include mq("lg") {
+            display: none;
+          }
+        }
+        &:nth-child(even) {
+          &::after {
+            left: -12px;
+            right: unset;
+          }
+        }
+        .-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
