@@ -21,8 +21,12 @@ if ( ! function_exists( 'swl_parts__page_title' ) ) :
 			return;
 		}
 
-		// 先にエスケープ
-		$title = wp_kses( $title, SWELL::$allowed_text_html );
+		// 先にエスケープ（<br>タグを許可）
+		$allowed_html = SWELL::$allowed_text_html;
+		$allowed_html['br'] = array(
+			'class' => array(),
+		);
+		$title = wp_kses( $title, $allowed_html );
 
 		$title_style = '';
 		if ( $has_inner ) {

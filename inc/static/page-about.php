@@ -121,9 +121,9 @@
  </div>
 </div>
 <div class="post_content mb-0">
- <div class="swell-block-fullWide alignfull pt-0 about-other" data-bg="<?= ASSET_URI . "/img/about_other_bg.svg" ?>">
-  <div class="swell-block-fullWide__inner l-article">
-  <div class="about-other__meta">
+  <div class="swell-block-fullWide alignfull pt-0 about-other" data-bg="<?= ASSET_URI . "/img/about_other_bg.svg" ?>">
+    <div class="swell-block-fullWide__inner l-article">
+      <div class="about-other__meta">
         <h2 class="-title is-style-section_ttl has-text-align-left">
           <span>HISTORY</span>
         </h2>
@@ -150,7 +150,6 @@
         </div>
       </div>
       <!-- about-other__block -->
-
+    </div>
   </div>
- </div>
 </div>

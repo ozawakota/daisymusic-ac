@@ -37,6 +37,13 @@ add_filter('body_class', 'my_body_class');
 
 }, 11);
 
+/**
+ * メニュータイトルから[br]と[spbr]を削除
+ */
+add_filter('nav_menu_item_title', function($title, $item, $args, $depth) {
+	return str_replace(array('[br]', '[spbr]'), '', $title);
+}, 10, 4);
+
 if(!is_admin()) {
     function remove_lazyblocks_div(){
       $args = array(

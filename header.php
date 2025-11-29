@@ -62,7 +62,7 @@
 	if ( 'top' === $SETTING['pos_breadcrumb'] ) SWELL_Theme::get_parts( 'parts/breadcrumb' );
 
 ?>
-<div id="content" class="l-content l-container" <?php SWELL_Theme::content_attrs(); ?>>
+<div id="content" class="l-content l-container" <?php SWELL_Theme::content_attrs(); ?> data-page="<?= get_data_page_slug(); ?>">
 <?php
 	// ピックアップバナー
 	if ( SWELL_Theme::is_show_pickup_banner() ) {

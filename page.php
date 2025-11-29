@@ -21,6 +21,9 @@ else :
 				<?php if ( is_page("contact") ) : ?>
 					<?php // SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
 				<?php endif; ?>
+				<?php if ( is_page("new-solfege-lesson") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-new-solfege-lesson' ); ?>
+				<?php endif; ?>
 
 				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>

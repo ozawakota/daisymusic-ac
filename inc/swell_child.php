@@ -22,8 +22,23 @@ function get_data_page_type() {
     // } elseif (is_404()) {
     //     return '404';
     } else {
-        return '404';
+        return '';
     }
+}
+
+
+/**
+ * 固定ページのスラッグを取得
+ * data-page-slug属性などに使用
+ *
+ * @return string 固定ページのスラッグ、または空文字列
+ */
+function get_data_page_slug() {
+    if (is_page()) {
+        global $post;
+        return $post->post_name;
+    }
+    return '';
 }
 
 /**
