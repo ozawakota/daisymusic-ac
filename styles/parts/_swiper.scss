@@ -4,9 +4,16 @@
 @use "fonts" as *;
 
 
+.swiper-wrapper {
+ // overflow-x: hidden;
+}
+
 .swiper-button-next, .swiper-button-prev {
  width: 40px;
  height: 40px;
+ &:hover {
+  opacity: 0.8;
+ }
 }
 
 .swiper-button-prev {
@@ -14,8 +21,9 @@
  &:after {
   display: none;
  }
+ left: -20px;
  @include mq("lg") {
-  left: -40px;
+  left: -60px;
  }
 }
 .swiper-button-next {
@@ -23,8 +31,9 @@
  &:after {
   display: none;
  }
+ right: -20px;
  @include mq("lg") {
-  right: -40px;
+  right: -60px;
  }
 
 

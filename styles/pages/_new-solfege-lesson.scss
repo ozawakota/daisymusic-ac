@@ -9,10 +9,20 @@
 
 
 [data-page="new-solfege-lesson"] {
+    margin-bottom: 20px;
+  @include mq("lg") {
+    margin-bottom: 0;
+  }
   .voice {
-    overflow-x: hidden;
+    position: relative;
+    margin-top: 40px;
+    @include mq("lg") {
+      margin-top: 60px;
+    }
     &-swiper {
       padding-top: 40px;
+      
+      overflow-x: hidden;
     }
 
     &-inner {
@@ -80,6 +90,228 @@
         .-text {
           font-size: 14px;
         }
+      }
+    }
+  }
+
+  // コース
+  .course {
+    margin-bottom: 20px;
+    @include mq("lg") {
+      margin-top: 40px;
+    }
+    &-lead {
+      h4 {
+        font-size: 26px;
+        border-left: none;
+        padding-left: 0;
+        margin-bottom: 20;
+        text-align: center;
+        font-family: $accent-font;
+        
+        @include mq("lg") {
+          font-size: 38px;
+          margin-bottom: 40px;
+        }
+        span {
+          color: $c-main;
+        }
+      }
+      p {
+        text-align: center;
+      }
+    }
+    &-step {
+      margin-top: 20px;
+      @include mq("lg") {
+        margin-top: 80px;
+      }
+      .-box {
+        padding: 20px 20px 30px;
+        position: relative;
+        &:after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          bottom: -48px;
+          z-index: 1;
+          left: 0;
+          width: 100%;
+          height: 48px;
+          background-color: red;
+          clip-path: polygon(0 0, 50% 100%, 100% 0);
+          @include mq("lg") {
+            height: 30px;
+            bottom: -30px;
+          }
+        }
+        @include mq("lg") {
+          padding: 60px 60px 40px;
+          display: grid;
+          align-items: flex-start;
+          grid-template-areas:
+          "type img"
+          "message img"
+          "text img"
+          "btn img";
+          column-gap: 55px;
+
+        }
+        &.-basic {
+          background-color: #FFFAF4;
+
+          &:after {
+            background-color: #FFFAF4;
+          }
+        }
+        &.-advance {
+          background-color: #FFF4E8;
+          padding-top: calc(48px + 22px);
+          @include mq("lg") {
+            padding-top: calc(30px + 30px);
+
+          }
+          &:after {
+            background-color: #FFF4E8;
+          }
+        }
+        &.-master {
+          background-color: #FFEDDB;
+          padding-top: calc(48px + 22px);
+          @include mq("lg") {
+            padding-top: calc(30px + 30px);
+          }
+          &:after {
+            background-color: #FFEDDB;
+            display: none;
+          }
+        }
+
+        .-type {
+          grid-area: type;
+          font-size: 32px;
+          color: $c-main;
+          text-align: center;
+          font-family: $accent-en-font;
+          @include mq("lg") {
+            text-align: left;
+          }
+        }
+        .-message {
+          grid-area: message;
+          font-weight: 700;
+          font-size: 26px;
+          font-family: $accent-font;
+          line-height: 1.3;
+          text-align: center;
+          margin-bottom: 36px;
+          @include mq("lg") {
+            text-align: left;
+          }
+          &:has(.-label) {
+            margin-bottom: 20px;
+          }
+          strong {
+            position: relative;
+            display: block;
+            @include mq("lg") {
+              text-align: left;
+            }
+            &:after {
+              content: "";
+              display: inline-block;
+              height: 1px;
+              background-color: $c-main;
+              width: 200px;
+              position: absolute;
+              bottom: -16px;
+              left: 50%;
+              transform: translateX(-50%);
+              @include mq("lg") {
+                transform: translateX(0);
+                left: 0;
+              }
+            }
+          }
+          .-label {
+            background-color: $c-main;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 32px;
+            font-weight: bold;
+            line-height: 25px;
+            font-family: $accent-en-font;
+            @include mq("lg") {
+
+            }
+          }
+        }
+        .-text {
+          grid-area: text;
+          margin-top: 20px;
+          font-size: 14px;
+          @include mq("lg") {
+            margin-top: 0;
+          }
+        }
+        .-btn {
+          grid-area: btn;
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          a {
+            height: 53px;
+            width: 295px;
+  
+          }
+          @include mq("lg") {
+            display: block;
+            a {
+              width: 277px;
+              
+            }
+          }
+        }
+        .-img {
+          grid-area: img;
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          @include mq("lg") {
+            margin-top: 46px;
+          }
+          img {
+            width: 220px;
+            border-radius: 50%;
+          }
+        }
+
+      }
+    }
+  }
+
+  .other {
+    margin-block:80px;
+    @include mq("lg") {
+
+    }
+    p {
+      text-align: center;
+      font-size: 14px;
+    }
+    .-img {
+      margin-block: 20px;
+      display: flex;
+      justify-content: center;
+      margin-left: -180px;
+      @include mq("lg") {
+        display: block;
+        margin-top: 160px;
+        width: 825px;
+        margin-left: 300px;
       }
     }
   }
