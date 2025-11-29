@@ -56,8 +56,8 @@
           </div>
         </div>
        </div>
-       <div class="swiper-button-prev"></div>
-       <div class="swiper-button-next"></div>
+       <div class="swiper-button-prev" data-bg="<?= ASSET_URI . "/img/swiper-left.svg" ?>"></div>
+       <div class="swiper-button-next" data-bg="<?= ASSET_URI . "/img/swiper-right.svg" ?>"></div>
       </div><!-- .voice-swiper -->
      </div>
      <div class="c-pageSubTitle">

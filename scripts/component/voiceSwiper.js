@@ -85,12 +85,12 @@ function _initSwiper() {
         // 768px以上
         768: {
           slidesPerView: 1.5,
-          spaceBetween: 30,
+          spaceBetween: 20,
         },
         // 1024px以上
         1024: {
           slidesPerView: 2,
-          spaceBetween: 40,
+          spaceBetween: 20,
         },
       }
     });

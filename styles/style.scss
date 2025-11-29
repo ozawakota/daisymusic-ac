@@ -6,7 +6,8 @@
 @use "./parts/main";         // メイン用スタイル
 @use "./parts/menu";            // メニュー用スタイル
 @use "./parts/fonts";           // サイト内のフォントサイズ用スタイル
-@use "./parts/forms";           // サイト内のフォントサイズ用スタイル
+@use "./parts/forms";           // サイト内のフォーム用スタイル
+@use "./parts/swiper";           // サイト内のスライダー用スタイル
 
 // 各ページの読み込み
 @use "./pages/home";

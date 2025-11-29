@@ -1,6 +1,6 @@
 import {   utils, config, INode } from "#/helper";
 import bgSrc from "./component/bgSrc";
-import swiper from "./component/swiper";
+import voiceSwiper from "./component/voiceSwiper";
 
 window.debug = enableDebugMode(1);
 
@@ -13,7 +13,7 @@ export async function init() {
   try {
 
     bgSrc.init();
-    swiper.init();
+    voiceSwiper.init();
 
     // メモリサイズ
     console.log(performance.memory);

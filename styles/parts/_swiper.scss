@@ -1,0 +1,31 @@
+@use "sass:math";
+@use "../globals" as *;
+@use "general";
+@use "fonts" as *;
+
+
+.swiper-button-next, .swiper-button-prev {
+ width: 40px;
+ height: 40px;
+}
+
+.swiper-button-prev {
+ background: var(--bg-url) no-repeat center center / contain !important;
+ &:after {
+  display: none;
+ }
+ @include mq("lg") {
+  left: -40px;
+ }
+}
+.swiper-button-next {
+ background: var(--bg-url) no-repeat center center / contain !important;
+ &:after {
+  display: none;
+ }
+ @include mq("lg") {
+  right: -40px;
+ }
+
+
+}

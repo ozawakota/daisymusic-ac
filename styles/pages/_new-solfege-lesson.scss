@@ -10,10 +10,9 @@
 
 [data-page="new-solfege-lesson"] {
   .voice {
+    overflow-x: hidden;
     &-swiper {
-      position: relative;
-      padding: 0 60px; // ナビゲーションボタンのスペース
-
+      padding-top: 40px;
     }
 
     &-inner {
@@ -24,7 +23,11 @@
       background-color: white;
       position: relative;
       border-radius: 20px;
-      padding: 30px 12px;
+      padding: 30px 20px;
+      @include mq("lg") {
+        padding: 30px 12px;
+      }
+
       .-info {
         margin-bottom: 20px;
 
