@@ -7,9 +7,79 @@
  @use "../parts/common" as *;
 
 
-.new-solfege-lesson {
-}
 
 [data-page="new-solfege-lesson"] {
+  .voice {
+    &-swiper {
+      position: relative;
+      padding: 0 60px; // ナビゲーションボタンのスペース
+
+    }
+
+    &-inner {
+
+    }
+    &-lists {}
+    &-item {
+      background-color: white;
+      position: relative;
+      border-radius: 20px;
+      padding: 30px 12px;
+      .-info {
+        margin-bottom: 20px;
+
+        .-img {
+          position: absolute;
+          right: 0;
+          top: -38px;
+          border-radius: 50%;
+          padding: 13px;
+          background-color: white;
+          img {
+            width: 95px;
+            border-radius: 50%;
+          }
+        }
+        .-grade {
+          span {
+            border-radius: 30px;
+            line-height: 22px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            padding-inline: 12px;
+            background-color: $c-main;
+            padding-block: 2px;
+          }
+        }
+        .-place {
+          font-size: 12px;
+          color: $c-main;
+          margin-top: 4px;
+        }
+        .-name {
+          font-size: 16px;
+          color: $c-main;
+          font-weight: bold;
+          margin-top: 4px;
+          font-family: $accent-font;
+        }
+
+      }
+      .-body {
+        .-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-family: $accent-font;
+        }
+        .-text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
 
 }

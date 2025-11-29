@@ -94,14 +94,8 @@ h3 {
 }
 h2 {
   line-height: 1.5;
-  font-size: 30px !important;
-  @include mq("lg") {
-    font-size: 38px !important;
-  }
-  span {
-    
-  }
 }
+
 table {
   border-collapse: collapse;
 }
@@ -364,5 +358,31 @@ legend {
   margin-inline: 20px !important;
   @include mq("lg") {
 
+  }
+}
+
+.c-pageSubTitle {
+  text-align: center;
+  h3 {
+    font-size: 40px;
+    color: $c-main !important;
+    margin-bottom: 0;
+    font-family: $accent-en-font;
+    font-weight: 400;
+    padding: 0;
+    @include mq("lg") {
+      font-size: 50px;
+    }
+    &::before {
+      display: none;
+    }
+  }
+  p {
+    font-size: 18px;
+    font-family: $accent-font;
+    font-weight: 700;
+    @include mq("lg") {
+      font-size: 38px;
+    }
   }
 }
