@@ -39,7 +39,7 @@ function _initSwiper() {
   let attempts = 0;
   const maxAttempts = 50;
 
-  const initializeSwiper = () => {
+  const initializeSwiper2 = () => {
     attempts++;
 
     if (typeof window.Swiper === 'undefined') {
@@ -48,7 +48,7 @@ function _initSwiper() {
         return;
       }
       // Swiperがまだ読み込まれていない場合は少し待つ
-      setTimeout(initializeSwiper, 100);
+      setTimeout(initializeSwiper2, 100);
       return;
     }
 
@@ -98,7 +98,7 @@ function _initSwiper() {
     console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
   };
 
-  initializeSwiper();
+  initializeSwiper2();
 }
 
 export default swiper;

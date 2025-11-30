@@ -395,16 +395,16 @@
   }
 
   .swiper-button-prev {
-    left: -22px;
+    left: -32px;
     @include mq("lg") {
-      left: -44px;
+      left: -64px;
     }
   }
 
   .swiper-button-next {
-    right: -22px;
+    right: -32px;
     @include mq("lg") {
-      right: -44px;
+      right: -64px;
     }
   }
 }

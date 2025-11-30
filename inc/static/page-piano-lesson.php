@@ -135,10 +135,6 @@
                   <div class="cost-step__item -title">
                     <h3>リトミック・<br>ソルフェージュコース</h3>
                   </div>
-                  <!-- <div class="cost-step__item -text">
-                    <p>※発表会・ミニコンサート等レッスン回数に含みます。<br>
-                    ［追加単発レッスン］受験両立・コンサート対応等 30分/3,500円～ 対応します。</p>
-                  </div> -->
                 </div>
                 <div class="cost-step__col">
                   <div class="cost-step__item -table">
@@ -152,11 +148,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="cost-step__btn">
-                <a href="" class="c-btn -arrowRight -line -green">
-                  <span>体験レッスンに申し込む</span>
-                </a>
-              </div> -->
             </div>
             <!-- 03 -->
             <div class="cost-step">
@@ -166,10 +157,6 @@
                   <div class="cost-step__item -title">
                     <h3>ソルフェージュレッスン<br>（単発）</h3>
                   </div>
-                  <!-- <div class="cost-step__item -text">
-                    <p>※発表会・ミニコンサート等レッスン回数に含みます。<br>
-                    ［追加単発レッスン］受験両立・コンサート対応等 30分/3,500円～ 対応します。</p>
-                  </div> -->
                 </div>
                 <div class="cost-step__col">
                   <div class="cost-step__item -table">
@@ -199,11 +186,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="cost-step__btn">
-                <a href="" class="c-btn -arrowRight -line -green">
-                  <span>体験レッスンに申し込む</span>
-                </a>
-              </div> -->
             </div>
             <!-- 04 -->
             <div class="cost-step">
