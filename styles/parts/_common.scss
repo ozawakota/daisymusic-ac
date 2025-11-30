@@ -276,6 +276,10 @@ legend {
   grid-template-rows: subgrid;
 }
 
+.c-text-center {
+  text-align: center;
+}
+
 
 .c-table {
   width: 100%;
@@ -398,6 +402,17 @@ legend {
     @include mq("lg") {
       font-size: 38px;
     }
+    strong {
+      font-size: 25px;
+      @include mq("lg") {
+        font-size: 64px;
+      }
+    }
+  }
+}
+.c-pageNote {
+  p {
+    font-size: 14px;
   }
 }
 

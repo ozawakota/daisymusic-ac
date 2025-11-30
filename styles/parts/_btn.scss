@@ -210,6 +210,26 @@
       color: var(--c-main);
     }
   }
+  &.-line {
+    &:before {
+      display: block;
+      content: "";
+      @include icon_line();
+      width: 21px;
+      height: 19px;
+      margin-right: 8px;
+    }
+  }
+  &.-green{
+    background-color: #2AA467;
+    &:after{
+      @include icon_arrow(fff);
+    }
+    span{
+      color: var(--c-white);
+    }
+  }
+
 }
 .btn-login, .btn-email, .btn-normal {
   height: 56px;
