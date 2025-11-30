@@ -125,6 +125,8 @@
       padding-block: 60px;
       @include mq("lg") {
         padding-block: 100px;
+        max-width: 1048px;
+        margin-inline: auto;
       }
 
       .cost-step {
@@ -149,12 +151,11 @@
           align-items: center;
           @include mq("lg") {
             flex-direction: row;
-            align-items: flex-start;
-            gap: fluid-text(20px, 95px) ;
+            align-items: center;
+            gap: fluid-text(20px, 20px) ;
             justify-content: space-between;
           }
-        
-         
+
         }
         &__col {
           width: 100%;
@@ -174,6 +175,7 @@
               margin-top: -16px;
               width: 75px;
               height: 69px;
+              margin-left: 0;
 
             }
             &:before {
@@ -198,6 +200,9 @@
               padding-inline: 0;
               position: relative;
               text-align: center;
+              @include mq("lg") {
+                text-align: left;
+              }
               &:after {
                 content: "";
                 display: block;
@@ -241,7 +246,40 @@
               font-size: 14px;
             }
           }
-          &.-table {}
+          &.-table {
+            table {
+              border-collapse: separate;
+              border-spacing: 2px;
+              tr {
+                th {
+                  background-color: $c-main;
+                  color: white;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  border: 2px solid transparent;
+                  text-align: left;
+                  min-width: 70px;
+                  @include mq("lg") {
+                    white-space: nowrap;
+                  }
+
+                  + td {
+                    white-space: nowrap;
+                  }
+                }
+                td {
+                  color: $c-sub;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  background-color: white;
+                  border: 2px solid transparent;
+                  span {
+                    color: $c-main;
+                  }
+                }
+              }
+            }
+          }
         }
         &__btn {
           text-align: center;
@@ -251,6 +289,122 @@
           }
         }
       }
+    }
+    &__voice {
+      padding-block: 60px;
+      @include mq("lg") {
+        padding-block: 100px;
+      }
+    }
+  }
+
+  // 生徒さんの声セクション
+  .s-voice {
+    position: relative;
+    margin-top: 40px;
+    margin-inline: 20px;
+    @include mq("lg") {
+      margin-top: 60px;
+      margin-inline: 0;
+    }
+    &-swiper {
+      padding-top: 40px;
+      overflow-x: hidden;
+    }
+
+    &-item {
+      background-color: white;
+      position: relative;
+      border-radius: 20px;
+      padding: 30px 20px;
+      @include mq("lg") {
+        padding: 30px 12px;
+      }
+
+      .-info {
+        margin-bottom: 20px;
+
+        .-img {
+          position: absolute;
+          right: 0;
+          top: -38px;
+          border-radius: 50%;
+          padding: 13px;
+          background-color: white;
+          img {
+            width: 95px;
+            border-radius: 50%;
+          }
+        }
+        .-grade {
+          span {
+            border-radius: 30px;
+            line-height: 22px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            padding-inline: 12px;
+            background-color: $c-main;
+            padding-block: 2px;
+          }
+        }
+        .-place {
+          font-size: 12px;
+          color: $c-main;
+          margin-top: 4px;
+        }
+        .-name {
+          font-size: 16px;
+          color: $c-main;
+          font-weight: bold;
+          margin-top: 4px;
+          font-family: $accent-font;
+        }
+      }
+      .-body {
+        .-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-family: $accent-font;
+        }
+        .-text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  // Swiperナビゲーションボタン
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: var(--bg-url) no-repeat center center / contain;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    
+    &::after {
+      display: none; // デフォルトのSwiperアイコンを非表示
+    }
+  }
+
+  .swiper-button-prev {
+    left: -22px;
+    @include mq("lg") {
+      left: -44px;
+    }
+  }
+
+  .swiper-button-next {
+    right: -22px;
+    @include mq("lg") {
+      right: -44px;
     }
   }
 }
