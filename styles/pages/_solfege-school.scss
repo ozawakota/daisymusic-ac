@@ -1,0 +1,16 @@
+/*
+ * index.htmlページ用スタイル
+ */
+
+ @use "../globals" as *;
+ @use "../parts/fonts" as *;
+ @use "../parts/common" as *;
+
+
+
+[data-page="solfege"] {
+    margin-bottom: 20px;
+  @include mq("lg") {
+    margin-bottom: 0;
+  }
+}

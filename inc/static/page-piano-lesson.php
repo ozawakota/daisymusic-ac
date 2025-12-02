@@ -374,7 +374,6 @@
           <div class="-bnr">
             <img src="<?= ASSET_URI . "/img/piano-lesson/bnr01.png" ?>" alt="">
             <img src="<?= ASSET_URI . "/img/piano-lesson/bnr02.png" ?>" alt="">
-
           </div>
         </div>
       </div><!-- .piano-lesson__info -->
