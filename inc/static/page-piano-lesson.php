@@ -234,7 +234,7 @@
 </div>
 
 <!-- 生徒さんの声 -->
-<div class="post_content mb-0">
+<div class="post_content mb-0 mt-0">
   <div class="swell-block-fullWide alignfull">
     <div class="swell-block-fullWide__inner l-article">
       <div class="piano-lesson__voice">
@@ -252,15 +252,24 @@
                     <span class="-img">
                       <img src="https://placehold.jp/95x95.png" alt="" srcset="">
                     </span>
-                    <div class="-grade">
-                      <span>1期生</span>
+                    <div class="-meta">
+                      <div class="-grade">
+                        <span>1期生</span>
+                      </div>
+                      <p class="-place">神奈川県 tuttiピアノ教室</p>
+                      <p class="-name">福田早苗先生</p>
                     </div>
-                    <p class="-place">神奈川県 tuttiピアノ教室</p>
-                    <p class="-name">福田早苗先生</p>
+                    <div class="-meta">
+                      <div class="-grade">
+                        <span>1期生</span>
+                      </div>
+                      <p class="-place">神奈川県 tuttiピアノ教室</p>
+                      <p class="-name">福田早苗先生</p>
+                    </div>
                   </div>
                   <!-- .-info -->
                   <div class="-body">
-                    <p class="-title">楽譜の景色がみるみる変わっていくのは本当に衝撃的でした。</p>
+                    <!-- <p class="-title">楽譜の景色がみるみる変わっていくのは本当に衝撃的でした。</p> -->
                     <p class="-text">
                     「本物だ！」と直感で感じました。①確かな根拠と工夫された指導②音楽教育と子ども達への熱い想いと誠実で温かいお人柄これらに惹かれて、ベーシック、アドバンスと受講致しました。ベーシックでは根っことなる理論を学びつつ、様々な角度からスモールステップを組み立ててアプローチしていく方法は、どれも子どもの目線に立った「楽しく」をモットーとした実践的な指導法でした。アドバンスでは更にレベルアップした指導法に加え、私達指導者のこれからの未来を指導の方向性を考える貴重な機会と愛ある後押しをして下さいました。
                     正解が一つではない音楽に対して、どう楽譜を解釈して音楽表現していくか、時に迷う事は多々あります。それを裏付けるのがソルフェージュなのですが、みか先生の指導法では、子どもに「分かりやすい言葉」で、いかに子どもの「心が動く」やり方で育てていくかが示され、本当に衝撃的でした。音楽の鍵となる骨組みが見えるので、楽譜の景色がみるみる変わっていくのです。
@@ -268,6 +277,12 @@
                     学ぶことは人格も含めて誰に教わるかが重要！やはりみか先生の講座に飛び込んだ事は正解だと感じてます。
                     同じ講座生の先生方も本当に素敵な方々で、温かいチームと共に学び成長しあえた事は宝物の時間となりました。良縁で人生が変わる。みか先生とチームの先生方に出会えて本当に感謝でいっぱいです。
                     </p>
+                    <div class="-teacher-message">
+                      <p class="-obi" data-bg="<?= ASSET_URI . "/img/piano-lesson/s-voice-swiper_person.png" ?>">未佳先生からのメッセージ</p>
+                      <p class="-comment">
+                      年中さんから来てくれたYちゃん。おっとり女の子らしい雰囲気からは想像つかないほど、リズムカルでかっこいい曲が大好き♡ご家庭のサポートも素晴らしく、着々と力を伸ばしてきました。曲の世界観を理解するのが得意で、これからの成長がとっても楽しみです。妹のKちゃんもお姉ちゃんに続いて年中さんになった春から仲間入り♪発表会では二人が仲良く連弾する姿が素敵でしたよ。これからも一緒に音楽の世界を旅しましょう！
+                      </p>
+                    </div>
                   </div>
                 </div><!-- .swiper-slide -->
                 <div class="s-voice-item swiper-slide">
@@ -283,7 +298,7 @@
                   </div>
                   <!-- .-info -->
                   <div class="-body">
-                    <p class="-title">楽譜の景色がみるみる変わっていくのは本当に衝撃的でした。</p>
+                    <!-- <p class="-title">楽譜の景色がみるみる変わっていくのは本当に衝撃的でした。</p> -->
                     <p class="-text">
                     「本物だ！」と直感で感じました。①確かな根拠と工夫された指導②音楽教育と子ども達への熱い想いと誠実で温かいお人柄これらに惹かれて、ベーシック、アドバンスと受講致しました。ベーシックでは根っことなる理論を学びつつ、様々な角度からスモールステップを組み立ててアプローチしていく方法は、どれも子どもの目線に立った「楽しく」をモットーとした実践的な指導法でした。アドバンスでは更にレベルアップした指導法に加え、私達指導者のこれからの未来を指導の方向性を考える貴重な機会と愛ある後押しをして下さいました。
                     正解が一つではない音楽に対して、どう楽譜を解釈して音楽表現していくか、時に迷う事は多々あります。それを裏付けるのがソルフェージュなのですが、みか先生の指導法では、子どもに「分かりやすい言葉」で、いかに子どもの「心が動く」やり方で育てていくかが示され、本当に衝撃的でした。音楽の鍵となる骨組みが見えるので、楽譜の景色がみるみる変わっていくのです。
@@ -299,10 +314,70 @@
             <div class="swiper-button-prev" data-bg="<?= ASSET_URI . "/img/swiper-left.svg" ?>"></div>
             <div class="swiper-button-next" data-bg="<?= ASSET_URI . "/img/swiper-right.svg" ?>"></div>
           </div><!-- .s-voice -->
-
+          <div class="piano-lesson__voice--btn">
+            <a href="" class="c-btn -arrowRight -line -green">
+                <span>体験レッスンに申し込む</span>
+            </a>
+          </div>
 
         </div>
       </div><!-- .piano-lesson__voice -->
+    </div>
+  </div>
+</div>
+
+<!-- 教室情報 -->
+<div class="post_content mb-0">
+  <div class="swell-block-fullWide alignfull" style="background:#FFF;">
+    <div class="swell-block-fullWide__inner l-article">
+      <div class="piano-lesson__info">
+        <div class="piano-lesson__inner">
+          <div class="c-pageSubTitle">
+            <h3>CLASS</h3>
+            <p>教室情報</p>
+          </div>
+
+          <div class="-body">
+            <table class="-table">
+              <tr>
+                <th>教室名</th>
+                <td>
+                  <span>Daisy Music Academy</span><br>
+                  （ひなぎくぴあのぐるーぷ<br>
+                  桜台教室）
+                </td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td>
+                  練馬区桜台<br>
+                （武蔵野音大第一幼稚園周辺）
+                </td>
+              </tr>
+              <tr>
+                <th>講師</th>
+                <td>
+                  Daisy Music Academy代表<br>
+                  尾島 未佳
+                </td>
+              </tr>
+            </table>
+            <div class="-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6476.56863205587!2d139.65752234360005!3d35.743815990267954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018ed105bc745ad%3A0x45edbe98493d5194!2z5pel5pys44CB44CSMTc2LTAwMDIg5p2x5Lqs6YO957e06aas5Yy65qGc5Y-w!5e0!3m2!1sja!2sus!4v1720595085213!5m2!1sja!2sus" width="480" height="323" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="-btn">
+            <a href="" class="c-btn -arrowRight">
+              <span>お問い合わせはこちら</span>
+            </a>
+          </div>
+          <div class="-bnr">
+            <img src="<?= ASSET_URI . "/img/piano-lesson/bnr01.png" ?>" alt="">
+            <img src="<?= ASSET_URI . "/img/piano-lesson/bnr02.png" ?>" alt="">
+
+          </div>
+        </div>
+      </div><!-- .piano-lesson__info -->
     </div>
   </div>
 </div>

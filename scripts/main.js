@@ -16,17 +16,17 @@ export async function init() {
     bgSrc.init();
     
     // ページに応じてSwiperを初期化
-    const isNewSolfegeLesson = document.querySelector('[data-page="new-solfege-lesson"]');
+    const isNewSolfegeLesson = document.querySelector('[data-page="solfege-seminar"]');
     const isPianoLesson = document.querySelector('[data-page="piano-lesson"]');
     
     if (isNewSolfegeLesson) {
-      console.log('新ソルフェージュページ: voiceSwiperを初期化');
+      // console.log('新ソルフェージュページ: voiceSwiperを初期化');
       voiceSwiper.init();
     } else if (isPianoLesson) {
-      console.log('ピアノレッスンページ: voiceStudentSwiperを初期化');
+      // console.log('ピアノレッスンページ: voiceStudentSwiperを初期化');
       voiceStudentSwiper.init();
     } else {
-      console.log('対象ページではありません');
+      // console.log('対象ページではありません');
     }
 
     // メモリサイズ

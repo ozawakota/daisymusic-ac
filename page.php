@@ -21,8 +21,8 @@ else :
 				<?php if ( is_page("contact") ) : ?>
 					<?php // SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
 				<?php endif; ?>
-				<?php if ( is_page("new-solfege-lesson") ) : ?>
-					<?php SWELL_Theme::get_parts( 'inc/static/page-new-solfege-lesson' ); ?>
+				<?php if ( is_page("solfege-seminar") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-solfege-seminar' ); ?>
 				<?php endif; ?>
 				<?php if ( is_page("piano-lesson") ) : ?>
 					<?php SWELL_Theme::get_parts( 'inc/static/page-piano-lesson' ); ?>
