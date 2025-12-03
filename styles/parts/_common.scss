@@ -394,6 +394,9 @@ legend {
     &::before {
       display: none;
     }
+    small {
+      font-size: 22px;
+    }
   }
   p {
     font-size: 18px;
@@ -407,6 +410,9 @@ legend {
       @include mq("lg") {
         font-size: 64px;
       }
+    }
+    span {
+      color: $c-main;
     }
   }
 }

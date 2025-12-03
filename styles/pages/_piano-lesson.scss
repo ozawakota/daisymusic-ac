@@ -20,6 +20,7 @@
     }
     &__lead {
       .-title {
+        padding: 0;
         width: min(100%, 298px);
         margin-inline: auto;
         @include mq("lg") {
