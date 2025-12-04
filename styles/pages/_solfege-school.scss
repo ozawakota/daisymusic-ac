@@ -9,13 +9,16 @@
 
 
 [data-page="solfege-school"] {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   @include mq("lg") {
     margin-bottom: 0;
   }
 
   .solfege-school {
+    &.-bg2 {
+      background: var(--bg-url) no-repeat center center / cover;
 
+    }
     &__inner {
       margin-inline: 20px;
       @include mq("lg") {
@@ -138,14 +141,53 @@
       }
       .-step-wrap {
         margin-top: 60px;
+        counter-reset: listnum2;
       }
       .-step {
         padding: 30px 20px;
         background-color: #FFF4E8;
         border-radius: 20px;
+        position: relative;
         @include mq("lg") {
 
         }
+        & + .-step {
+          margin-top: 30px;
+        }
+        .-num {
+          position: absolute;
+          top:-30px;
+          left:0;
+          margin-bottom: 20px;
+          display: inline-block;
+          width: 75px;
+          height: 69px;
+          background: var(--bg-url) no-repeat center center / cover;
+          display: grid;
+          place-items: center;
+          margin-inline: auto;
+          @include mq("lg") {
+            margin-top: -16px;
+            width: 75px;
+            height: 69px;
+            margin-left: 0;
+
+          }
+          &:before {
+            counter-increment: listnum2;
+            content: "0" counter(listnum2);
+            font-size: 36px;
+            color: $c-main;
+            font-weight: 600;
+            line-height: 1.2;
+            font-family: $accent-font;
+            @include mq("lg") {
+              font-size: 36px;
+            }
+          }
+
+        }
+
         .-lead {
             .-text {
               text-align: center;
@@ -253,9 +295,10 @@
                 &:after {
                   content:"";
                   display: inline-block;
+                  margin-left: 5px;
                   width: 11px;
                   height: 11px;
-                  @include icon_arrow(715E4A);
+                  @include icon_arrow("715E4A");
                 }
               }
             }
@@ -278,18 +321,103 @@
             }
             p {
               font-size: 12px;
-            }
-            ul {
-              li {
-                display: flex;
-                &:before {
-                  content: "";
-                  display: inline-block;
+              &.text-sp-center {
+                text-align: center;
+                @include mq("lg") {
+                  text-align: left;
                 }
               }
             }
           }
         }
+        .-btn {
+          margin-top: 20px;
+          text-align: center;
+          .c-btn {
+            width: min(100%,295px);
+          }
+        }
+        ul {
+          padding-left: 0px;
+          margin-block: 20px;
+          li {
+            display: flex;
+            font-size:12px;
+            align-items: flex-start;
+            span {
+              font-weight: bold;
+            }
+          }
+          &.-hana {
+            li {
+              &:before {
+                content: "";
+                display: inline-block;
+                @include icon_hana();
+                width: 15px;
+                height: 14px;
+                margin-right: 5px;
+              }
+
+            }
+          }
+          &.-check {
+            li {
+              &:before {
+                content: "";
+                display: inline-block;
+                @include icon_check_mark();
+                width: 15px;
+                height: 14px;
+                margin-right: 5px;
+                margin-top: 2px;
+              }
+
+            }
+          }
+
+        }
+
+      }
+    }
+
+    &__recommend {
+
+      .-img {
+        width: min(100%, 335px);
+        margin-inline: auto;
+        display: block;
+        margin-top: 60px !important;
+      }
+
+      .-text {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        font-family: $accent-font;
+        margin-top: 60px !important;
+        span {
+          color: $c-main;
+        }
+      }
+
+      @include mq("lg") {
+      }
+    }
+
+    &__other {
+      padding-block: 60px;
+      .-message {
+        font-size: 30px;
+        font-family: $accent-font;
+        font-weight: bold;
+        span {
+          color: $c-main;
+        }
+      }
+      .-text {
+        font-size: 14px;
+        margin-top: 20px;
       }
     }
 
