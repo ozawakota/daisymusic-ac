@@ -46,7 +46,7 @@
                 ソルフェージュとは、音楽のことばを<br class="is-sp">
                 理解するための学びです。
               </span><br>
-              読譜・リズム・音感を身につけることで、<br>
+              読譜・リズム・音感を身につけることで、<br class="is-sp">
               演奏も、合唱も、アンサンブルもぐっと楽しくなります。
             </p>
             <picture class="-img">
@@ -93,7 +93,7 @@
                     <img src="<?= ASSET_URI . "/img/solfege-school/online-01.png" ?>" alt="">
                   </div>
                   <p class="-text">
-                    うたハノン®を中心に、「読譜・リズム・音感」を総合的に育てるオリジナルカリキュラム。
+                    うたハノン®を中心に、「読譜・リズム・音感」を<br class="is-pc">総合的に育てるオリジナルカリキュラム。
                   </p>
                 </div>
                 <div class="-type">
@@ -146,16 +146,19 @@
                 </div>
                 <div class="-body">
                   <div class="-img">
-                    <img src="<?= ASSET_URI . "/img/solfege-school/online-01.png" ?>" alt="">
+                    <img src="<?= ASSET_URI . "/img/solfege-school/online-02.png" ?>" alt="">
                   </div>
-                  <ul class="-check">
-                    <li>音を一緒に聴ける安心感</li>
-                    <li>体の動きでリズムを理解できる</li>
-                    <li>感覚的なやりとりが伝わりやすい</li>
-                  </ul>
-                  <p class="-text">
-                  対面ならではの魅力があります
-                  </p>
+                  <div class="-contents">
+
+                    <ul class="-check">
+                      <li>音を一緒に聴ける安心感</li>
+                      <li>体の動きでリズムを理解できる</li>
+                      <li>感覚的なやりとりが伝わりやすい</li>
+                    </ul>
+                    <p class="-text">
+                    対面ならではの魅力があります
+                    </p>
+                  </div>
                 </div>
               </div><!-- .-step -->
 
@@ -183,7 +186,7 @@
               <img src="<?= ASSET_URI . "/img/solfege-school/recommend-img_sp.png" ?>" alt="">
             </picture>
             <p class="-text">
-              <span>お子さま</span>から<span>大人</span>まで<br>どなたでも受講できます
+              <span>お子さま</span>から<span>大人</span>まで<br class="is-sp">どなたでも受講できます
             </p>
           </div><!-- .solfege-school__recommend -->
         </div>

@@ -32,6 +32,7 @@
       flex-direction: column;
       @include mq("lg") {
         flex-direction: row;
+        gap:20px;
       }
       .-content {
       }
@@ -39,6 +40,12 @@
         margin-top: 20px;
         width: 192px;
         margin-inline: auto;
+        @include mq("lg") {
+          margin-top: 0;
+          width: 446px;
+          margin-right: -30px;
+        }
+
       }
       .-title {
         background: transparent;
@@ -58,9 +65,15 @@
         }
         .-title-up {
           font-size: 20px;
+          @include mq("lg") {
+            font-size: 32px;
+          }
         }
         .-title-down {
           font-size: 32px;
+          @include mq("lg") {
+            font-size: 38px;
+          }
         }
 
         .-fukidashi {
@@ -79,12 +92,17 @@
         margin-top: 20px;
         @include mq("lg") {
           text-align: left;
+          margin-top: 40px;
         }
       }
       .-text {
         text-align: center;
         font-size: 14px;
         margin-top: 20px;
+        @include mq("lg") {
+          margin-top: 40px;
+          text-align: left;
+        }
       }
 
     }
@@ -95,6 +113,9 @@
         font-size: 14px;
         text-align: center;
         margin-bottom: 20px;
+        @include mq("lg") {
+          margin-top: 80px;
+        }
         span {
           font-weight: bold;
         }
@@ -103,6 +124,9 @@
         width: min(100%, 319px);
         margin-inline: auto;
         display: block;
+        @include mq("lg") {
+          width: 555px;
+        }
       }
       .-dot {
         margin-inline: auto;
@@ -136,13 +160,17 @@
         .-type {
           font-size: 32px;
           @include mq("lg") {
-
+            font-size: 38px;
           }
         }
       }
       .-step-wrap {
         margin-top: 60px;
         counter-reset: listnum2;
+        @include mq("lg") {
+          width:min(100% , 700px);
+          margin-inline: auto;
+        }
       }
       .-step {
         padding: 30px 20px;
@@ -150,7 +178,7 @@
         border-radius: 20px;
         position: relative;
         @include mq("lg") {
-
+          padding: 40px 30px;
         }
         & + .-step {
           margin-top: 30px;
@@ -224,6 +252,9 @@
               font-family: $accent-font;
               font-weight: bold;
               margin-top: 8px;
+              @include mq("lg") {
+                font-size: 32px;
+              }
             }
         }
         .-body {
@@ -231,25 +262,39 @@
           flex-direction: column;
           gap: 20px;
           @include mq("lg") {
-            flex-direction: row;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
           }
           .-img {
             width: min(100%, 201px);
             margin-inline: auto;
             margin-top: 20px !important;
+            @include mq("lg") {
+              margin-top: 0 !important;
+              width: min(100%, 245px);
+              margin: 0;
+            }
           }
           .-text {
             font-size: 14px;
+            @include mq("lg") {
+              margin-left: 20px;
+            }
           }
         }
         .-type {
           margin-top: 20px;
           display: flex;
           flex-direction: column;
+          @include mq("lg") {
+            margin-top: 40px;
+          }
           .-fukidashi {
             position: relative;
             display: inline-block;
-            margin: 1.5em auto;
+            margin: 0 auto 1.5em;
             padding: 7px 10px;
             min-width: 135px;
             max-width: 100%;
@@ -258,6 +303,9 @@
             background: #fff;
             border-radius: 60px;
             text-align: center;
+            @include mq("lg") {
+              margin-bottom: 30px;
+            }
             &:before {
               content: "";
               position: absolute;
@@ -275,6 +323,12 @@
             }
           }
           .-person {
+            @include mq("lg") {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 20px;
+            }
             .-box {
               display: flex;
               flex-direction: column;
@@ -293,6 +347,7 @@
                 font-weight: bold;
                 font-family: $base-font;
                 letter-spacing: 0.1em;
+                color: $c-sub;
                 &:after {
                   content:"";
                   display: inline-block;
@@ -314,14 +369,25 @@
             background-color: #fff;
             margin-top: 20px;
             padding: 16px 27px;
+            @include mq("lg") {
+              margin-top: 40px;
+              padding: 20px 40px;
+              width: min(100%, 424px);
+              margin-inline: auto;
+            }
+
             strong {
               text-align: center;
               display: block;
               font-size: 14px;
               font-weight: 700;
+              color: $c-sub;
             }
             p {
               font-size: 12px;
+              @include mq("lg") {
+                text-align: center;
+              }
               &.text-sp-center {
                 text-align: center;
                 @include mq("lg") {
@@ -334,19 +400,31 @@
         .-btn {
           margin-top: 20px;
           text-align: center;
+          @include mq("lg") {
+            margin-top: 40px;
+          }
           .c-btn {
-            width: min(100%,295px);
+            width: calc(295px - 40px);
           }
         }
         ul {
           padding-left: 0px;
           margin-block: 20px;
+          @include mq("lg") {
+          }
           li {
             display: flex;
             font-size:12px;
             align-items: flex-start;
+            color: $c-sub;
             span {
               font-weight: bold;
+            }
+            + li {
+              margin-top: 10px;
+            }
+            @include mq("lg") {
+
             }
           }
           &.-hana {
@@ -383,12 +461,18 @@
     }
 
     &__recommend {
+      @include mq("lg") {
+        padding-bottom: 60px !important;
+      }
 
       .-img {
         width: min(100%, 335px);
         margin-inline: auto;
         display: block;
         margin-top: 60px !important;
+        @include mq("lg") {
+          width: 868px;
+        }
       }
 
       .-text {
@@ -397,6 +481,9 @@
         font-weight: 700;
         font-family: $accent-font;
         margin-top: 60px !important;
+        @include mq("lg") {
+          font-size: 32px;
+        }
         span {
           color: $c-main;
         }
@@ -408,10 +495,17 @@
 
     &__other {
       padding-block: 60px;
+      @include mq("lg") {
+        padding-block: 100px;
+      }
       .-message {
         font-size: 30px;
         font-family: $accent-font;
         font-weight: bold;
+        @include mq("lg") {
+          text-align: center;
+          font-size: 38px;
+        }
         span {
           color: $c-main;
         }
@@ -419,6 +513,9 @@
       .-text {
         font-size: 14px;
         margin-top: 20px;
+        @include mq("lg") {
+          text-align: center;
+        }
       }
     }
 
