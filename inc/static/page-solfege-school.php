@@ -194,9 +194,9 @@
 
 
 <div class="post_content mb-0">
-  <div class="swell-block-fullWide alignfull pt-0" >
-    <div class="swell-block-fullWide__inner l-article">
-      <div class="solfege-school -bg2" data-bg="<?= ASSET_URI . "/img/solfege-school/bg2.png" ?>">
+  <div class="swell-block-fullWide alignfull pt-0 -bg2" data-bg="<?= ASSET_URI . "/img/solfege-school/bg2.png" ?>">
+    <div class="swell-block-fullWide__inner l-article" >
+      <div class="solfege-school" >
         <div class="solfege-school__inner">
             <div class="solfege-school__other">
                 <p class="-message">

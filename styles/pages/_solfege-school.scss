@@ -13,12 +13,13 @@
   @include mq("lg") {
     margin-bottom: 0;
   }
+  .-bg2 {
+    background: var(--bg-url) no-repeat center center / cover;
+
+  }
+
 
   .solfege-school {
-    &.-bg2 {
-      background: var(--bg-url) no-repeat center center / cover;
-
-    }
     &__inner {
       margin-inline: 20px;
       @include mq("lg") {
