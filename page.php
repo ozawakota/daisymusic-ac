@@ -32,6 +32,10 @@ else :
 					<?php SWELL_Theme::get_parts( 'inc/static/page-piano-lesson' ); ?>
 				<?php endif; ?>
 
+				<?php if ( is_page("community") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-community' ); ?>
+				<?php endif; ?>
+
 				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>
 				<?php if ( $show_pr_notation ) : ?>

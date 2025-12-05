@@ -16,7 +16,7 @@
 	$SETTING = SWELL_Theme::get_setting(); // SETTING取得
 ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-page="<?= get_data_page_slug(); ?>">
 <?php if ( function_exists( 'wp_body_open' ) ) wp_body_open(); ?>
 <div id="body_wrap" <?php body_class(); ?> <?php SWELL_Theme::body_attrs(); ?>>
 <?php
@@ -62,7 +62,7 @@
 	if ( 'top' === $SETTING['pos_breadcrumb'] ) SWELL_Theme::get_parts( 'parts/breadcrumb' );
 
 ?>
-<div id="content" class="l-content l-container" <?php SWELL_Theme::content_attrs(); ?> data-page="<?= get_data_page_slug(); ?>">
+<div id="content" class="l-content l-container" <?php SWELL_Theme::content_attrs(); ?> >
 <?php
 	// ピックアップバナー
 	if ( SWELL_Theme::is_show_pickup_banner() ) {

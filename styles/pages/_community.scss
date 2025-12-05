@@ -1,0 +1,494 @@
+/*
+ * index.htmlページ用スタイル
+ */
+
+ @use "../globals" as *;
+ @use "../parts/fonts" as *;
+ @use "../parts/common" as *;
+
+
+
+[data-page="community"] {
+
+  .book-bg {
+    background: var(--bg-url) no-repeat center center / cover;
+  }
+
+  .l-topTitleArea__body {
+    .c-pageTitle {
+      font-size: 24px;
+      margin-top: -2em;
+      @include mq("lg") {
+        font-size: 36px;
+        margin-top: -1em;
+      }
+
+      &:after {
+        display: block;
+        content: "Daisy Lounge";
+        color: $c-sub;
+        font-size: 36px;
+        visibility: visible !important;
+        @include mq("lg") {
+
+        }
+      }
+    }
+  }
+
+  @include mq("lg") {
+    margin-bottom: 0;
+  }
+
+  .community {
+    &__inner {
+      margin-inline: 20px;
+      @include mq("lg") {
+        margin-inline: 0;
+      }
+    
+    }
+    &__lead {
+
+      @include mq("lg") {
+        display: flex;
+        gap: 20px;
+      }
+      .-title {
+        text-align: center;
+        color: $c-sub;
+        font-size: 32px;
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 20px;
+        &:before,&:after {
+          display: none;
+        }
+        @include mq("lg") {
+          font-size: 38px;
+          margin-bottom: 40px;
+          text-align: left;
+        }
+        em {
+          color: $c-main;
+          font-family: $accent-font;
+          font-style: normal;
+        }
+
+        .-small {
+          font-size: 20px;
+          @include mq("lg") {
+            font-size: 38px;
+          }
+  
+        }
+      }
+      .-text {
+        font-size: 14px;
+      }
+      .-img {
+        @include mq("lg") {
+          width: 489px;
+          margin-right: -160px;
+        }
+      }
+    }
+    &__book {
+      padding-block: 40px;
+      @include mq("lg") {
+        padding-block: 60px;
+      }
+      .-title {
+        .-slash {
+          font-size: 18px;
+          color: $c-main;
+          
+          @include mq("lg") {
+            font-size: 32px;
+          }
+
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          &::before {
+            content: "";
+            display: block;
+            width: 14px;
+            height: 11px;
+            @include icon_slash_left();
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 14px;
+            height: 11px;
+            @include icon_slash_right();
+          }
+
+        }
+        font-size: 20px;
+        font-family: $accent-font;
+        text-align: center;
+        font-weight: bold;
+        @include mq("lg") {
+          font-size: 32px;
+        }
+        em {
+          font-size: 23px;
+          font-style: normal;
+          @include mq("lg") {
+            font-size: 38px;
+
+          }
+        }
+      }
+      .-fukidashi {
+        position: relative;
+        display: inline-block;
+        margin: 0 auto 1.5em;
+        padding: 7px 10px;
+        min-width: 135px;
+        max-width: 100%;
+        color: $c-sub;
+        font-size: 14px;
+        background: #fff;
+        border-radius: 60px;
+        text-align: center;
+        @include mq("lg") {
+          margin-bottom: 30px;
+          font-size: 18px;
+          padding-inline: 35px;
+          padding-block: 12px;
+
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-left: -9.5px;
+          border: 9.5px solid transparent;
+          border-top: 9.5px solid #fff;
+        }
+        span {
+          
+          font-weight: 400;
+          font-size: 16px;
+          font-weight: bold;
+          @include mq("lg") {
+            font-size: 18px;
+          }
+          em {
+            font-style: normal;
+            color: $c-main;
+          }
+        }
+      }
+      .-type {
+        text-align: center;
+        margin-top: 10px;
+        @include mq("lg") {
+          margin-top: 40px;
+        }
+      }
+      .-img {
+        width: min(100%, 133px);
+        margin-inline: auto;
+        @include mq("lg") {
+          width: min(100%, 383px);
+        }
+      }
+      .-note {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+    &__activity {
+      .-body {
+        margin-top: 40px !important;
+        @include mq("lg") {
+          display: flex;
+          justify-content: space-between;
+
+        }
+        .-box {
+          + .-box {
+            margin-top: 40px;
+            @include mq("lg") {
+              margin-top: 0;
+            }
+            .-img {
+              &:after {
+                @include icon_hana_white();
+                position: absolute;
+                left: -30px;
+                bottom: -30px;
+                @include mq("lg") {
+                  left: unset;
+                  right: -30px;
+
+                }
+  
+              }
+            }
+          }
+          @include mq("lg") {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 0px;
+            flex-direction: column;
+            max-width: 335px;
+          }
+          .-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-left: 0;
+            border-left: none;
+            text-align: center;
+            position: relative;
+            &:after {
+              content: "";
+              display: block;
+              width: 200px;
+              height: 1px;
+              background-color: $c-main;
+              margin: 12px auto 0;
+            }
+            @include mq("lg") {
+              font-size: 32px;
+              margin-bottom: 20px;
+            }
+          }
+          .-img {
+            width: min(100%, 335px);
+            margin-bottom: 16px;
+            margin-inline: auto;
+            position: relative;
+            &:after {
+              content: "";
+              display: block;
+              width: 72px;
+              height: 66px;
+              @include icon_hana();
+              position: absolute;
+              right: -30px;
+              bottom: -30px;
+            }
+            @include mq("lg") {
+              margin-bottom: 0;
+              width: 335px;
+              flex-shrink: 0;
+            }
+          }
+          .-list {
+            margin-top: 30px;
+            padding-left: 0;
+            li {
+              font-size: 14px;
+              color: $c-sub;
+              + li {
+                margin-top: 20px;
+              }
+            }
+          }
+          .-text {
+            font-size: 14px;
+            margin-top: 30px;
+            @include mq("lg") {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .-cost {
+        margin-top: 20px;
+        .-text {
+          text-align: center;
+          font-family: $accent-font;
+          font-size: 20px;
+          font-weight: bold;
+          @include mq("lg") {
+            font-size: 32px;
+          }
+          span {
+            color: $c-main;
+            font-size: 32px;
+            @include mq("lg") {
+              font-size: 64px;
+            }
+          }
+        }
+        .-note {
+          text-align: center;
+          font-size: 16px;
+          margin-top: 8px;
+          @include mq("lg") {
+            font-size: 20px;
+          }
+        }
+      }
+      .-piano {
+        width: min(100% , 288px);
+        margin-inline: auto;
+        margin-top: 20px;
+        @include mq("lg") {
+          width: min(100% , 507px);
+          margin-right: -150px;
+          margin-top: 45px;
+        }
+      }
+    }
+    &__point {
+      margin-top: 40px;
+      @include mq("lg") {
+        margin-top: 60px;
+      }
+      .c-pageSubTitle {
+        .-type {
+          font-size: 32px;
+          @include mq("lg") {
+            font-size: 38px;
+          }
+        }
+      }
+      .-body {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        counter-reset: listnum2;
+        margin-top: 60px;
+        @include mq("lg") {
+          flex-direction: row;
+          gap: 20px;
+        }
+        .-box {
+          border-radius: 20px;
+          background-color: #FFF4E8;
+          padding: 30px 20px;
+          position: relative;
+          @include mq("lg") {
+            width: calc(100% / 3);
+          }
+          &:nth-child(even) {
+            .-img {
+              &:after {
+                right: unset;
+                bottom: 0;
+                left: -25px;
+                @include mq("lg") {
+                  left: unset;
+                  right: -25px;
+                }
+              }
+            }
+          }
+          .-num {
+            position: absolute;
+            top:-30px;
+            left:0;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 75px;
+            height: 69px;
+            background: var(--bg-url) no-repeat center center / cover;
+            display: grid;
+            place-items: center;
+            margin-inline: auto;
+            @include mq("lg") {
+              margin-top: -16px;
+              width: 70px;
+              height: 64px;
+              margin-left: 0;
+  
+            }
+            &:before {
+              counter-increment: listnum2;
+              content: "0" counter(listnum2);
+              font-size: 36px;
+              color: $c-main;
+              font-weight: 600;
+              line-height: 1.2;
+              font-family: $accent-font;
+              @include mq("lg") {
+                font-size: 36px;
+              }
+            }
+  
+          }
+  
+          .-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: $c-main;
+            font-family: $accent-font;
+            text-align: center;
+            @include mq("lg") {
+              font-size: 24px;
+            }
+          }
+          .-img {
+            width: min(100% , 180px);
+            margin-inline: auto;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            position: relative;
+            &:after {
+              content: "";
+              display: block;
+              width: 51px;
+              height: 47px;
+              @include icon_hana();
+              position: absolute;
+              right: -25px;
+              bottom: -6px;
+            }
+            @include mq("lg") {
+            }
+          }
+          &:nth-of-type(1){
+            .-img {
+              @include mq("lg") {
+                width: min(100% , 180px);
+              }
+            }
+          }
+          &:nth-of-type(2){
+            .-img {
+              @include mq("lg") {
+                width: min(100% , 221px);
+              }
+            }
+          }
+          &:nth-of-type(3){
+            .-img {
+              @include mq("lg") {
+                width: min(100% , 151px);
+              }
+            }
+          }
+
+
+          .-text {
+            font-size: 14px;
+            text-align: left;
+            margin-top: 20px;
+            @include mq("lg") {
+              font-size: 16px;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+
+
+}
