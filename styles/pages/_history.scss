@@ -14,7 +14,7 @@
     max-width: 898px;
     margin-inline: auto;
     padding-inline: 15px;
-    padding-block: 100px;
+    padding-block: 0px;
     position: relative;
 }
 
@@ -84,6 +84,10 @@ p {
   }
 }
 
+.history_box {
+    padding-left: 0;
+}
+
 .history_item {
     display: flex;
     flex-direction: column;
@@ -101,6 +105,9 @@ p {
     width: 100%;
     box-sizing: border-box;
     padding: 18px 24px;
+    @include mq("lg") {
+        padding-inline:0 ;
+    }
 }
 
 .border_style span {
@@ -163,10 +170,6 @@ p {
         right: 23px;
     }
 
-    .history_box {
-        margin-top: 50px;
-        padding-left: 0;
-    }
     .flex_box .text_box_style {
         margin-bottom: 0;
     }
@@ -199,4 +202,15 @@ p {
     }
    }
   
+}
+.history_item {
+    margin-top: 50px;
+    padding-left: 0;
+    .main_title_h3 {
+        font-size: 26px;
+        .main_title_en {
+            font-family: $accent-en-font;
+            font-size: 20px;
+        }
+    }
 }

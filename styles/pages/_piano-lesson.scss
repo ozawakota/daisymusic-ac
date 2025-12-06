@@ -10,6 +10,11 @@
 
 [data-page="piano-lesson"] {
   margin-bottom: 0;
+
+  .-message-bg {
+    background: var(--bg-url) no-repeat center center / cover;
+
+  }
   .piano-lesson{
     &__inner {
       margin-inline: 20px;
@@ -43,7 +48,10 @@
       }
     }
     &__message {
-      
+      padding-block: 60px;
+      @include mq("lg") {
+        padding-block: 100px;
+      }
       .-title {
         background-color: transparent;
         padding: 0;
@@ -198,6 +206,10 @@
 
           }
           &.-title {
+            margin-bottom: 20px !important;
+            + .-text {
+              padding-top: 0;
+            }
             h3 {
               font-size: 26px;
               color: $c-sub;
@@ -205,6 +217,7 @@
               padding-inline: 0;
               position: relative;
               text-align: center;
+              
               @include mq("lg") {
                 text-align: left;
               }

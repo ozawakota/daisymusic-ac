@@ -22,7 +22,7 @@
 </div>
 
 <div class="post_content mb-0">
-  <div class="swell-block-fullWide alignfull pt-0 ">
+  <div class="swell-block-fullWide alignfull pt-0 -message-bg" data-bg="<?= ASSET_URI . "/img/piano-lesson/message-bg.png" ?>">
     <div class="swell-block-fullWide__inner l-article">
       <div class="piano-lesson__message">
         <div class="piano-lesson__inner">
@@ -72,7 +72,7 @@
 </div>
 
 
-<div class="post_content mb-0">
+<div class="post_content mb-0 mt-0">
   <div class="swell-block-fullWide alignfull " style="background:#FFF4E8;">
     <div class="swell-block-fullWide__inner">
       <div class="piano-lesson__cost">
