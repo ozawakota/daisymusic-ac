@@ -64,6 +64,8 @@ $filter_class = ( 'nofilter' === $filter_name ) ? '' : "c-filterLayer -$filter_n
 				$title = get_the_title($the_id);
 				$title = str_replace("[spbr]", "<br class='is-sp'>", $title);
 				$title = str_replace("[br]", "<br>", $title);
+				$title = str_replace("[em]", "<em>", $title);
+				$title = str_replace("[/em]", "</em>", $title);
 				// タイトル
 				SWELL_Theme::pluggable_parts( 'page_title', [
 					'title'     => $title,

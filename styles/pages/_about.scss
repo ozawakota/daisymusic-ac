@@ -8,7 +8,13 @@
 
 [data-page="about"] {
  
-
+.c-pageTitle {
+  font-family: $accent-en-font;
+  em {
+    font-style: normal;
+    font-family: $accent-font;
+  }
+}
 
 .about {
   .l-content {
@@ -234,7 +240,7 @@
     }
 
     &__title {
-      color: $c-main;
+      color: $c-main !important;
       font-size: 26px;
       font-weight: bold;
       padding-left: 0;
@@ -309,7 +315,7 @@
       .-title {
         font-family: $accent-en-font;
         font-size: 40px;
-        color: $c-main;
+        color: $c-main !important;
         font-weight: normal;
         margin-bottom: 0;
         letter-spacing: 0.1em;
