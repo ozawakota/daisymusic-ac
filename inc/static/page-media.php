@@ -59,6 +59,12 @@
                              <div class="swiper-button-next" data-bg="<?= ASSET_URI . "/img/swiper-right.svg" ?>"></div>
                         </div>
 
+                        <div class="btn">
+                         <a href="" class="c-btn -arrowRight">
+                          <span>ご購入はこちら</span>
+                         </a>
+                        </div>
+
 
                         <div class="text_flex">
                             <div class="text_box_style slash">
@@ -68,21 +74,10 @@
                                </p>
                             </div>
                         </div>
-                        <div class="btn">
-                         <a href="" class="c-btn -arrowRight">
-                          <span>ご購入はこちら</span>
-                         </a>
-                        </div>
 
-                        <div class="inner">
-                            <div class="img_box">
-                             <img src="<?= ASSET_URI . "/img/media/icon_01.png" ?>" alt="">
-
-                            </div>
-                        </div>
 
                         <div class="text_box_style coming">
-                            <p class="comming_title">COMING SOON …</p>
+                            <p class="comming_title">COMING<br class="is-sp"> SOON …</p>
                         </div>
                     </div>
                 </div>
