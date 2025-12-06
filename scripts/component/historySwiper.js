@@ -5,7 +5,7 @@
  * SWELLテーマで読み込まれているSwiper 7.0.6を使用
  */
 
-const media_swiper = {
+const meaid_swiper = {
   init
 };
 
@@ -26,14 +26,14 @@ function init() {
 function _initSwiper() {
   console.log('🎯 Swiper初期化開始');
 
-  const swiperContainer = document.querySelector('.media-swiper');
+  const swiperContainer = document.querySelector('.history-swiper');
 
   if (!swiperContainer) {
-    console.log('❌ .media-swiper要素が見つかりません');
+    console.log('❌ .history-swiper要素が見つかりません');
     return;
   }
 
-  console.log('✅ .media-swiper要素を発見:', swiperContainer);
+  console.log('✅ .history-swiper要素を発見:', swiperContainer);
 
   // Swiperが読み込まれるまで待機（最大5秒）
   let attempts = 0;
@@ -91,7 +91,7 @@ function loadSwiperFromCDN() {
 function createSwiperInstance() {
   console.log('🚀 Swiperインスタンス作成開始');
   
-  const swiperInstance = new window.Swiper('.media-swiper', {
+  const swiperInstance = new window.Swiper('.history-swiper', {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: false,
@@ -106,7 +106,7 @@ function createSwiperInstance() {
         spaceBetween: 20,
       },
       1024: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         
       },
     }
@@ -115,4 +115,4 @@ function createSwiperInstance() {
   console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
 }
 
-export default media_swiper;
+export default meaid_swiper;

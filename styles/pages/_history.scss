@@ -1,0 +1,202 @@
+/*
+ * index.htmlページ用スタイル
+ */
+
+ @use "../globals" as *;
+ @use "../parts/fonts" as *;
+ @use "../parts/common" as *;
+
+
+
+[data-page="history"] {
+
+.container {
+    max-width: 898px;
+    margin-inline: auto;
+    padding-inline: 15px;
+    padding-block: 100px;
+    position: relative;
+}
+
+p {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.years_text,
+.main_title_h3,
+.main_title_h2,
+.main_font {
+    color: #715e4a;
+}
+.flex_box .text_box_style .main_title_h3,
+.main_font .main_font_color,
+.main_title_h3 .main_font_color,
+.main_title_h2 .main_font_color {
+    color: #f39067;
+}
+
+.text_box_style .main_title_h2 {
+    font-family: "Shippori Mincho", serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.main_title_h3 {
+    font-family: "Shippori Mincho", serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.main_title_h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.main_title_h3 {
+    font-size: 32px;
+    letter-spacing: 4px;
+}
+
+.years_text {
+    font-weight: bold;
+}
+
+.inner .img_box {
+    position: absolute;
+    top: 90px;
+    right: 200px;
+}
+
+.border_style {
+  padding-inline: 24px;
+  .img_box {
+    padding-inline: 10px;
+    img {
+      width: 41px;
+      height: 37px;
+    }
+  }
+}
+
+.history_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text_box_style .main_title_h3,
+.years_text {
+    text-align: center;
+}
+
+.border_style {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px 24px;
+}
+
+.border_style span {
+    flex: 1 1 0;
+    background-color: #f39067;
+    height: 2px;
+    display: block;
+}
+
+.flex_box .text_box_style {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main_title_h3_box {
+  margin-top: 20px;
+}
+.main_title_h3_box,
+.flex_box {
+    margin-bottom: 30px;
+}
+
+.text_box_style {
+    margin-bottom: 20px;
+}
+
+.flex_style .title_box {
+    display: flex;
+}
+@media screen and (min-width: 961px) {
+    .for_sp{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    .container {
+        padding-block: 60px;
+     }
+    .main_title_h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .main_title_h3 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .text_box_style .main_title_h3{
+        font-size: 26px;
+    }
+
+    .flex_style .title_box {
+        flex-direction: column;
+    }
+
+    .inner .img_box {
+        top: 87px;
+        right: 23px;
+    }
+
+    .history_box {
+        margin-top: 50px;
+        padding-left: 0;
+    }
+    .flex_box .text_box_style {
+        margin-bottom: 0;
+    }
+  }
+}
+
+.history-swiper {
+  overflow-x: hidden;
+  .swiper-wrapper {
+    @include mq("lg") {
+      padding-left: 0;
+    }
+  }
+  .swiper-slide {
+
+  }
+
+  .swiper-button-next {
+    transform: translateY(100%);
+    right: 5px;
+    @include mq("lg") {
+      right: -40px;
+    }
+   }
+   .swiper-button-prev {
+    transform: translateY(100%);
+    left: 5px;
+    @include mq("lg") {
+      left: -40px;
+    }
+   }
+  
+}

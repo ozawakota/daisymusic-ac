@@ -40,6 +40,11 @@ else :
 					<?php SWELL_Theme::get_parts( 'inc/static/page-media' ); ?>
 				<?php endif; ?>
 
+				<?php if ( is_page("history") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-history' ); ?>
+				<?php endif; ?>
+
+
 				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>
 				<?php if ( $show_pr_notation ) : ?>

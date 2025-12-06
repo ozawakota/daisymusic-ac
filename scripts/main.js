@@ -3,6 +3,7 @@ import bgSrc from "./component/bgSrc";
 import voiceSwiper from "./component/voiceSwiper";
 import voiceStudentSwiper from "./component/voiceStudentSwiper";
 import mediaSwiper from "./component/mediaSwiper";
+import historySwiper from "./component/historySwiper";
 
 window.debug = enableDebugMode(1);
 
@@ -20,6 +21,7 @@ export async function init() {
     const isNewSolfegeLesson = document.querySelector('[data-page="solfege-seminar"]');
     const isPianoLesson = document.querySelector('[data-page="piano-lesson"]');
     const isMedia = document.querySelector('[data-page="media"]');
+    const isHistory = document.querySelector('[data-page="history"]');
     
     if (isNewSolfegeLesson) {
       // console.log('新ソルフェージュページ: voiceSwiperを初期化');
@@ -31,6 +33,11 @@ export async function init() {
     else if (isMedia) {
       mediaSwiper.init();
     }
+
+    else if (isHistory) {
+      historySwiper.init();
+    }
+
     else {
       // console.log('対象ページではありません');
     }

@@ -49,7 +49,7 @@ add_filter('nav_menu_item_title', function($title, $item, $args, $depth) {
  */
 add_action('wp_enqueue_scripts', function() {
 	// 新ソルフェージュ指導法講座ページ（スラッグで判定）
-	if (is_page('solfege-seminar') || is_page('piano-lesson') || is_page('media')) {
+	if (is_page('solfege-seminar') || is_page('piano-lesson') || is_page('media') || is_page('history')) {
 		// SWELLテーマで登録されているSwiperを読み込む
 		wp_enqueue_style('swell_swiper');
 		wp_enqueue_script('swell_swiper');
