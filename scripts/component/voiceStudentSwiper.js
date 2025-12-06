@@ -94,7 +94,7 @@ function createSwiperInstance() {
   const swiperInstance = new window.Swiper('.s-voice-swiper', {
     slidesPerView: 1,
     spaceBetween: 20,
-    loop: true,
+    loop: false,
     autoplay: false,
     navigation: {
       nextEl: '.swiper-button-next',
