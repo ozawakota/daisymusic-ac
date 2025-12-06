@@ -6,6 +6,9 @@
  @use "../parts/fonts" as *;
  @use "../parts/common" as *;
 
+[data-page="about"] {
+ 
+
 
 .about {
   .l-content {
@@ -387,3 +390,4 @@
   }
 }
 
+}

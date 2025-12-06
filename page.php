@@ -36,6 +36,10 @@ else :
 					<?php SWELL_Theme::get_parts( 'inc/static/page-community' ); ?>
 				<?php endif; ?>
 
+				<?php if ( is_page("media") ) : ?>
+					<?php SWELL_Theme::get_parts( 'inc/static/page-media' ); ?>
+				<?php endif; ?>
+
 				<!-- 固定ページカスタム -->
 				<?php SWELL_Theme::get_parts( 'parts/page_head' ); ?>
 				<?php if ( $show_pr_notation ) : ?>
