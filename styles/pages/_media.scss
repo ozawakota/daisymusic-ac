@@ -33,14 +33,28 @@
 
 .main_font {
   color: #715e4a;
+  font-size: 14px;
 }
 
+.media__title {
+ position: relative;
+ &--img {
+   position: absolute;
+   top:20px;
+   right: -10px;
+   width: 90px;
+   @include mq("lg") {
+    right: -60px;
+   }
+ }
+}
 .comming_title {
   font-family: "Marcellus", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 40px;
   letter-spacing: 5px;
+  text-align: center;
 }
 
 .main_title_h2,

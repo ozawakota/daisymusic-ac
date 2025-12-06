@@ -11,12 +11,13 @@
                             </p>
                         </div>
 
-                        <div class="main_title_style">
-                            <div class="flex_style">
+                        <div class="main_title_style media__title">
+                            <div class="flex_style ">
                                 <p class="main_title_h2">新しい</p>
                                 <p class="main_title_h2">ソルフェージュ</p>
                             </div>
                             <p class="main_title_h2">指導の教科書</p>
+                            <img class="media__title--img" src="<?= ASSET_URI . "/img/media/icon_01.png" ?>" alt="">
                         </div>
 
                         <div class="text_box_style main">
@@ -69,7 +70,7 @@
                         <div class="text_flex">
                             <div class="text_box_style slash">
                                <p class="main_font">
-                                 雑誌・Web記事・インタビューなど、掲載が決まりしだい順番に公開予定!<br>
+                                 雑誌・Web記事・インタビューなど、<br class="is-sp">掲載が決まりしだい順番に公開予定!<br>
                                  更新まで少しだけお待ちください。
                                </p>
                             </div>
