@@ -29,7 +29,7 @@ else :
 				<?php endif; ?>
 
 				<?php if ( is_page("piano-lesson") ) : ?>
-					<?php SWELL_Theme::get_parts( 'inc/static/page-piano-lesson' ); ?>
+					<?php // SWELL_Theme::get_parts( 'inc/static/page-piano-lesson' ); ?>
 				<?php endif; ?>
 
 				<?php if ( is_page("community") ) : ?>

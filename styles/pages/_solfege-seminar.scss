@@ -9,17 +9,52 @@
 
 
 [data-page="solfege-seminar"] {
+  #content{
+    padding-top: 0;
     margin-bottom: 20px;
-  @include mq("lg") {
-    margin-bottom: 0;
+    @include mq("lg") {
+      margin-bottom: 0;
+    }
+  
+  }
+  .lead-bg {
+    background: var(--bg-url) no-repeat center center / cover;
+  }
+  .solfege-seminar__lead {
+    padding-block:60px;
+    margin-inline: 20px;
+    @include mq("lg") {
+      padding-block:100px;
+      margin-inline: 0px;
+    }
+    .-title {
+      background-color: transparent;
+      padding: 0;
+      margin-bottom: 0;
+      @include mq("lg") {
+        font-size: 38px;
+      }
+      &:before , &:after{
+        border: none;
+      }
+      span {
+        color: $c-main;
+      }
+    }
+    .-text {
+      font-size: 14px;
+      margin-top: 20px;
+    }
   }
   .voice {
     position: relative;
     margin-top: 40px;
     margin-inline: 20px;
+    margin-bottom: 60px;
     @include mq("lg") {
       margin-top: 60px;
       margin-inline: 0;
+      margin-bottom: 100px;
     }
     &-swiper {
       padding-top: 40px;

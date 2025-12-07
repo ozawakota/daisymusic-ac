@@ -1,18 +1,18 @@
-
+<!-- Lead Section -->
 <div class="post_content mb-0">
-  <div class="swell-block-fullWide alignfull pt-0 ">
+  <div class="swell-block-fullWide alignfull pt-0">
     <div class="swell-block-fullWide__inner l-article">
       <div class="piano-lesson__inner">
         <div class="piano-lesson__lead">
           <p class="-title">
-          <picture class="-img">
-            <img src="<?= ASSET_URI . "/img/piano-lesson__lead-img01.png" ?>" alt="強みを生かして、個性を伸ばす">
-          </picture>
+            <picture class="-img">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson__lead-img01.png'); ?>" alt="強みを生かして、個性を伸ばす">
+            </picture>
           </p>
           <div class="-body">
             <picture class="-img">
-              <source srcset="<?= ASSET_URI . "/img/piano-lesson__lead-img02_pc.png" ?>" media="(min-width: 960px)">
-              <img src="<?= ASSET_URI . "/img/piano-lesson__lead-img02_sp.png" ?>" alt="">
+              <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson__lead-img02_pc.png'); ?>" media="(min-width: 960px)">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson__lead-img02_sp.png'); ?>" alt="">
             </picture>
           </div>
         </div>
@@ -21,59 +21,59 @@
   </div>
 </div>
 
+<!-- Message Section -->
 <div class="post_content mb-0">
-  <div class="swell-block-fullWide alignfull pt-0 -message-bg" data-bg="<?= ASSET_URI . "/img/piano-lesson/message-bg.png" ?>">
+  <div class="swell-block-fullWide alignfull pt-0 -message-bg" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message-bg.png'); ?>');">
     <div class="swell-block-fullWide__inner l-article">
       <div class="piano-lesson__message">
         <div class="piano-lesson__inner">
           <h2 class="-title font-26-38">
-            <span>ピアノ</span>や<span>音楽</span>を通して<span><br class="is-sp">“できる”</span>自信を育み、<br>
+            <span>ピアノ</span>や<span>音楽</span>を通して<span><br class="is-sp">"できる"</span>自信を育み、<br>
             <span>人間力</span>を育てる
           </h2>
           <p class="-text">
-          ピアノはコツコツ頑張れば必ず上達できます。<br>
-          そして弾けるようになったら自分も周りも幸せにできる習い事です。<br>
-          生徒一人ひとりが楽しく学びながら自己実現を積み重ね、ピアノが弾ける喜びを感じ、<br>
-          人生がより豊かになるよう 音楽でサポートします。
+            ピアノはコツコツ頑張れば必ず上達できます。<br>
+            そして弾けるようになったら自分も周りも幸せにできる習い事です。<br>
+            生徒一人ひとりが楽しく学びながら自己実現を積み重ね、ピアノが弾ける喜びを感じ、<br>
+            人生がより豊かになるよう 音楽でサポートします。
           </p>
-          <div class="-item" data-bg="<?= ASSET_URI . "/img/icon_hana-yellow.svg" ?>">
+          <div class="-item" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana-yellow.svg'); ?>');">
             <picture class="-img">
-              <source srcset="<?= ASSET_URI . "/img/piano-lesson/message01_pc.png" ?>" media="(min-width: 960px)">
-              <img src="<?= ASSET_URI . "/img/piano-lesson/message01_sp.png" ?>" alt="">
+              <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message01_pc.png'); ?>" media="(min-width: 960px)">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message01_sp.png'); ?>" alt="">
             </picture>
           </div>
-          <div class="-item" data-bg="<?= ASSET_URI . "/img/icon_hana-yellow.svg" ?>">
+          <div class="-item" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana-yellow.svg'); ?>');">
             <picture class="-img">
-              <source srcset="<?= ASSET_URI . "/img/piano-lesson/message02_pc.png" ?>" media="(min-width: 960px)">
-              <img src="<?= ASSET_URI . "/img/piano-lesson/message02_sp.png" ?>" alt="">
+              <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message02_pc.png'); ?>" media="(min-width: 960px)">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message02_sp.png'); ?>" alt="">
             </picture>
           </div>
-          <div class="-item" data-bg="<?= ASSET_URI . "/img/icon_hana-yellow.svg" ?>">
+          <div class="-item" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana-yellow.svg'); ?>');">
             <picture class="-img">
-              <source srcset="<?= ASSET_URI . "/img/piano-lesson/message03_pc.png" ?>" media="(min-width: 960px)">
-              <img src="<?= ASSET_URI . "/img/piano-lesson/message03_sp.png" ?>" alt="">
+              <source srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message03_pc.png'); ?>" media="(min-width: 960px)">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message03_sp.png'); ?>" alt="">
             </picture>
           </div>
-          <!-- ボタン -->
           <div class="-btn">
-            <a href="" class="c-btn -arrowRight -line -green">
+            <a href="#contact" class="c-btn -arrowRight -line -green">
               <span>体験レッスンに申し込む</span>
             </a>
           </div>
           <div class="-bnr">
-            <a href="">
-              <img src="<?= ASSET_URI . "/img/piano-lesson/message-bnr.png" ?>" alt="">
+            <a href="#contact">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/message-bnr.png'); ?>" alt="">
             </a>
           </div>
-        </div><!-- .piano-lesson__inner -->
-      </div><!-- .piano-lesson__message -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 選べる４つレッスン -->
+<!-- Lesson Cost Section -->
 <div class="post_content mb-0 mt-0">
-  <div class="swell-block-fullWide alignfull " style="background:#FFF4E8;">
+  <div class="swell-block-fullWide alignfull" style="background:#FFF4E8;">
     <div class="swell-block-fullWide__inner">
       <div class="piano-lesson__cost">
         <div class="piano-lesson__inner">
@@ -84,11 +84,13 @@
           <div class="c-pageNote c-text-center mt-20">
             <p>※レッスン価格は、2025年度現在の税別価格です。</p>
           </div>
+
           <div class="cost-step__wrap">
+            <!-- 01 スタンダードコース -->
             <div class="cost-step">
               <div class="cost-step__fields">
                 <div class="cost-step__col">
-                  <span class="cost-step__item -num" data-bg="<?= ASSET_URI . "/img/icon_hana.png" ?>"></span>
+                  <span class="cost-step__item -num" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana.png'); ?>');"></span>
                   <div class="cost-step__item -title">
                     <h3>スタンダードコース<br><span>(年間レッスン38回／月3.4回)</span></h3>
                   </div>
@@ -103,7 +105,7 @@
                       <tr>
                         <th>30分</th>
                         <td>10,000円/月</td>
-                        <td>幼児～小学校低学 年（導入～初心者）にオススメ</td>
+                        <td>幼児～小学校低学年（導入～初心者）にオススメ</td>
                       </tr>
                       <tr>
                         <th>40分</th>
@@ -120,15 +122,17 @@
                 </div>
               </div>
               <div class="cost-step__btn">
-                <a href="" class="c-btn -arrowRight -line -green">
+                <a href="#contact" class="c-btn -arrowRight -line -green">
                   <span>体験レッスンに申し込む</span>
                 </a>
               </div>
             </div>
+
+            <!-- 02 リトミック・ソルフェージュコース -->
             <div class="cost-step">
               <div class="cost-step__fields">
                 <div class="cost-step__col">
-                  <span class="cost-step__item -num" data-bg="<?= ASSET_URI . "/img/icon_hana.png" ?>"></span>
+                  <span class="cost-step__item -num" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana.png'); ?>');"></span>
                   <div class="cost-step__item -title">
                     <h3>リトミック・<br>ソルフェージュコース</h3>
                   </div>
@@ -145,11 +149,13 @@
                   </div>
                 </div>
               </div>
-            </div><!-- .cost-step -->
+            </div>
+
+            <!-- 03 ソルフェージュレッスン（単発） -->
             <div class="cost-step">
               <div class="cost-step__fields">
                 <div class="cost-step__col">
-                  <span class="cost-step__item -num" data-bg="<?= ASSET_URI . "/img/icon_hana.png" ?>"></span>
+                  <span class="cost-step__item -num" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana.png'); ?>');"></span>
                   <div class="cost-step__item -title">
                     <h3>ソルフェージュレッスン<br>（単発）</h3>
                   </div>
@@ -181,20 +187,22 @@
                   </div>
                 </div>
               </div>
-            </div><!-- .cost-step -->
+            </div>
+
+            <!-- 04 保護者向け講座 -->
             <div class="cost-step">
               <div class="cost-step__fields">
                 <div class="cost-step__col">
-                  <span class="cost-step__item -num" data-bg="<?= ASSET_URI . "/img/icon_hana.png" ?>"></span>
+                  <span class="cost-step__item -num" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/icon_hana.png'); ?>');"></span>
                   <div class="cost-step__item -title">
-                    <h3>保護者向け講座<br>【気質診断&#174;<br>+コーチングセッション】</h3>
+                    <h3>保護者向け講座<br>【気質診断®<br>+コーチングセッション】</h3>
                   </div>
                   <div class="cost-step__item -text">
                     <p>
-                      キッズコーチング&#174;は認知発達心理学と気質心理学をベースにしたコーチングメソッドです。<br>
+                      キッズコーチング®は認知発達心理学と気質心理学をベースにしたコーチングメソッドです。<br>
                       生まれ持った「気質」を知ることで、我が子の「困った」が魅力に変わります。「育て方が悪かったのかも…」とお悩みの方、お子様の才能を引き出す言葉がけを学びたい方、ピアノの練習方法に限らず、母親としてご一緒に『子育て』を楽しみましょう♪<br>
                       お時間の範囲内ならご家族皆さまの診断可能(家族のトリセツ)も可能です。<br>
-                      ご興味のある方はお気軽にご相談ください&#x1f3b5;
+                      ご興味のある方はお気軽にご相談ください🎵
                     </p>
                   </div>
                 </div>
@@ -202,7 +210,7 @@
                   <div class="cost-step__item -table">
                     <table>
                       <tr>
-                        <th>気質診断&#174;＋コーチングセッション</th>
+                        <th>気質診断®＋コーチングセッション</th>
                         <td>30分/60分</td>
                         <td>※ご相談ください</td>
                       </tr>
@@ -211,19 +219,19 @@
                 </div>
               </div>
               <div class="cost-step__btn">
-                <a href="" class="c-btn -arrowRight -line -green">
+                <a href="#contact" class="c-btn -arrowRight -line -green">
                   <span>体験レッスンに申し込む</span>
                 </a>
               </div>
-            </div><!-- .cost-step -->
-          </div><!-- .cost-step__wrap -->
-        </div><!-- .piano-lesson__inner -->
-      </div><!-- .piano-lesson__cost -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 生徒さんの声 -->
+<!-- Voice Section -->
 <div class="post_content mb-0 mt-0">
   <div class="swell-block-fullWide alignfull">
     <div class="swell-block-fullWide__inner l-article">
@@ -234,129 +242,108 @@
             <p>生徒さんの声</p>
           </div>
 
+          <?php
+          $args = array(
+            'post_type' => 'review-voice',
+            'posts_per_page' => -1,
+            'orderby' => 'date',
+            'order' => 'DESC'
+          );
+          $voice_query = new WP_Query($args);
+
+          if ($voice_query->have_posts()) :
+          ?>
           <div class="s-voice">
-            <?php
-              $args = [
-                'post_type' => 'review-voice', // カスタム投稿名が「news」の場合
-              ];
-              $my_query = new WP_Query($args); ?>
-            
-            <?php if ($my_query->have_posts()): // 投稿がある場合 ?>
             <div class="s-voice-swiper">
               <div class="swiper-wrapper">
-            
-                <?php while ($my_query->have_posts()) : $my_query->the_post();
+                <?php while ($voice_query->have_posts()) : $voice_query->the_post();
+                  $blocks = parse_blocks(get_the_content());
+                  $voice_data = null;
 
-                // Lazy Blocksのブロックをパースして属性を取得
-                $blocks = parse_blocks(get_the_content());
-                $attributes = [];
-
-                // lazyblock/review-voiceブロックを探す
-                foreach ($blocks as $block) {
-                  if ($block['blockName'] === 'lazyblock/review-voice') {
-                    $attributes = $block['attrs'] ?? [];
-                    break;
+                  foreach ($blocks as $block) {
+                    if ($block['blockName'] === 'lazyblock/review-voice') {
+                      $voice_data = $block['attrs'];
+                      break;
+                    }
                   }
-                }
 
-                // 属性が存在する場合のみ表示
-                if (!empty($attributes)) :
-                  // URLエンコードされたJSONをデコード
-                  $img_data = json_decode(urldecode($attributes['img']), true);
-                  $meta_data = json_decode(urldecode($attributes['meta']), true);
+                  if ($voice_data) :
+                    $img_data = isset($voice_data['img']) ? json_decode(urldecode($voice_data['img']), true) : array();
+                    $meta_data = isset($voice_data['meta']) ? json_decode(urldecode($voice_data['meta']), true) : array();
+                    $s_voice = isset($voice_data['s-voice']) ? $voice_data['s-voice'] : '';
+                    $t_voice = isset($voice_data['t-voice']) ? $voice_data['t-voice'] : '';
 
-                  // 画像データ
-                  $img_url = $img_data['url'] ?? '';
-                  $img_alt = $img_data['alt'] ?? '';
-                  $img_thumbnail = $img_data['sizes']['thumbnail']['url'] ?? $img_url;
-
-                  // s-voice と t-voice
-                  $s_voice = $attributes['s-voice'] ?? '';
-                  $t_voice = $attributes['t-voice'] ?? '';
+                    $img_url = isset($img_data['url']) ? $img_data['url'] : '';
+                    $img_alt = isset($img_data['alt']) ? $img_data['alt'] : '';
+                    $img_thumbnail = isset($img_data['sizes']['thumbnail']['url']) ? $img_data['sizes']['thumbnail']['url'] : $img_url;
                 ?>
-
                 <div class="s-voice-item swiper-slide">
                   <div class="-info">
+                    <?php if ($img_thumbnail) : ?>
                     <span class="-img">
-                      <img src="<?= esc_url($img_thumbnail) ?>" alt="<?= esc_attr($img_alt) ?>">
+                      <img src="<?php echo esc_url($img_thumbnail); ?>" alt="<?php echo esc_attr($img_alt); ?>">
                     </span>
-                    <?php
-                    // meta は配列なのでループ
-                    if (!empty($meta_data) && is_array($meta_data)) :
+                    <?php endif; ?>
+
+                    <?php if (!empty($meta_data) && is_array($meta_data)) :
                       foreach ($meta_data as $meta_item) :
-                        $meta_grade = $meta_item['grade'] ?? '';
-                        $meta_place = $meta_item['place'] ?? '';
-                        $meta_name = $meta_item['name'] ?? '';
+                        $meta_grade = isset($meta_item['grade']) ? $meta_item['grade'] : '';
+                        $meta_place = isset($meta_item['place']) ? $meta_item['place'] : '';
+                        $meta_name = isset($meta_item['name']) ? $meta_item['name'] : '';
                     ?>
                     <div class="-meta">
                       <?php if ($meta_grade) : ?>
                       <div class="-grade">
-                        <span><?= esc_html($meta_grade) ?></span>
+                        <span><?php echo esc_html($meta_grade); ?></span>
                       </div>
                       <?php endif; ?>
                       <?php if ($meta_place) : ?>
-                      <p class="-place"><?= esc_html($meta_place) ?></p>
+                      <p class="-place"><?php echo esc_html($meta_place); ?></p>
                       <?php endif; ?>
                       <?php if ($meta_name) : ?>
-                      <p class="-name"><?= esc_html($meta_name) ?></p>
+                      <p class="-name"><?php echo esc_html($meta_name); ?></p>
                       <?php endif; ?>
                     </div>
-                    <?php
-                      endforeach;
-                    endif;
-                    ?>
-                  </div><!-- .-info -->
+                    <?php endforeach; endif; ?>
+                  </div>
 
                   <div class="-body">
                     <?php if ($s_voice) : ?>
                     <p class="-text">
-                      <?= nl2br(esc_html($s_voice)) ?>
+                      <?php echo nl2br(esc_html($s_voice)); ?>
                     </p>
                     <?php endif; ?>
 
                     <?php if ($t_voice) : ?>
                     <div class="-teacher-message">
-                      <p class="-obi" data-bg="<?= ASSET_URI . "/img/piano-lesson/s-voice-swiper_person.png" ?>">未佳先生からのメッセージ</p>
+                      <p class="-obi" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/s-voice-swiper_person.png'); ?>');">未佳先生からのメッセージ</p>
                       <p class="-comment">
-                        <?= nl2br(esc_html($t_voice)) ?>
+                        <?php echo nl2br(esc_html($t_voice)); ?>
                       </p>
                     </div>
                     <?php endif; ?>
-                  </div><!-- .-body -->
-                </div><!-- .swiper-slide -->
-
-                <?php endif; // attributes存在チェック終了 ?>
-
-
-            
-                <?php endwhile; ?>
-            
+                  </div>
                 </div>
+                <?php endif; endwhile; ?>
               </div>
-              <div class="swiper-button-prev" data-bg="<?= ASSET_URI . "/img/swiper-left.svg" ?>"></div>
-              <div class="swiper-button-next" data-bg="<?= ASSET_URI . "/img/swiper-right.svg" ?>"></div>
-
-          </div><!-- .s-voice -->
-          <?php else: // 投稿がない場合?>
-
-          
+            </div>
+            <div class="swiper-button-prev" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/swiper-left.svg'); ?>');"></div>
+            <div class="swiper-button-next" style="background-image: url('<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/swiper-right.svg'); ?>');"></div>
+          </div>
           <?php endif; wp_reset_postdata(); ?>
-          
-
 
           <div class="piano-lesson__voice--btn">
-            <a href="" class="c-btn -arrowRight -line -green">
-                <span>体験レッスンに申し込む</span>
+            <a href="#contact" class="c-btn -arrowRight -line -green">
+              <span>体験レッスンに申し込む</span>
             </a>
           </div>
-
         </div>
-      </div><!-- .piano-lesson__voice -->
+      </div>
     </div>
   </div>
 </div>
 
-<!-- 教室情報 -->
+<!-- Class Info Section -->
 <div class="post_content mb-0 mt-0">
   <div class="swell-block-fullWide alignfull" style="background:#FFF;">
     <div class="swell-block-fullWide__inner l-article">
@@ -381,7 +368,7 @@
                 <th>住所</th>
                 <td>
                   練馬区桜台<br>
-                （武蔵野音大第一幼稚園周辺）
+                  （武蔵野音大第一幼稚園周辺）
                 </td>
               </tr>
               <tr>
@@ -397,16 +384,16 @@
             </div>
           </div>
           <div class="-btn">
-            <a href="" class="c-btn -arrowRight">
+            <a href="#contact" class="c-btn -arrowRight">
               <span>お問い合わせはこちら</span>
             </a>
           </div>
           <div class="-bnr">
-            <img src="<?= ASSET_URI . "/img/piano-lesson/bnr01.png" ?>" alt="">
-            <img src="<?= ASSET_URI . "/img/piano-lesson/bnr02.png" ?>" alt="">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/bnr01.png'); ?>" alt="">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/img/piano-lesson/bnr02.png'); ?>" alt="">
           </div>
         </div>
-      </div><!-- .piano-lesson__info -->
+      </div>
     </div>
   </div>
 </div>
