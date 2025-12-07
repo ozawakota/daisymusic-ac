@@ -229,20 +229,24 @@
       margin-top: 30px;
      }
      .-btn {
-      display: inline-block;
+      display: flex;
+      justify-content: center;
       position: relative;
       margin-top: 30px;
       &:after {
        display: block;
-      content: "";
+        content: "";
        position: absolute;
        width: 8px;
        height: 12px;
        @include icon_arrow(fff);
    
-      right: 7em;
+      right: 8em;
       top: 50%;
       transform: translateY(-50%);
+      @include mq("lg") {
+        right: 7em;
+      }
       }
       input[type="submit"] {
        appearance: none;
