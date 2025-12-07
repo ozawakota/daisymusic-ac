@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<div class="post_content mb-0">
+<div class="post_content mb-0 mt-60-100">
   <div class="swell-block-fullWide alignfull pt-0">
     <div class="swell-block-fullWide__inner l-article">
       <div class="solfege-school">
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-<div class="post_content mb-0">
+<div class="post_content mb-0 mt-60-100">
   <div class="swell-block-fullWide alignfull pt-0">
     <div class="swell-block-fullWide__inner l-article">
       <div class="solfege-school">
@@ -171,8 +171,8 @@
 </div>
 
 
-<div class="post_content mb-0">
-  <div class="swell-block-fullWide alignfull pt-0">
+<div class="post_content mb-0 mt-60-100">
+  <div class="swell-block-fullWide alignfull pt-0 recommend">
     <div class="swell-block-fullWide__inner l-article">
       <div class="solfege-school">
         <div class="solfege-school__inner">

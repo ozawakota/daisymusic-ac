@@ -9,9 +9,12 @@
 
 
 [data-page="solfege-school"] {
-  margin-bottom: 0px;
-  @include mq("lg") {
-    margin-bottom: 0;
+  #content {
+
+    margin-bottom: 0px;
+    @include mq("lg") {
+      margin-bottom: 0;
+    }
   }
   .-bg2 {
     background: var(--bg-url) no-repeat center center / cover;
@@ -91,7 +94,6 @@
         text-align: center;
         margin-top: 20px;
         @include mq("lg") {
-          text-align: left;
           margin-top: 40px;
         }
       }
@@ -102,6 +104,7 @@
         @include mq("lg") {
           margin-top: 40px;
           text-align: left;
+          margin-left: 35px;
         }
       }
 
@@ -280,7 +283,7 @@
           .-text {
             font-size: 14px;
             @include mq("lg") {
-              margin-left: 20px;
+              margin-left: 0px;
             }
           }
         }
@@ -371,7 +374,7 @@
             padding: 16px 27px;
             @include mq("lg") {
               margin-top: 40px;
-              padding: 20px 40px;
+              padding: 20px 30px;
               width: min(100%, 424px);
               margin-inline: auto;
             }
@@ -382,6 +385,9 @@
               font-size: 14px;
               font-weight: 700;
               color: $c-sub;
+              @include mq("lg") {
+                margin-bottom: 10px;
+              }
             }
             p {
               font-size: 12px;
@@ -460,11 +466,23 @@
       }
     }
 
+    .recommend {
+      .c-pageSubTitle {
+        p {
+          @include mq("lg") {
+            font-size: 32px;
+          }
+
+        }
+      }
+
+    }
+
+
     &__recommend {
       @include mq("lg") {
         padding-bottom: 60px !important;
       }
-
       .-img {
         width: min(100%, 335px);
         margin-inline: auto;
