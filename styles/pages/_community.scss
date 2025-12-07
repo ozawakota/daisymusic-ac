@@ -53,6 +53,7 @@
       @include mq("lg") {
         display: flex;
         gap: 20px;
+        padding-bottom:60px;
       }
       .-title {
         text-align: center;

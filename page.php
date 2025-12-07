@@ -33,7 +33,7 @@ else :
 				<?php endif; ?>
 
 				<?php if ( is_page("community") ) : ?>
-					<?php SWELL_Theme::get_parts( 'inc/static/page-community' ); ?>
+					<?php // SWELL_Theme::get_parts( 'inc/static/page-community' ); ?>
 				<?php endif; ?>
 
 				<?php if ( is_page("media") ) : ?>
