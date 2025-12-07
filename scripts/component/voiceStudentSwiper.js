@@ -33,7 +33,6 @@ function _initSwiper() {
     return;
   }
 
-  console.log('✅ .s-voice-swiper要素を発見:', swiperContainer);
 
   // Swiperが読み込まれるまで待機（最大5秒）
   let attempts = 0;
@@ -44,7 +43,7 @@ function _initSwiper() {
 
     if (typeof window.Swiper === 'undefined') {
       if (attempts >= maxAttempts) {
-        console.log('⚠️ SWELLのSwiperが見つからないため、CDNから読み込みます');
+        // console.log('⚠️ SWELLのSwiperが見つからないため、CDNから読み込みます');
         loadSwiperFromCDN();
         return;
       }
@@ -53,7 +52,7 @@ function _initSwiper() {
       return;
     }
 
-    console.log('✅ Swiper読み込み完了！初期化します');
+    // console.log('✅ Swiper読み込み完了！初期化します');
     createSwiperInstance();
   };
 
@@ -64,7 +63,7 @@ function _initSwiper() {
  * CDNからSwiperを読み込む
  */
 function loadSwiperFromCDN() {
-  console.log('📦 CDNからSwiper読み込み開始');
+  // console.log('📦 CDNからSwiper読み込み開始');
   
   // CSS読み込み
   const cssLink = document.createElement('link');

@@ -60,7 +60,7 @@ function _initSwiper() {
       spaceBetween: 20,
 
       // ループ設定
-      loop: true,
+      loop: false,
 
       // 自動再生
       autoplay: {
