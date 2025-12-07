@@ -22,7 +22,7 @@ else :
 					<?php // SWELL_Theme::get_parts( 'inc/static/page-contact' ); ?>
 				<?php endif; ?>
 				<?php if ( is_page("solfege-seminar") ) : ?>
-					<?php SWELL_Theme::get_parts( 'inc/static/page-solfege-seminar' ); ?>
+					<?php // SWELL_Theme::get_parts( 'inc/static/page-solfege-seminar' ); ?>
 				<?php endif; ?>
 				<?php if ( is_page("solfege-school") ) : ?>
 					<?php SWELL_Theme::get_parts( 'inc/static/page-solfege-school' ); ?>

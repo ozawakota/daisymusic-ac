@@ -431,3 +431,10 @@ legend {
 .l-topTitleArea.c-filterLayer::before {
   background-color: transparent;
 }
+
+.mt-60-100 {
+  margin-top: 60px !important;
+  @include mq("lg") {
+    margin-top: 100px !important;
+  }
+}
