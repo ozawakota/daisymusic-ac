@@ -40,9 +40,9 @@ add_filter('body_class', 'my_body_class');
 /**
  * メニュータイトルから[br]と[spbr]を削除
  */
-add_filter('nav_menu_item_title', function($title, $item, $args, $depth) {
-	return str_replace(array('[br]', '[spbr]'), '', $title);
-}, 10, 4);
+// add_filter('nav_menu_item_title', function($title, $item, $args, $depth) {
+// 	return str_replace(array('[br]', '[spbr]'), '', $title);
+// }, 10, 4);
 
 /**
  * カスタムリンクでURLが空の場合、リンクではなくテキストのみ表示

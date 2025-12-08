@@ -446,3 +446,19 @@ a[data-no-link="true"] {
   text-decoration: none !important;
   color: white !important;
 }
+
+.menu-item {
+  a[data-no-link="true"] {
+    color: inherit !important;
+  }
+}
+
+
+.before_footer__wrap {
+
+  .menu-item {
+    a[data-no-link="true"] {
+      color: white !important;
+    }
+  }
+}

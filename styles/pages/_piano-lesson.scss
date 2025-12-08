@@ -418,7 +418,6 @@
   .s-voice {
     position: relative;
     margin-top: 40px;
-    margin-inline: 20px;
     @include mq("lg") {
       margin-top: 60px;
       margin-inline: 0;
@@ -448,6 +447,9 @@
           padding: 13px;
           background-color: #FFF4E8;
           img {
+            @include mq("lg") {
+
+            }
             width: 95px;
             border-radius: 50%;
           }
@@ -502,7 +504,7 @@
 
           .-obi {
             font-family: $accent-font;
-            font-size: 16px;
+            font-size: 11px;
             color: $c-main;
             padding-inline: 16px;
             padding-block: 10px;
@@ -519,8 +521,11 @@
               content: "";
               background: var(--bg-url) no-repeat center center / contain;
               position: absolute;
-              right: 30px;
+              right: 0px;
               bottom: 0;
+              @include mq("lg") {
+                right: 30px;
+              }
             }
             @include mq("lg") {
               font-size: 18px;

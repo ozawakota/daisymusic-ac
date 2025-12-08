@@ -112,8 +112,17 @@
        }
        .wpcf7-form-control {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        flex-direction: column;
+        gap:8px;
+        .wpcf7-list-item {
+          margin-left: 0;
+        }
+         @include mq("lg") {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 8px;
+
+        }
         label {
          cursor: pointer;
         }

@@ -15,6 +15,9 @@
  
  }
  &__inner {
+  .l-header__customBtn {
+    display: none;
+  }
  }
  &__logo {
   display: flex;
@@ -31,9 +34,13 @@
 
    .catch-phrase {
     p {
-     font-size: 12px;
+     font-size: vwSP(11);
      font-weight: 600;
      letter-spacing: 0.15em;
+     @include mq("lg") {
+      font-size: 12px;
+     }
+   
 
     }
    }

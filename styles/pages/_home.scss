@@ -73,7 +73,7 @@ img {
  &__text {
   font-family: $accent-font;
   font-weight: 700;
-  font-size: vwSP(18);
+  font-size: vwSP(17);
   color:$c-main;
   @include mq("lg") {
    font-size: fluid-text(18px, 20px);
@@ -83,7 +83,7 @@ img {
   font-family: $accent-en-font;
   font-size: vwSP(38);
   color: $c-sub;
-  line-height: 1;
+  line-height: 1.2;
   @include mq("lg") {
    font-size: fluid-text(38px, 70px);
   }
