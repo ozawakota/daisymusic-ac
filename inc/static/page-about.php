@@ -37,7 +37,7 @@
      </div>
     </div>
     <!-- about-lead -->
-    <div class="about-profile">
+    <div class="about-profile" id="profile">
      <div class="about-profile__meta">
       <p class="-title">PROFILE</p>
       <p class="-type"><span>Daisy Music Academy</span><br class="is-sp">代表</p>
@@ -109,7 +109,7 @@
     </div>
     <!-- .about-history -->
     <div class="about-bnr">
-      <a href="/course/" class="about-bnr__link">
+      <a href="/blog/" class="about-bnr__link">
         <picture>
           <source srcset="<?= ASSET_URI . "/img/about_bnr_img.png" ?>" media="(min-width: 960px)">
           <img src="<?= ASSET_URI . "/img/about_bnr_img_sp.png" ?>" alt="">
@@ -143,7 +143,7 @@
           Daisy Music Academyは、1927年に始まった「長谷山雛菊音楽会」から受け継がれる、約100年にわたる音楽教育の流れを礎としています。子どもたちの心に音楽の喜びを伝える活動から始まり、時代ごとに形を変えながらも、“音楽で心を育て、人をつなぐ”という想いを大切に継承。現在はソルフェージュ教育を中心に、講座・出版・オンラインを通じて全国へ音楽の輪を広げています。
           </p>
           <div class="-btn">
-            <a href="http://" class="c-btn -arrowRight">
+            <a href="/history/" class="c-btn -arrowRight">
               <span>歴史・沿革を見る</span>
             </a>
           </div>

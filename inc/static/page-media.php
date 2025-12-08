@@ -44,43 +44,45 @@
                         !
                     </p>
                 </div>
-                <div class="sample_box_style media-swiper">
-                    <ul class="sample_box swiper-wrapper">
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-01.jpg" ?>" alt="">
-                        </li>
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-02.jpg" ?>" alt="">
-                        </li>
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-03.jpg" ?>" alt="">
-                        </li>
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-04.jpg" ?>" alt="">
-                        </li>
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-05.jpg" ?>" alt="">
-                        </li>
-                        <li class="sample_box_item swiper-slide">
-                            <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
-                            <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-06.jpg" ?>" alt="">
-                        </li>
+                <div class="sample_box_area">
+                    <div class="-img">
+                        <img src="<?= ASSET_URI . "/img/media/book_img01.png" ?>" alt="">
+                    </div>
+                    <div class="-contents">
 
-                        </ul>
+                        <div class="sample_box_style media-swiper">
+                            <ul class="sample_box swiper-wrapper">
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-01.jpg" ?>" alt="">
+                                </li>
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-02.jpg" ?>" alt="">
+                                </li>
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-03.jpg" ?>" alt="">
+                                </li>
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-04.jpg" ?>" alt="">
+                                </li>
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-05.jpg" ?>" alt="">
+                                </li>
+                                <li class="sample_box_item swiper-slide">
+                                    <img class="book_sample" src="<?= ASSET_URI . "/img/media/sample-06.jpg" ?>" alt="">
+                                </li>
+                            </ul>
+                        </div>
                         <div class="swiper-button-prev" data-bg="<?= ASSET_URI . "/img/swiper-left.svg" ?>"></div>
                         <div class="swiper-button-next" data-bg="<?= ASSET_URI . "/img/swiper-right.svg" ?>"></div>
+
                     </div>
 
-                    <div class="btn">
-                        <a href="" class="c-btn -arrowRight">
-                            <span>ご購入はこちら</span>
-                        </a>
-                    </div>
+                </div>
+                <div class="btn">
+                    <a href="https://amzn.asia/d/7RcMNEH" target="_blank" class="c-btn -arrowRight">
+                        <span>ご購入はこちら</span>
+                    </a>
+                </div>
 
 
                 <div class="text_flex">
