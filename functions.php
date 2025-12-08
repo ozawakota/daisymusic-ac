@@ -45,6 +45,22 @@ add_filter('nav_menu_item_title', function($title, $item, $args, $depth) {
 }, 10, 4);
 
 /**
+ * カスタムリンクでURLが空の場合、リンクではなくテキストのみ表示
+ */
+add_filter('nav_menu_link_attributes', function($atts, $item, $args, $depth) {
+	// URLが空（#のみ含む）の場合
+	if (empty($item->url) || $item->url === '#' || $item->url === '') {
+		// data属性を追加してCSSで制御できるようにする
+		$atts['data-no-link'] = 'true';
+		// クリック無効化
+		$atts['onclick'] = 'return false;';
+		// カーソルをデフォルトに
+		$atts['style'] = isset($atts['style']) ? $atts['style'] . ' cursor: default;' : 'cursor: default;';
+	}
+	return $atts;
+}, 10, 4);
+
+/**
  * 新ソルフェージュ指導法講座ページでSwiperを読み込む
  */
 add_action('wp_enqueue_scripts', function() {

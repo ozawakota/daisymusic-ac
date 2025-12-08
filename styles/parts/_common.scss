@@ -438,3 +438,11 @@ legend {
     margin-top: 100px !important;
   }
 }
+
+/* メニュー項目でURLが空の場合、テキストのみ表示 */
+a[data-no-link="true"] {
+  cursor: default !important;
+  pointer-events: none;
+  text-decoration: none !important;
+  color: white !important;
+}
