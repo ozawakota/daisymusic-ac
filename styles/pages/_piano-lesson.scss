@@ -548,12 +548,17 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
     background: var(--bg-url) no-repeat center center / contain;
     border: none;
     cursor: pointer;
     z-index: 10;
+    @include mq("lg") {
+      width: 44px;
+      height: 44px;
+      
+    }
     
     &::after {
       display: none; // デフォルトのSwiperアイコンを非表示
@@ -561,14 +566,14 @@
   }
 
   .swiper-button-prev {
-    left: -32px;
+    left: -16px;
     @include mq("lg") {
       left: -64px;
     }
   }
 
   .swiper-button-next {
-    right: -32px;
+    right: -16px;
     @include mq("lg") {
       right: -64px;
     }

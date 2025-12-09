@@ -7,6 +7,8 @@
 .swiper-wrapper {
  // overflow-x: hidden;
 }
+.swiper-wrapper { align-items: stretch!important; }
+.swiper-slide { height: auto; }
 
 .swiper-button-next, .swiper-button-prev {
  width: 40px;

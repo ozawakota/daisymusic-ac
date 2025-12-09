@@ -34,7 +34,7 @@
 
    .catch-phrase {
     p {
-     font-size: vwSP(11);
+     font-size: 9px;
      font-weight: 600;
      letter-spacing: 0.15em;
      @include mq("lg") {
