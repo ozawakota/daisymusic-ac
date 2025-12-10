@@ -35,9 +35,6 @@ $spmenu_class = ( 'center_left' === SWELL_Theme::get_setting( 'header_layout_sp'
 					'after'  => '</div>',
 				] );
 			?>
-			<div class="p-spMenu__logo">
-				<?php echo SWELL_PARTS::head_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</div>
 
 		</div>
 	</div>
