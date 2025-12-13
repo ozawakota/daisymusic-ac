@@ -462,3 +462,32 @@ a[data-no-link="true"] {
     }
   }
 }
+
+.c-tabList {
+  --the-tab-flex: 0 0 50% !important;
+  @include mq("lg") {
+    --the-tab-flex: 0 0 35% !important;
+  }
+  .c-tabList__item{
+    @include mq("lg") {
+
+    }
+    .c-tabList__button {
+      font-weight: 700;
+      &:before {
+        border: 16px solid transparent;
+        border-bottom: 0;
+        border-top: 8px solid var(--color_main);
+      }
+    }
+  }
+}
+.is-style-balloon>.c-tabList .c-tabList__button {
+  box-shadow: none;
+  background-color: #B6A08A;
+  color: white;
+}
+
+.c-shareBtns__btn, .is-style-balloon>.c-tabList .c-tabList__button, .p-snsCta, [class*=page-numbers] {
+  box-shadow: none;
+}
