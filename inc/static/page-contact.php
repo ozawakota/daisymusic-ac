@@ -90,6 +90,7 @@
 								<p>
 									<span class="wpcf7-form-control-wrap" data-name="your-select-other">
 										<select class="wpcf7-form-control wpcf7-select" aria-invalid="false" name="your-select-other">
+											<option value="">選択してください</option>
 											<option value="ピアノ">ピアノ</option>
 											<option value="弦楽器">弦楽器</option>
 											<option value="管楽器">管楽器</option>

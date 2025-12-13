@@ -57,9 +57,7 @@ var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":0,"threshold":0};
 <script src='https://mika-ojima.com/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js?ver=670' id='eio-lazy-load-js'></script>
 <script src='https://mika-ojima.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
 <script src='https://mika-ojima.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
-<script id='contact-form-7-js-extra'>
-var wpcf7 = {"api":{"root":"https:\/\/mika-ojima.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
-</script>
+<?php /* Contact Form 7のスクリプトはfunctions.phpで動的に設定されます */ ?>
 <script src='https://mika-ojima.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.6.1' id='contact-form-7-js'></script>
 <script src='https://www.google.com/recaptcha/api.js?render=6Lf6laQhAAAAAIU6FkbKVoA8GUcd3N83a6ZYQ6mr&#038;ver=3.0' id='google-recaptcha-js'></script>
 <script id='wpcf7-recaptcha-js-extra'>

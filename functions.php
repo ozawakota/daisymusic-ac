@@ -70,7 +70,46 @@ add_action('wp_enqueue_scripts', function() {
 		wp_enqueue_style('swell_swiper');
 		wp_enqueue_script('swell_swiper');
 	}
+
+	// お問い合わせページでContact Form 7の修正スクリプトを読み込む
+	if (is_page('contact')) {
+		wp_enqueue_script(
+			'contact-form-fix',
+			get_stylesheet_directory_uri() . '/scripts/contact-form-fix.js',
+			array(),
+			filemtime(get_stylesheet_directory() . '/scripts/contact-form-fix.js'),
+			true
+		);
+	}
 }, 20); // SWELLテーマの後に実行
+
+/**
+ * Contact Form 7 APIエンドポイントを現在のドメインに動的に設定
+ */
+add_filter('wpcf7_load_js', function() {
+	// Contact Form 7のJavaScript設定を現在のサイトURLで上書き
+	if (wp_script_is('contact-form-7', 'enqueued')) {
+		wp_add_inline_script('contact-form-7',
+			'var wpcf7 = {"api":{"root":"' . esc_url_raw(rest_url()) . '","namespace":"contact-form-7/v1"}};',
+			'before'
+		);
+	}
+	return true;
+});
+
+/**
+ * Contact Form 7のスクリプトデータをローカライズ
+ */
+add_action('wp_enqueue_scripts', function() {
+	if (wp_script_is('contact-form-7', 'enqueued')) {
+		wp_localize_script('contact-form-7', 'wpcf7', array(
+			'api' => array(
+				'root' => esc_url_raw(rest_url()),
+				'namespace' => 'contact-form-7/v1'
+			)
+		));
+	}
+}, 100);
 
 if(!is_admin()) {
     function remove_lazyblocks_div(){

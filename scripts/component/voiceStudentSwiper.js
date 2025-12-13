@@ -24,7 +24,7 @@ function init() {
  * SWELLテーマのグローバルSwiperオブジェクトを使用
  */
 function _initSwiper() {
-  console.log('🎯 Swiper初期化開始');
+  // console.log('🎯 Swiper初期化開始');
 
   const swiperContainer = document.querySelector('.s-voice-swiper');
 
@@ -75,7 +75,7 @@ function loadSwiperFromCDN() {
   const script = document.createElement('script');
   script.src = 'https://unpkg.com/swiper@7.4.1/swiper-bundle.min.js';
   script.onload = () => {
-    console.log('✅ CDNからSwiper読み込み完了');
+    // console.log('✅ CDNからSwiper読み込み完了');
     createSwiperInstance();
   };
   script.onerror = () => {
@@ -88,7 +88,7 @@ function loadSwiperFromCDN() {
  * Swiperインスタンス作成
  */
 function createSwiperInstance() {
-  console.log('🚀 Swiperインスタンス作成開始');
+  // console.log('🚀 Swiperインスタンス作成開始');
   
   const swiperInstance = new window.Swiper('.s-voice-swiper', {
     slidesPerView: 1,
@@ -111,7 +111,7 @@ function createSwiperInstance() {
     }
   });
   
-  console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
+  // console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
 }
 
 export default student_swiper;

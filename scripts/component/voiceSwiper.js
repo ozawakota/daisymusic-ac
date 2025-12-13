@@ -33,7 +33,7 @@ function _initSwiper() {
     return;
   }
 
-  console.log('✅ .voice-swiper要素を発見:', swiperContainer);
+  // console.log('✅ .voice-swiper要素を発見:', swiperContainer);
 
   // Swiperが読み込まれるまで待機（最大5秒）
   let attempts = 0;
@@ -52,7 +52,7 @@ function _initSwiper() {
       return;
     }
 
-    console.log('✅ Swiper読み込み完了！初期化します');
+    // console.log('✅ Swiper読み込み完了！初期化します');
 
     const swiperInstance = new window.Swiper('.voice-swiper', {
       // スライド設定
@@ -95,7 +95,7 @@ function _initSwiper() {
       }
     });
 
-    console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
+    // console.log('🎉 Swiperインスタンス作成完了:', swiperInstance);
   };
 
   initializeSwiper2();

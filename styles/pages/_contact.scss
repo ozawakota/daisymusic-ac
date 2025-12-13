@@ -79,9 +79,11 @@
      .wpcf7-form-control-wrap {
       width: 100%;
       &[data-name="your-select"],&[data-name="your-select-other"] {
-       display: inline-flex;
+       display: flex;
        align-items: center;
        position: relative;
+       flex-direction: column;
+       align-items: flex-start;
        @include mq("lg") {
         width: calc(50% - 5px);
        }
@@ -94,6 +96,7 @@
         clip-path: polygon(0 0, 100% 0, 50% 100%);
         content: '';
         pointer-events: none;
+        top: 15px;
        }
    
       }
@@ -281,6 +284,10 @@
      margin-top: 0;
     }
    }
+  }
+
+  .wpcf7-not-valid-tip {
+    font-size: 14px;
   }
 
 }
