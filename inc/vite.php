@@ -22,14 +22,20 @@ $host = $_SERVER['HTTP_HOST'];
 //     }
 // }
 
+// Vite開発サーバーが起動しているかチェック
+$vite_server_running = false;
 if ($host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1') {
+    // Viteサーバーへの接続をテスト
+    $context = stream_context_create(['http' => ['timeout' => 1]]);
+    $vite_server_running = @file_get_contents('http://localhost:5133', false, $context) !== false;
+}
+
+if ($vite_server_running) {
+    // Vite開発サーバーが起動している場合
     define('IS_DEV', true);
     define('ASSET_URI', 'http://localhost:5133');
-
-
-}
-else {
-    // 本番環境の時
+} else {
+    // ビルド済みアセットを使用（開発環境・本番環境共通）
     define('IS_DEV', false);
     define('ASSET_URI', get_stylesheet_directory_uri() . '/dist');
 }

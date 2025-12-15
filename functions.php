@@ -127,6 +127,20 @@ if (defined('WP_ENV') && WP_ENV === 'development') {
 }
 
 /**
+ * ローカル環境での不要なスクリプト無効化（パフォーマンス向上）
+ */
+add_action('wp_enqueue_scripts', function() {
+	// ローカル環境またはお問い合わせページ以外でreCAPTCHAを無効化
+	if (!is_page('contact')) {
+		wp_dequeue_script('google-recaptcha');
+		wp_dequeue_script('wpcf7-recaptcha');
+	}
+
+	// 不要なElementorアニメーションCSSを無効化（使用していない場合）
+	wp_dequeue_style('e-animations');
+}, 999);
+
+/**
  * Contact Form 7のGmail API連携を無効化（ローカル環境用）
  */
 add_filter('wpcf7_use_really_simple_captcha', '__return_false');
@@ -157,3 +171,24 @@ if(!is_admin()) {
     }
     add_action('wp','remove_lazyblocks_div');
   }
+
+
+		/**
+ * トップページのみ medium_large（1024px）を srcset から除外
+ */
+add_filter( 'wp_calculate_image_srcset', function( $sources ) {
+
+	// トップページ以外は何もしない
+	if ( ! is_front_page() ) {
+					return $sources;
+	}
+
+	foreach ( $sources as $width => $source ) {
+					// 1024px以下（thumbnail / medium / medium_large）を除外
+					if ( $width <= 1024 ) {
+									unset( $sources[ $width ] );
+					}
+	}
+
+	return $sources;
+});
