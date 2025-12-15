@@ -111,6 +111,32 @@ add_action('wp_enqueue_scripts', function() {
 	}
 }, 100);
 
+/**
+ * ローカル環境でのメール送信設定
+ */
+if (defined('WP_ENV') && WP_ENV === 'development') {
+	// ローカル環境ではメール送信をログに記録するのみ
+	add_filter('wp_mail', function($args) {
+		error_log('=== Local Mail Sent ===');
+		error_log('To: ' . $args['to']);
+		error_log('Subject: ' . $args['subject']);
+		error_log('Message: ' . $args['message']);
+		error_log('======================');
+		return $args;
+	});
+}
+
+/**
+ * Contact Form 7のGmail API連携を無効化（ローカル環境用）
+ */
+add_filter('wpcf7_use_really_simple_captcha', '__return_false');
+
+// Gmail APIの使用を無効化
+add_filter('wpcf7_mail_components', function($components, $contact_form, $mail) {
+	// ローカル環境ではPHPのmail()を使用
+	return $components;
+}, 10, 3);
+
 if(!is_admin()) {
     function remove_lazyblocks_div(){
       $args = array(
