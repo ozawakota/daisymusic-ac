@@ -192,3 +192,4 @@ add_filter( 'wp_calculate_image_srcset', function( $sources ) {
 
 	return $sources;
 });
+
