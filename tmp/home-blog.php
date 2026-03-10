@@ -10,7 +10,7 @@
 						// 新着記事の取得（seminarカテゴリーのみ）
 						$recent_posts = new WP_Query([
 							'post_type' => 'post',
-							'posts_per_page' => 5,
+							'posts_per_page' => 100,
 							'post_status' => 'publish',
 							'no_found_rows' => true,
 							'ignore_sticky_posts' => 1,

@@ -314,3 +314,36 @@ img {
 
  }
 }
+
+@media only screen and (max-width: 960px) {
+  .home-blog {
+    .c-tabBody {
+      .p-postList {
+        .p-postList__item {
+          width: 100%;
+          a {
+            display: flex;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            gap: 15px;
+            align-items: flex-start;
+          }
+          .p-postList__thumb {
+            flex: 1;
+          }
+          .p-postList__body {
+            padding-top: 0;
+            flex: 1;
+            .p-postList__title {
+              font-size: 14px;
+            }
+            .p-postList__excerpt {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
