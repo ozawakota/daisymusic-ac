@@ -7,7 +7,7 @@
 				<div class="c-tabBody p-postListTabBody">
 					<div class="c-tabBody__item" aria-hidden="false">
 						<?php
-						// 新着記事の取得（seminarカテゴリーのみ）
+						// 新着記事の取得（news子カテゴリーのみ、親カテゴリーnewsは除外）
 						$recent_posts = new WP_Query([
 							'post_type' => 'post',
 							'posts_per_page' => 100,
@@ -16,7 +16,14 @@
 							'ignore_sticky_posts' => 1,
 							'orderby' => 'date',
 							'order' => 'DESC',
-							'category_name' => 'seminar'
+							'tax_query' => [
+								[
+									'taxonomy' => 'category',
+									'field' => 'slug',
+									'terms' => ['news-event', 'news-seminar'],
+									'include_children' => false
+								]
+							]
 						]);
 
 						if ($recent_posts->have_posts()) :
