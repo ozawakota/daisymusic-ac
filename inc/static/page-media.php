@@ -97,8 +97,37 @@
                     <div class="-body">
                         <?php
                             $args = [
-                                'post_type' => 'activity-media', // カスタム投稿名が「news」の場合
-                              ];
+                                'post_type' => 'activity-media',
+                                'post_status' => 'publish',
+                                'posts_per_page' => -1,
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
+                                'meta_query' => [
+                                    'relation' => 'OR',
+                                    [
+                                        'key' => '_media_expiry_enabled',
+                                        'compare' => 'NOT EXISTS'
+                                    ],
+                                    [
+                                        'key' => '_media_expiry_enabled',
+                                        'value' => '1',
+                                        'compare' => '!='
+                                    ],
+                                    [
+                                        'relation' => 'AND',
+                                        [
+                                            'key' => '_media_expiry_enabled',
+                                            'value' => '1',
+                                            'compare' => '='
+                                        ],
+                                        [
+                                            'key' => '_media_expiry_date',
+                                            'value' => current_time('Y-m-d\TH:i'),
+                                            'compare' => '>'
+                                        ]
+                                    ]
+                                ]
+                            ];
                             $my_query = new WP_Query($args); ?>
                         <?php if ($my_query->have_posts()): // 投稿がある場合 ?>
 

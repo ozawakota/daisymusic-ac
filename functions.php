@@ -323,12 +323,22 @@ add_action('save_post', function($post_id) {
 			$expiry_action = isset($_POST['media_expiry_action']) ? sanitize_text_field($_POST['media_expiry_action']) : 'draft';
 			update_post_meta($post_id, '_media_expiry_action', $expiry_action);
 			
-			// WordPressのcronスケジューラに登録
+			// WordPressのcronスケジューラに登録（タイムゾーン考慮）
 			wp_clear_scheduled_hook('media_expiry_check', array($post_id));
 			if ($expiry_date) {
-				$timestamp = strtotime($expiry_date);
-				if ($timestamp && $timestamp > time()) {
-					wp_schedule_single_event($timestamp, 'media_expiry_check', array($post_id));
+				// WordPress時刻を考慮してタイムスタンプ変換
+				$wp_timezone = wp_timezone();
+				$datetime = DateTime::createFromFormat('Y-m-d\TH:i', $expiry_date, $wp_timezone);
+				
+				if ($datetime) {
+					$timestamp = $datetime->getTimestamp();
+					$current_timestamp = current_time('timestamp');
+					
+					if ($timestamp > $current_timestamp) {
+						wp_schedule_single_event($timestamp, 'media_expiry_check', array($post_id));
+						// デバッグログ
+						error_log("Scheduled expiry for post #{$post_id} at " . $datetime->format('Y-m-d H:i:s T'));
+					}
 				}
 			}
 		} else {
@@ -341,40 +351,66 @@ add_action('save_post', function($post_id) {
 });
 
 /**
- * LazyBlocks用: Activity Media投稿を取得する関数
+ * 期限チェック用の共通meta_queryを生成
+ */
+function get_media_expiry_meta_query() {
+	return array(
+		'relation' => 'OR',
+		array(
+			'key' => '_media_expiry_enabled',
+			'compare' => 'NOT EXISTS'
+		),
+		array(
+			'key' => '_media_expiry_enabled',
+			'value' => '1',
+			'compare' => '!='
+		),
+		array(
+			'relation' => 'AND',
+			array(
+				'key' => '_media_expiry_enabled',
+				'value' => '1',
+				'compare' => '='
+			),
+			array(
+				'key' => '_media_expiry_date',
+				'value' => current_time('Y-m-d\TH:i'),
+				'compare' => '>'
+			)
+		)
+	);
+}
+
+/**
+ * 個別投稿の期限チェック
+ */
+function is_media_post_expired($post_id) {
+	$expiry_enabled = get_post_meta($post_id, '_media_expiry_enabled', true);
+	
+	if ($expiry_enabled !== '1') {
+		return false; // 期限設定なし
+	}
+	
+	$expiry_date = get_post_meta($post_id, '_media_expiry_date', true);
+	if (empty($expiry_date)) {
+		return false; // 期限日未設定
+	}
+	
+	$current_time = current_time('Y-m-d\TH:i');
+	return $expiry_date <= $current_time;
+}
+
+/**
+ * LazyBlocks用: Activity Media投稿を取得する関数（改良版）
  */
 function get_activity_media_posts($limit = -1) {
 	$posts = get_posts(array(
 		'post_type' => 'activity-media',
 		'post_status' => 'publish',
 		'posts_per_page' => $limit,
-		'orderby' => 'date',
-		'order' => 'DESC',
-		'meta_query' => array(
-			'relation' => 'OR',
-			array(
-				'key' => '_media_expiry_enabled',
-				'compare' => 'NOT EXISTS'
-			),
-			array(
-				'key' => '_media_expiry_enabled',
-				'value' => '1',
-				'compare' => '!='
-			),
-			array(
-				'relation' => 'AND',
-				array(
-					'key' => '_media_expiry_enabled',
-					'value' => '1',
-					'compare' => '='
-				),
-				array(
-					'key' => '_media_expiry_date',
-					'value' => current_time('Y-m-d\TH:i'),
-					'compare' => '>'
-				)
-			)
-		)
+		'orderby' => 'menu_order',
+		'order' => 'ASC',
+		'meta_query' => get_media_expiry_meta_query()
 	));
 	
 	return $posts;
@@ -457,31 +493,204 @@ add_action('pre_get_posts', function($query) {
 });
 
 /**
+ * リアルタイム期限チェック（フロントエンド表示時）
+ */
+add_action('wp_head', function() {
+	if (!is_admin() && (is_page() || is_post_type_archive('activity-media'))) {
+		// 期限切れ投稿を即座に処理
+		$expired_posts = get_posts(array(
+			'post_type' => 'activity-media',
+			'post_status' => 'publish',
+			'meta_query' => array(
+				array(
+					'key' => '_media_expiry_enabled',
+					'value' => '1',
+					'compare' => '='
+				),
+				array(
+					'key' => '_media_expiry_date',
+					'value' => current_time('Y-m-d\TH:i'),
+					'compare' => '<='
+				)
+			),
+			'posts_per_page' => 10 // 一度に処理する件数を制限
+		));
+		
+		foreach ($expired_posts as $post) {
+			do_action('media_expiry_check', $post->ID);
+		}
+	}
+});
+
+/**
+ * 期限切れ投稿の自動非公開処理
+ */
+function handle_expired_media_posts() {
+    $timezone = wp_timezone();
+    $current_time_tz = new DateTime('now', $timezone);
+    $current_time_mysql = $current_time_tz->format('Y-m-d H:i:s');
+    
+    // デバッグログ記録
+    media_expiry_debug_log("期限切れ処理開始 - 現在時刻: " . $current_time_mysql);
+    
+    $args = array(
+        'post_type' => 'activity-media',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => '_media_expiry_enabled',
+                'value' => '1',
+                'compare' => '='
+            ),
+            array(
+                'key' => '_media_expiry_date',
+                'value' => current_time('Y-m-d\TH:i'),
+                'compare' => '<='
+            )
+        )
+    );
+    
+    $query = new WP_Query($args);
+    $processed_count = 0;
+    
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $post_id = get_the_ID();
+            $expiry_date = get_post_meta($post_id, '_media_expiry_date', true);
+            
+            // 下書きに変更
+            wp_update_post(array(
+                'ID' => $post_id,
+                'post_status' => 'draft'
+            ));
+            
+            $processed_count++;
+            media_expiry_debug_log("投稿ID {$post_id} を下書きに変更しました (期限: {$expiry_date})");
+        }
+    }
+    
+    media_expiry_debug_log("期限切れ処理完了 - 処理件数: {$processed_count}件");
+    
+    wp_reset_postdata();
+}
+
+/**
  * 定期的な期限チェック（バックアップ処理）
  */
 add_action('wp_scheduled_delete', function() {
-	$expired_posts = get_posts(array(
-		'post_type' => 'activity-media',
-		'post_status' => 'publish',
-		'meta_query' => array(
-			array(
-				'key' => '_media_expiry_enabled',
-				'value' => '1',
-				'compare' => '='
-			),
-			array(
-				'key' => '_media_expiry_date',
-				'value' => current_time('Y-m-d\TH:i'),
-				'compare' => '<='
-			)
-		),
-		'posts_per_page' => -1
-	));
-	
-	foreach ($expired_posts as $post) {
-		do_action('media_expiry_check', $post->ID);
-	}
+	handle_expired_media_posts();
 });
+
+// 毎日の期限チェック処理をスケジュール
+if (!wp_next_scheduled('media_expiry_daily_check')) {
+    wp_schedule_event(time(), 'daily', 'media_expiry_daily_check');
+}
+
+add_action('media_expiry_daily_check', 'handle_expired_media_posts');
+
+// デバッグ機能とログ記録
+function media_expiry_debug_log($message) {
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        $timestamp = current_time('Y-m-d H:i:s');
+        error_log("[Media Expiry Debug {$timestamp}] {$message}");
+    }
+}
+
+// 管理画面にデバッグ情報を表示
+function add_media_expiry_debug_page() {
+    if (current_user_can('manage_options')) {
+        add_submenu_page(
+            'edit.php?post_type=activity-media',
+            'メディア掲載期限デバッグ',
+            'デバッグ情報',
+            'manage_options',
+            'media-expiry-debug',
+            'media_expiry_debug_page'
+        );
+    }
+}
+add_action('admin_menu', 'add_media_expiry_debug_page');
+
+function media_expiry_debug_page() {
+    echo '<div class="wrap">';
+    echo '<h1>メディア掲載期限デバッグ情報</h1>';
+    
+    // 現在時刻情報
+    $timezone = wp_timezone();
+    $current_time_tz = new DateTime('now', $timezone);
+    echo '<h2>時刻情報</h2>';
+    echo '<p><strong>WordPress現在時刻:</strong> ' . current_time('Y-m-d H:i:s') . '</p>';
+    echo '<p><strong>タイムゾーン:</strong> ' . $timezone->getName() . '</p>';
+    echo '<p><strong>UTCオフセット:</strong> ' . get_option('gmt_offset') . '時間</p>';
+    
+    // 期限設定されている投稿の一覧
+    echo '<h2>期限設定投稿一覧</h2>';
+    $args = array(
+        'post_type' => 'activity-media',
+        'post_status' => array('publish', 'draft'),
+        'posts_per_page' => -1,
+        'orderby' => 'meta_value',
+        'meta_key' => '_media_expiry_date',
+        'order' => 'ASC',
+        'meta_query' => array(
+            array(
+                'key' => '_media_expiry_enabled',
+                'value' => '1',
+                'compare' => '='
+            )
+        )
+    );
+    
+    $query = new WP_Query($args);
+    if ($query->have_posts()) {
+        echo '<table class="widefat striped">';
+        echo '<thead><tr><th>投稿タイトル</th><th>ステータス</th><th>期限日時</th><th>期限切れ判定</th></tr></thead><tbody>';
+        
+        while ($query->have_posts()) {
+            $query->the_post();
+            $post_id = get_the_ID();
+            $expiry_date = get_post_meta($post_id, '_media_expiry_date', true);
+            $current_time = current_time('Y-m-d\TH:i');
+            $is_expired = $expiry_date <= $current_time;
+            $status = get_post_status();
+            
+            echo '<tr>';
+            echo '<td>' . get_the_title() . '</td>';
+            echo '<td>' . $status . '</td>';
+            echo '<td>' . $expiry_date . '</td>';
+            echo '<td>' . ($is_expired ? '<span style="color: red;">期限切れ</span>' : '<span style="color: green;">有効</span>') . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody></table>';
+    } else {
+        echo '<p>期限設定されている投稿はありません。</p>';
+    }
+    wp_reset_postdata();
+    
+    // 次回のcron実行予定
+    echo '<h2>Cron実行予定</h2>';
+    $next_daily = wp_next_scheduled('media_expiry_daily_check');
+    if ($next_daily) {
+        echo '<p><strong>次回日次チェック:</strong> ' . date('Y-m-d H:i:s', $next_daily) . '</p>';
+    } else {
+        echo '<p>日次チェックがスケジュールされていません。</p>';
+    }
+    
+    // 手動実行ボタン
+    echo '<h2>手動実行</h2>';
+    if (isset($_POST['manual_check'])) {
+        echo '<div class="notice notice-info"><p>手動チェックを実行しました。</p></div>';
+        handle_expired_media_posts();
+    }
+    echo '<form method="post">';
+    echo '<input type="submit" name="manual_check" class="button button-primary" value="期限チェックを手動実行" />';
+    echo '</form>';
+    
+    echo '</div>';
+}
 
 /**
  * PublishPress Futureでactivity-mediaカスタム投稿タイプを強制的に有効にする
