@@ -173,6 +173,352 @@ if(!is_admin()) {
   }
 
 
+/**
+ * メディア掲載のカスタム投稿タイプを登録
+ */
+add_action('init', function() {
+	register_post_type('activity-media', array(
+		'labels' => array(
+			'name' => 'メディア掲載',
+			'singular_name' => 'メディア掲載',
+			'add_new' => '新規追加',
+			'add_new_item' => '新しいメディア掲載を追加',
+			'edit_item' => 'メディア掲載を編集',
+			'new_item' => '新しいメディア掲載',
+			'view_item' => 'メディア掲載を表示',
+			'search_items' => 'メディア掲載を検索',
+			'not_found' => '見つかりませんでした',
+			'not_found_in_trash' => 'ごみ箱にはありませんでした'
+		),
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'menu_position' => 20,
+		'menu_icon' => 'dashicons-format-image',
+		'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'activity-media'),
+		'show_in_rest' => true,
+		'hierarchical' => false
+	));
+});
+
+/**
+ * Intuitive Custom Post Orderプラグインサポートを追加
+ */
+add_filter('icp_post_types', function($post_types) {
+	$post_types[] = 'activity-media';
+	return $post_types;
+});
+
+/**
+ * メディア掲載のカスタムフィールドを追加
+ */
+add_action('add_meta_boxes', function() {
+	add_meta_box(
+		'media_custom_fields',
+		'メディア掲載情報',
+		'media_custom_fields_callback',
+		'activity-media'
+	);
+	
+	// 独自の期限設定メタボックス追加
+	add_meta_box(
+		'media_expiry_settings',
+		'表示期限設定',
+		'media_expiry_callback',
+		'activity-media',
+		'side',
+		'high'
+	);
+});
+
+function media_custom_fields_callback($post) {
+	wp_nonce_field('media_save_meta_box', 'media_meta_box_nonce');
+	
+	$media_link = get_post_meta($post->ID, '_media_link', true);
+	
+	echo '<table class="form-table">';
+	echo '<tr>';
+	echo '<th><label for="media_link">詳しくはこちら（URL）</label></th>';
+	echo '<td><input type="url" id="media_link" name="media_link" value="' . esc_attr($media_link) . '" size="50" /></td>';
+	echo '</tr>';
+	echo '</table>';
+}
+
+function media_expiry_callback($post) {
+	wp_nonce_field('media_expiry_meta_box', 'media_expiry_nonce');
+	
+	$expiry_enabled = get_post_meta($post->ID, '_media_expiry_enabled', true);
+	$expiry_date = get_post_meta($post->ID, '_media_expiry_date', true);
+	$expiry_action = get_post_meta($post->ID, '_media_expiry_action', true) ?: 'draft';
+	
+	echo '<div style="margin-bottom: 15px;">';
+	echo '<label>';
+	echo '<input type="checkbox" name="media_expiry_enabled" value="1" ' . checked(1, $expiry_enabled, false) . '> ';
+	echo '表示期限を設定する';
+	echo '</label>';
+	echo '</div>';
+	
+	echo '<div id="media-expiry-settings" style="' . ($expiry_enabled ? '' : 'display:none;') . '">';
+	
+	echo '<div style="margin-bottom: 15px;">';
+	echo '<label for="media_expiry_date">期限日時:</label><br>';
+	echo '<input type="datetime-local" id="media_expiry_date" name="media_expiry_date" value="' . esc_attr($expiry_date) . '" style="width: 100%;" />';
+	echo '</div>';
+	
+	echo '<div style="margin-bottom: 15px;">';
+	echo '<label for="media_expiry_action">期限後のアクション:</label><br>';
+	echo '<select id="media_expiry_action" name="media_expiry_action" style="width: 100%;">';
+	echo '<option value="draft"' . selected('draft', $expiry_action, false) . '>下書きに変更</option>';
+	echo '<option value="private"' . selected('private', $expiry_action, false) . '>非公開に変更</option>';
+	echo '<option value="trash"' . selected('trash', $expiry_action, false) . '>ゴミ箱に移動</option>';
+	echo '</select>';
+	echo '</div>';
+	
+	echo '</div>';
+	
+	// JavaScript for toggle
+	echo '<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			const checkbox = document.querySelector("input[name=\'media_expiry_enabled\']");
+			const settings = document.getElementById("media-expiry-settings");
+			
+			checkbox.addEventListener("change", function() {
+				settings.style.display = this.checked ? "block" : "none";
+			});
+		});
+	</script>';
+}
+
+/**
+ * カスタムフィールドの保存
+ */
+add_action('save_post', function($post_id) {
+	// 基本的なバリデーション
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+		return;
+	}
+	
+	if (!current_user_can('edit_post', $post_id)) {
+		return;
+	}
+	
+	// メディア情報の保存
+	if (isset($_POST['media_meta_box_nonce']) && wp_verify_nonce($_POST['media_meta_box_nonce'], 'media_save_meta_box')) {
+		if (isset($_POST['media_link'])) {
+			update_post_meta($post_id, '_media_link', sanitize_text_field($_POST['media_link']));
+		}
+	}
+	
+	// 期限設定の保存
+	if (isset($_POST['media_expiry_nonce']) && wp_verify_nonce($_POST['media_expiry_nonce'], 'media_expiry_meta_box')) {
+		$expiry_enabled = isset($_POST['media_expiry_enabled']) ? 1 : 0;
+		update_post_meta($post_id, '_media_expiry_enabled', $expiry_enabled);
+		
+		if ($expiry_enabled && isset($_POST['media_expiry_date'])) {
+			$expiry_date = sanitize_text_field($_POST['media_expiry_date']);
+			update_post_meta($post_id, '_media_expiry_date', $expiry_date);
+			
+			$expiry_action = isset($_POST['media_expiry_action']) ? sanitize_text_field($_POST['media_expiry_action']) : 'draft';
+			update_post_meta($post_id, '_media_expiry_action', $expiry_action);
+			
+			// WordPressのcronスケジューラに登録
+			wp_clear_scheduled_hook('media_expiry_check', array($post_id));
+			if ($expiry_date) {
+				$timestamp = strtotime($expiry_date);
+				if ($timestamp && $timestamp > time()) {
+					wp_schedule_single_event($timestamp, 'media_expiry_check', array($post_id));
+				}
+			}
+		} else {
+			// 期限設定が無効の場合、スケジュールをクリア
+			wp_clear_scheduled_hook('media_expiry_check', array($post_id));
+			delete_post_meta($post_id, '_media_expiry_date');
+			delete_post_meta($post_id, '_media_expiry_action');
+		}
+	}
+});
+
+/**
+ * LazyBlocks用: Activity Media投稿を取得する関数
+ */
+function get_activity_media_posts($limit = -1) {
+	$posts = get_posts(array(
+		'post_type' => 'activity-media',
+		'post_status' => 'publish',
+		'posts_per_page' => $limit,
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'meta_query' => array(
+			'relation' => 'OR',
+			array(
+				'key' => '_media_expiry_enabled',
+				'compare' => 'NOT EXISTS'
+			),
+			array(
+				'key' => '_media_expiry_enabled',
+				'value' => '1',
+				'compare' => '!='
+			),
+			array(
+				'relation' => 'AND',
+				array(
+					'key' => '_media_expiry_enabled',
+					'value' => '1',
+					'compare' => '='
+				),
+				array(
+					'key' => '_media_expiry_date',
+					'value' => current_time('Y-m-d\TH:i'),
+					'compare' => '>'
+				)
+			)
+		)
+	));
+	
+	return $posts;
+}
+
+/**
+ * 期限切れ投稿の処理
+ */
+add_action('media_expiry_check', function($post_id) {
+	$post = get_post($post_id);
+	if (!$post || $post->post_type !== 'activity-media') {
+		return;
+	}
+	
+	$expiry_action = get_post_meta($post_id, '_media_expiry_action', true) ?: 'draft';
+	
+	switch ($expiry_action) {
+		case 'draft':
+			wp_update_post(array(
+				'ID' => $post_id,
+				'post_status' => 'draft'
+			));
+			break;
+		case 'private':
+			wp_update_post(array(
+				'ID' => $post_id,
+				'post_status' => 'private'
+			));
+			break;
+		case 'trash':
+			wp_trash_post($post_id);
+			break;
+	}
+	
+	// ログを記録（オプション）
+	error_log("Media post #{$post_id} expired and set to {$expiry_action}");
+});
+
+/**
+ * フロントエンドで期限切れ投稿を非表示にする
+ */
+add_action('pre_get_posts', function($query) {
+	// 管理画面では処理しない
+	if (is_admin() || !$query->is_main_query()) {
+		return;
+	}
+	
+	// activity-mediaの投稿のみ処理
+	if (is_post_type_archive('activity-media') || (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] === 'activity-media')) {
+		$meta_query = $query->get('meta_query') ?: array();
+		
+		$meta_query[] = array(
+			'relation' => 'OR',
+			array(
+				'key' => '_media_expiry_enabled',
+				'compare' => 'NOT EXISTS'
+			),
+			array(
+				'key' => '_media_expiry_enabled',
+				'value' => '1',
+				'compare' => '!='
+			),
+			array(
+				'relation' => 'AND',
+				array(
+					'key' => '_media_expiry_enabled',
+					'value' => '1',
+					'compare' => '='
+				),
+				array(
+					'key' => '_media_expiry_date',
+					'value' => current_time('Y-m-d\TH:i'),
+					'compare' => '>'
+				)
+			)
+		);
+		
+		$query->set('meta_query', $meta_query);
+	}
+});
+
+/**
+ * 定期的な期限チェック（バックアップ処理）
+ */
+add_action('wp_scheduled_delete', function() {
+	$expired_posts = get_posts(array(
+		'post_type' => 'activity-media',
+		'post_status' => 'publish',
+		'meta_query' => array(
+			array(
+				'key' => '_media_expiry_enabled',
+				'value' => '1',
+				'compare' => '='
+			),
+			array(
+				'key' => '_media_expiry_date',
+				'value' => current_time('Y-m-d\TH:i'),
+				'compare' => '<='
+			)
+		),
+		'posts_per_page' => -1
+	));
+	
+	foreach ($expired_posts as $post) {
+		do_action('media_expiry_check', $post->ID);
+	}
+});
+
+/**
+ * PublishPress Futureでactivity-mediaカスタム投稿タイプを強制的に有効にする
+ */
+add_action('init', function() {
+	// カスタム投稿タイプがPublic Queryableである必要がある
+	add_post_type_support('activity-media', 'post-expirator');
+}, 15);
+
+// PublishPress Futureの投稿タイプリストに追加
+add_filter('publishpress_future_supported_post_types', function($post_types) {
+	if (!in_array('activity-media', $post_types)) {
+		$post_types[] = 'activity-media';
+	}
+	return $post_types;
+});
+
+// 旧バージョンとの互換性
+add_filter('post_expirator_supported_post_types', function($post_types) {
+	if (!in_array('activity-media', $post_types)) {
+		$post_types[] = 'activity-media';
+	}
+	return $post_types;
+});
+
+// プラグインのオプション直接更新（最終手段）
+add_action('admin_init', function() {
+	$options = get_option('publishpress_future_general', array());
+	if (!isset($options['post-types']) || !is_array($options['post-types'])) {
+		$options['post-types'] = array();
+	}
+	if (!in_array('activity-media', $options['post-types'])) {
+		$options['post-types'][] = 'activity-media';
+		update_option('publishpress_future_general', $options);
+	}
+});
+
 		/**
  * トップページのみ medium_large（1024px）を srcset から除外
  */

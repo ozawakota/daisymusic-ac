@@ -95,34 +95,60 @@
 
                 <div class="activity__inner">
                     <div class="-body">
-                        <div class="-box">
-                            <h4 class="-title">
-                            ラジオ<br class="is-sp">「松枝由紀子の<br>Sketch Book」に出演
-                            </h4>
-                            <div class="-img">
-                                <img src="<?= ASSET_URI . "/img/media/activity-img01.png" ?>" alt="">
-                            </div>
-                            <p class="-text">
-                            新大久保・高田馬場を拠点に長年、地域密着で <br class="is-pc">「松枝ぴあの教室」を運営されている代表・松枝由紀子さんがパーソナリティーを務めていらっしゃるラジオ番組に、このたびゲストとして出演させていただきました。
-                            </p>
-                            <a class="-link" href="https://open.spotify.com/episode/05NpvWysK9kS50LgbxbmDL?si=36fLoxMGThaYKHmXOJEd6A&nd=1&dlsi=41b1f37d74694ea8&fbclid=IwY2xjawPXOcZleHRuA2FlbQIxMABicmlkETE5RnhXQTFoN0ZKdDE0emh3c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHjR1SK-_JXNVE-98uRD90nlCihC_5MPMdg3ykCpOklXFXHnF0o9Wxh25QSea_aem_3LrSmvGMy1prUfUx0tlTBw" target="_blank" rel="noopener noreferrer">
-                                <span>詳しくはこちら</span>
-                            </a>
-                        </div>
-                        <div class="-box">
-                            <h4 class="-title">
-                            「月刊ピアノ2026年2月号」<br>に掲載
-                            </h4>
-                            <div class="-img">
-                                <img src="<?= ASSET_URI . "/img/media/activity-img02.png" ?>" alt="">
-                            </div>
-                            <p class="-text">
-                            最新ヒットからスタンダードまで“弾きたかったあの曲”がきっと見つかるピアノマガジン「月刊ピアノ2026年2月号」に掲載いただきました。
-                            </p>
-                            <a class="-link" href="https://www.ymm.co.jp/p/detail.php?code=GTM01102809" target="_blank" rel="noopener noreferrer">
-                                <span>詳しくはこちら</span>
-                            </a>
-                        </div>
+                        <?php
+                            $args = [
+                                'post_type' => 'activity-media', // カスタム投稿名が「news」の場合
+                              ];
+                            $my_query = new WP_Query($args); ?>
+                        <?php if ($my_query->have_posts()): // 投稿がある場合 ?>
+
+                            <?php while ($my_query->have_posts()) : $my_query->the_post();
+                            // Lazy Blocksのブロックをパースして属性を取得
+                                $blocks = parse_blocks(get_the_content());
+                                $attributes = [];
+
+                            // lazyblock/student-voiceブロックを探す
+                            foreach ($blocks as $block) {
+                            if ($block['blockName'] === 'lazyblock/activity-media') {
+                                $attributes = $block['attrs'] ?? [];
+                                break;
+                            }
+                            }
+
+                // 属性が存在する場合のみ表示
+                if (!empty($attributes)) :
+
+                    // アイキャッチ画像を取得
+                    $thumbnail_2x = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+
+               
+                  $title = $attributes['title'] ?? '';
+                  $description = $attributes['description'] ?? '';
+                  $link = $attributes['link'] ?? '';
+                ?>
+                <div class="-box">
+                    <h4 class="-title">
+                        <?php echo wp_kses($title, array('br' => array('class' => array()), 'span' => array('class' => array()))); ?>
+                    </h4>
+                    <div class="-img">
+                        <img src="<?php echo esc_url($thumbnail_2x); ?>" srcset="<?php echo esc_url($thumbnail); ?> 1x, <?php echo esc_url($thumbnail_2x); ?> 2x" alt="<?php echo esc_attr(strip_tags($title)); ?>">
+                    </div>
+                    <p class="-text">
+                        <?php echo wp_kses($description, array('br' => array('class' => array()), 'span' => array('class' => array()), 'strong' => array(), 'em' => array())); ?>
+                    </p>
+                    <?php if (!empty($link)) : ?>
+                        <a class="-link" href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
+                            <span>詳しくはこちら</span>
+                        </a>
+                    <?php endif; ?>
+                    </div>
+                <?php endif; // attributes存在チェック終了 ?>
+                <?php endwhile; ?>
+                <?php else: // 投稿がない場合?>
+                    <p>現在、メディア掲載はありません</p>
+                <?php endif; wp_reset_postdata(); ?>
+
                     </div><!-- .-body -->
                 </div>
                 <img class="icon-radio is-pc" src="<?= ASSET_URI . "/img/media/icon-radio.png" ?>" alt="">
