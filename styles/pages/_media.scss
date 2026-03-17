@@ -262,27 +262,18 @@
     @include mq("lg") {
       display: flex;
       justify-content: space-between;
-
+      flex-wrap: wrap;
+      gap: 60px;
     }
     .-box {
+      
+      @include mq("lg") {
+        width: 50%;
+      }
       + .-box {
         margin-top: 40px;
         @include mq("lg") {
           margin-top: 0;
-        }
-        .-img {
-          &:after {
-            @include icon_hana();
-            position: absolute;
-            right: -30px;
-            bottom: -30px;
-            @include mq("lg") {
-              left: unset;
-              right: -30px;
-
-            }
-
-          }
         }
       }
       @include mq("lg") {
@@ -319,6 +310,7 @@
         margin-bottom: 16px;
         margin-inline: auto;
         position: relative;
+        line-height: 0;
         &:after {
           content: "";
           display: block;
@@ -326,13 +318,24 @@
           height: 66px;
           @include icon_hana();
           position: absolute;
-          right: -30px;
-          bottom: -30px;
+          right: -15px;
+          bottom: -15px;
+          z-index: 2;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          max-width: 335px;
         }
         @include mq("lg") {
           margin-bottom: 0;
           width: 335px;
           flex-shrink: 0;
+          &:after {
+            right: -30px;
+            bottom: -30px;
+          }
         }
       }
       .-list {
@@ -378,32 +381,18 @@
           }
         }
       }
-      &:nth-of-type(1) {
+      &:nth-of-type(odd) {
         .-img {
-          width: min(100%, 335px);
-          @include mq("lg") {
-            width: 303px;
-          }
           &:after {
-            left: -30px;
-            bottom: unset;
-            top:0;
+            top: -15px;
+            left: -15px;
+            right: auto;
+            bottom: auto;
             @include mq("lg") {
-              
-              right: unset;
+              top: -30px;
+              left: -30px;
             }
-
           }
-  
-        }
-      }
-      &:nth-of-type(2) {
-        .-img {
-          width: min(100%, 335px);
-          @include mq("lg") {
-            width: 233px;
-          }
-  
         }
       }
 
