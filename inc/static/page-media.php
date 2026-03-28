@@ -85,19 +85,103 @@
                 </div>
 
 
-                <div class="text_flex">
-                    <div class="text_box_style slash">
-                        <p class="main_font">
-                            雑誌・Web記事・インタビューなど、<br class="is-sp">掲載が決まりしだい順番に公開予定!<br>
-                            更新まで少しだけお待ちください。
-                        </p>
+            </div>
+        </div>
+    </div>
+    <div class="swell-block-fullWide alignfull pt-0">
+        <div class="swell-block-fullWide__inner l-article">
+            <div class="activity">
+                <img class="icon-radio is-sp" src="<?= ASSET_URI . "/img/media/icon-radio-sp.png" ?>" alt="">
+
+                <div class="activity__inner">
+                    <div class="-body">
+                        <?php
+                            $args = [
+                                'post_type' => 'activity-media',
+                                'post_status' => 'publish',
+                                'posts_per_page' => -1,
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
+                                'meta_query' => [
+                                    'relation' => 'OR',
+                                    [
+                                        'key' => '_media_expiry_enabled',
+                                        'compare' => 'NOT EXISTS'
+                                    ],
+                                    [
+                                        'key' => '_media_expiry_enabled',
+                                        'value' => '1',
+                                        'compare' => '!='
+                                    ],
+                                    [
+                                        'relation' => 'AND',
+                                        [
+                                            'key' => '_media_expiry_enabled',
+                                            'value' => '1',
+                                            'compare' => '='
+                                        ],
+                                        [
+                                            'key' => '_media_expiry_date',
+                                            'value' => current_time('Y-m-d\TH:i'),
+                                            'compare' => '>'
+                                        ]
+                                    ]
+                                ]
+                            ];
+                            $my_query = new WP_Query($args); ?>
+                        <?php if ($my_query->have_posts()): // 投稿がある場合 ?>
+
+                            <?php while ($my_query->have_posts()) : $my_query->the_post();
+                            // Lazy Blocksのブロックをパースして属性を取得
+                                $blocks = parse_blocks(get_the_content());
+                                $attributes = [];
+
+                            // lazyblock/student-voiceブロックを探す
+                            foreach ($blocks as $block) {
+                            if ($block['blockName'] === 'lazyblock/activity-media') {
+                                $attributes = $block['attrs'] ?? [];
+                                break;
+                            }
+                            }
+
+                // 属性が存在する場合のみ表示
+                if (!empty($attributes)) :
+
+                    // アイキャッチ画像を取得
+                    $thumbnail_2x = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large');
+
+               
+                  $title = $attributes['title'] ?? '';
+                  $description = $attributes['description'] ?? '';
+                  $link = $attributes['link'] ?? '';
+                ?>
+                <div class="-box">
+                    <h4 class="-title">
+                        <?php echo wp_kses($title, array('br' => array('class' => array()), 'span' => array('class' => array()))); ?>
+                    </h4>
+                    <div class="-img">
+                        <img src="<?php echo esc_url($thumbnail_2x); ?>" srcset="<?php echo esc_url($thumbnail); ?> 1x, <?php echo esc_url($thumbnail_2x); ?> 2x" alt="<?php echo esc_attr(strip_tags($title)); ?>">
                     </div>
-                </div>
+                    <p class="-text">
+                        <?php echo wp_kses($description, array('br' => array('class' => array()), 'span' => array('class' => array()), 'strong' => array(), 'em' => array())); ?>
+                    </p>
+                    <?php if (!empty($link)) : ?>
+                        <a class="-link" href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
+                            <span>詳しくはこちら</span>
+                        </a>
+                    <?php endif; ?>
+                    </div>
+                <?php endif; // attributes存在チェック終了 ?>
+                <?php endwhile; ?>
+                <?php else: // 投稿がない場合?>
+                    <p>現在、メディア掲載はありません</p>
+                <?php endif; wp_reset_postdata(); ?>
 
-
-                <div class="text_box_style coming">
-                    <p class="comming_title">COMING<br class="is-sp"> SOON …</p>
+                    </div><!-- .-body -->
                 </div>
+                <img class="icon-radio is-pc" src="<?= ASSET_URI . "/img/media/icon-radio.png" ?>" alt="">
+
             </div>
         </div>
     </div>

@@ -14,7 +14,8 @@ the_post();
 			] );
 		?>
 		<div class="<?=esc_attr( apply_filters( 'swell_post_content_class', 'post_content' ) )?>">
-		<?php the_content(); ?>
+			<?php the_content(); ?>
+			<?php SWELL_Theme::get_parts( 'tmp/home-blog' ); ?>
 		</div>
 		<?php
 			// 改ページナビゲーション
