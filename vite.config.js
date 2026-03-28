@@ -60,7 +60,7 @@ export default defineConfig({
   server: {
     cors: true, // CORSをAccess-Control-Allow-Origin: *とする
     strictPort: true, // ポート番号を固定
-    port: 5133, // 開発サーバのポート
+    port: 5134, // 開発サーバのポート
   },
   resolve: {
     alias: [

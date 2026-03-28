@@ -8,37 +8,51 @@ $host = $_SERVER['HTTP_HOST'];
 
 // 開発環境の時（Vite開発サーバーが起動している場合）
 // localsite.io も開発環境として扱う
-// if ($host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1' || strpos($host, 'localsite.io') !== false) {
-//     // Vite開発サーバーが起動しているかチェック
-//     $vite_server_running = @file_get_contents('http://localhost:5133');
+// 開発環境の強制設定（デバッグ用）
+// 本番では必ずfalseに設定してください
+$force_dev_mode = true;
 
-//     if ($vite_server_running !== false) {
-//         define('IS_DEV', true);
-//         define('ASSET_URI', 'http://localhost:5133');
-//     } else {
-//         // Vite開発サーバーが起動していない場合はビルド済みアセットを使用
-//         define('IS_DEV', false);
-//         define('ASSET_URI', get_stylesheet_directory_uri() . '/dist');
-//     }
-// }
+if ($force_dev_mode || $host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1' || strpos($host, 'localsite.io') !== false) {
+    // Vite開発サーバーが起動しているかチェック（5134ポート）
+    $context = stream_context_create(['http' => ['timeout' => 2]]);
+    $vite_server_running = @file_get_contents('http://localhost:5134', false, $context) !== false;
 
-// Vite開発サーバーが起動しているかチェック
-$vite_server_running = false;
-if ($host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1') {
-    // Viteサーバーへの接続をテスト
-    $context = stream_context_create(['http' => ['timeout' => 1]]);
-    $vite_server_running = @file_get_contents('http://localhost:5133', false, $context) !== false;
-}
-
-if ($vite_server_running) {
-    // Vite開発サーバーが起動している場合
-    define('IS_DEV', true);
-    define('ASSET_URI', 'http://localhost:5133');
+    if ($vite_server_running || $force_dev_mode) {
+        define('IS_DEV', true);
+        define('ASSET_URI', 'http://localhost:5134');
+        
+        // デバッグ情報（開発時のみ）
+        if ($force_dev_mode) {
+            error_log('VITE DEV MODE: IS_DEV=' . (IS_DEV ? 'true' : 'false') . ', ASSET_URI=' . ASSET_URI);
+        }
+    } else {
+        // Vite開発サーバーが起動していない場合はビルド済みアセットを使用
+        define('IS_DEV', false);
+        define('ASSET_URI', get_stylesheet_directory_uri() . '/dist');
+    }
 } else {
-    // ビルド済みアセットを使用（開発環境・本番環境共通）
+    // 本番環境
     define('IS_DEV', false);
     define('ASSET_URI', get_stylesheet_directory_uri() . '/dist');
 }
+
+// Vite開発サーバーが起動しているかチェック（重複部分をコメントアウト）
+// $vite_server_running = false;
+// if ($host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1' || strpos($host, 'localsite.io') !== false) {
+//     // Viteサーバーへの接続をテスト（ポート5134に変更）
+//     $context = stream_context_create(['http' => ['timeout' => 1]]);
+//     $vite_server_running = @file_get_contents('http://localhost:5134', false, $context) !== false;
+// }
+
+// if ($vite_server_running) {
+//     // Vite開発サーバーが起動している場合
+//     define('IS_DEV', true);
+//     define('ASSET_URI', 'http://localhost:5134');
+// } else {
+//     // ビルド済みアセットを使用（開発環境・本番環境共通）
+//     define('IS_DEV', false);
+//     define('ASSET_URI', get_stylesheet_directory_uri() . '/dist');
+// }
 
 
 add_action('wp_head', 'vite_head_module_hook');
