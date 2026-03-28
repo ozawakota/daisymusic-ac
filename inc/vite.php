@@ -10,7 +10,7 @@ $host = $_SERVER['HTTP_HOST'];
 // localsite.io も開発環境として扱う
 // 開発環境の強制設定（デバッグ用）
 // 本番では必ずfalseに設定してください
-$force_dev_mode = true;
+$force_dev_mode = false;
 
 if ($force_dev_mode || $host === 'localhost' || substr($host, -6) === '.local' || $host === '127.0.0.1' || strpos($host, 'localsite.io') !== false) {
     // Vite開発サーバーが起動しているかチェック（5134ポート）
